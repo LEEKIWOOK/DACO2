@@ -10,7 +10,7 @@ import torch.optim as optim
 from pprint import pformat
 
 from data.data_manager import DataManager
-from model.framework import Framework
+from model.unimodal.gRNA.deepbind import ConvNet
 from training.train import Train
 from utils.general_util import CompleteLogger
 from utils.adamw import AdamW
@@ -39,7 +39,7 @@ class Runner:
         self.batch_size = int(model_cfg["batch"])
         self.EPOCH = int(model_cfg["epoch"])
         self.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-        self.model_run = args.split(',')
+        self.model_run = args.model.split(',')
 
         #data_manager parameter
         self.dm_param = {
@@ -57,7 +57,7 @@ class Runner:
         }
 
         #training parameter
-        self.train_param = {
+        self.train_param  = {
             'earlystop' : int(model_cfg["earlystop"]),
             'EPOCH' : self.EPOCH,
             'device' : self.device
@@ -74,17 +74,24 @@ class Runner:
     def define_hyperparam(self, trial):
         #print("define_hyperparam.")
         model_params = {
-            #"X_0": trial.suggest_categorical("X_0", [])
-            
-            #"hidden_size": trial.suggest_int("hidden_size", 64, 512),
-            "dropout" : trial.suggest_float("dropout", 0.0, 0.5, step=0.1)
+            "pool": trial.suggest_categorical("pool", ["max", "maxavg"]),
+            "sigmaConv": trial.suggest_float("sigmaConv", 10**-7, 10**-3),
+            "sigmaNeu": trial.suggest_float("sigmaNeu", 10**-5, 10**-2),
+            "dropprob" : trial.suggest_float("dropprob", 0.0, 0.5, step=0.1),
+            "hnode" : trial.suggest_categorical("hnode", [16, 32, 64]),
+            "neuType": trial.suggest_categorical("neuType", ["hidden", "nohidden"]),
         }
         learning_params = {
-            "lr": trial.suggest_float("lr", 1e-4, 1e-2, log=True),
+            "lr": trial.suggest_float("lr", 0.0005,0.05, log=True),
             "optimizer": trial.suggest_categorical("optimizer", ["AdamW", "SGD"]),
+            "momentum": trial.suggest_float("momentum", 0.95,0.99),
             "scheduler": trial.suggest_categorical("scheduler", ["CyclicLR", "CosineLR"]),
             "weight_decay": trial.suggest_float("weight_decay", 1e-5, 1e-3),
             "t_mult": trial.suggest_float("t_mult", 1.0, 3.0),
+
+            "beta1": trial.suggest_float("beta1", 10**-15, 10**-3),
+            "beta2": trial.suggest_float("beta2", 10**-15, 10**-3),
+            "beta3": trial.suggest_float("beta3", 10**-15, 10**-3),
         }
         
         print(f"Suggested hyperparameters: \n{pformat(trial.params)}")
@@ -93,12 +100,12 @@ class Runner:
     def define_model(self, param_m, param_l):
         
         model_dict = dict()
-        model_dict["model"] = Framework(param_m).to(self.device)
+        model_dict["model"] = ConvNet(param_m, glen = 33).to(self.device)
 
         if param_l["optimizer"] == "AdamW":
-            model_dict["optimizer"] = AdamW(model_dict["model"].parameters(), lr = param_l["lr"], weight_decay=param_l["weight_decay"])
+            model_dict["optimizer"] = AdamW([model_dict["model"].wConv,model_dict["model"].wRect,model_dict["model"].wNeu,model_dict["model"].wNeuBias,model_dict["model"].wHidden,model_dict["model"].wHiddenBias], lr = param_l["lr"], weight_decay=param_l["weight_decay"])
         elif param_l["optimizer"] == "SGD":
-            model_dict["optimizer"] = optim.SGD(model_dict["model"].parameters(), lr = param_l["lr"], momentum=0.9)
+            model_dict["optimizer"] = optim.SGD([model_dict["model"].wConv,model_dict["model"].wRect,model_dict["model"].wNeu,model_dict["model"].wNeuBias,model_dict["model"].wHidden,model_dict["model"].wHiddenBias], lr = param_l["lr"], momentum=param_l["momentum"])
 
         if param_l["scheduler"] == "CyclicLR":
             model_dict["scheduler"] = CyclicLRWithRestarts(optimizer = model_dict["optimizer"], batch_size = self.batch_size, epoch_size=self.EPOCH, restart_period=3, policy="cosine", t_mult=param_l["t_mult"])
@@ -108,13 +115,18 @@ class Runner:
         model_dict["swa_start"] = int(self.EPOCH / 20)
         model_dict["swa_model"] = optim.swa_utils.AveragedModel(model_dict["model"])
         model_dict["swa_scheduler"] = optim.swa_utils.SWALR(optimizer=model_dict["optimizer"], swa_lr = param_l["lr"])
+
+        model_dict["neuType"] = param_m["neuType"]
+        model_dict["beta1"] = param_l["beta1"]
+        model_dict["beta2"] = param_l["beta2"]
+        model_dict["beta3"] = param_l["beta3"]
       
         return model_dict
 
     def train_model(self, model, loader, logger):
 
-        ML = Train(self.train_param) 
-        loss = ML.run(model, loader, logger)
+        ML = Train(self.train_param, model) 
+        loss = ML.run(loader, logger)
 
         return loss
     

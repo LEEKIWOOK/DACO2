@@ -1,19 +1,35 @@
 import math
 import torch
 import torch.nn as nn
-from model.mcnn import BasicBlock, MCNN
+#from model.mcnn import BasicBlock, MCNN
 from utils.torch_util import Flattening, PositionalEncoding
 
 class Framework(nn.Module):
     def __init__(self, param):
         super(Framework, self).__init__()
-        self.indim = 128
+        
         self.dropout = param['dropout']
-        DNA = MCNN(drop_rate=self.dropout, indim=self.indim)
 
-        self.dna_prelayer = DNA.prelayer(indim = 100)
-        self.dna_layer1 = DNA.make_layer(BasicBlock, self.indim * 2, blocks = 1, stride = 2)
-        self.dna_layer2 = DNA.make_layer(BasicBlock, self.indim * 4, blocks = 1, stride = 2)
+        self.embedding_layer = nn.Embedding(
+            num_embeddings=4, embedding_dim=100, max_norm=True
+        )
+
+        self.position_encoding = PositionalEncoding(
+            dim = 100, max_len = 33, dropout = 0.1
+        )
+
+        self.ConvLayer = nn.Sequential( #-> 1
+            nn.Conv1d(33, )
+        )
+
+
+        #DNA = MCNN(drop_rate=self.dropout, indim=self.indim)
+
+        #self.dna_prelayer = DNA.prelayer(indim = 100)
+        #self.
+
+        #self.dna_layer1 = DNA.make_layer(BasicBlock, self.indim * 2, blocks = 1, stride = 2)
+        #self.dna_layer2 = DNA.make_layer(BasicBlock, self.indim * 4, blocks = 1, stride = 2)
         #self.dna_pooling = nn.AvgPool1d(kernel_size=3, stride=2)
 
         self.embedding_rna = nn.Embedding(
@@ -22,15 +38,6 @@ class Framework(nn.Module):
         self.position_rna = PositionalEncoding(
             dim = self.indim, max_len = 102, dropout=0.1
         )
-
-        RNA = MCNN(drop_rate=self.dropout, indim=self.indim)
-        self.rna_layer1 = RNA.make_layer(BasicBlock, self.indim * 4, blocks = 1, stride = 2)
-        #self.rna_layer2 = RNA.make_layer(BasicBlock, self.indim * 4, blocks = 1, stride = 2)
-        self.rna_pooling = nn.AvgPool1d(kernel_size=3, stride=2)
-
-        self.rnam_prelayer = RNA.prelayer(indim = 102)
-        self.rnam_layer1 = RNA.make_layer(BasicBlock, self.indim * 2, blocks = 1, stride = 2)
-        self.rnam_layer2 = RNA.make_layer(BasicBlock, self.indim * 4, blocks = 1, stride = 2)
         
         self.flattening = Flattening()
         self.fc = nn.Sequential(
@@ -51,9 +58,11 @@ class Framework(nn.Module):
                 nn.init.constant_(m.weight, 1)
                 nn.init.constant_(m.bias, 0)
         
-    def forward(self, dnaseq, rnass, rnamat):
+    def forward(self, Xg):
         
-        x = self.dna_prelayer(dnaseq)
+        #x = x.transpose(1, 2)
+
+        x = self.dna_prelayer(Xg)
         x = self.dna_layer1(x)
         x = self.dna_layer2(x)
         #x = self.dna_pooling(x)

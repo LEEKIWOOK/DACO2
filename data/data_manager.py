@@ -16,13 +16,14 @@ class DataManager:
     def __init__(self, param):
         self.out_dir = param['out_dir']
         self.batch_size = param['batch_size']
-        self.seed = param['seed']
-        self.gRNA_func, self.RNAss_func, self.chro_func = False
+        self.seed = param['seed']        
+        self.gRNA_func = self.RNAss_func = self.chro_func = False
         
         if '1' in param['model_run']: #gRNA model -> regression
             self.seq_prefix = param['seq_prefix']
-            self.kmer = param['kmer']
-            self.DNA2Vec = MultiKModel(param['dna2vec_path'])
+            self.table_key = {'A': 0, 'C': 1, 'G': 2, 'T': 3}
+            #self.kmer = param['kmer']
+            #self.DNA2Vec = MultiKModel(param['dna2vec_path'])
             self.gRNA_func = True
         
         if '2' in param['model_run']: #RNAss model -> regression
@@ -78,7 +79,8 @@ class DataManager:
             data = reduce(lambda l, r: pd.merge(l, r, on='gRNA', how='left'), func_list)
         else:
             data = func_list[0]
-        # dataset = self.split_set(data)
+        dataset = self.split_set(data)
+
         # train = self.data_loader(train)
         # valid = self.data_loader(valid)
         # test = self.data_loader(test)
@@ -126,17 +128,26 @@ class DataManager:
             train_size,
         )
 
-        window = np.array(data['window'].values.tolist())
+        if self.gRNA_func == True:
+            #Xg = np.array(data['window'].values.tolist())
+            Xg = [pd.get_dummies(y) for y in [list(x) for x in data['window']]]
+            [list(x) for x in data['window']]
+            Yg = data['efficiency'].values           
+        # if self.RNAss_func == True:
+        #     Xr = np.array(data['window'].values.tolist()) #
+        # if self.chro_func == True:
+        #     Xc = np.array(data['window'].values.tolist()) #
+        
         #rnass = preprocess_inputs(data)
-        efficiency = data['efficiency'].values
-        mat = np.array(data['matrix'].values.tolist())
+        #efficiency = data['efficiency'].values
+        #mat = np.array(data['matrix'].values.tolist())
 
         def extract(idx):
             dt = {
-                'window' : [window[i] for i in idx],
-                'rnass' : [rnass[i] for i in idx],
-                'rnamat' : [mat[i] for i in idx],
-                'efficiency' : [efficiency[i] for i in idx]
+                'Xg' : [Xg[i] for i in idx],
+                #'rnass' : [rnass[i] for i in idx],
+                #'rnamat' : [mat[i] for i in idx],
+                'Yg' : [Yg[i] for i in idx]
             }
             return dt
 
@@ -164,14 +175,17 @@ class DataManager:
 class DataWrapper:
     def __init__(self, data, transform=None):
         self.data = data
+        #self.Xg = data['Xg']
+        #self.Yg = data['Yg']
         # self.dnaseq = data['window']
         # self.rnass = data['rnass']
         # self.rnamat = data['rnamat']
         # self.efficiency = data['efficiency']
         self.transform = transform
+        self.nuc_to_idx = {"A": 0, "C": 1, "G": 2, "T": 3}
 
     def __len__(self):
-        return len(self.data['efficiency'])
+        return len(self.data['Xg'])
 
     def __getitem__(self, idx):
         if torch.is_tensor(idx):
@@ -179,10 +193,15 @@ class DataWrapper:
 
         res = dict()
         for col in self.data.keys():
-            if col == "rnass" or col == "mat1":
-                res[col] = torch.tensor(self.data[col][idx], dtype=torch.long)
-            else: #window
-                res[col] = torch.tensor(self.data[col][idx], dtype=torch.float32)        
+            if col == "Xg":
+                #res[col] = torch.tensor(self.data[col][idx], dtype=torch.long)
+                #res[col][idx] = torch.tensor([self.nuc_to_idx[x] for x in self.data[col][idx]], dtype=torch.long)
+                a = self.data[col][idx].T
+                torch.tensor(np.array(a), dtype=torch.float)
+            else:
+                res[col] = torch.tensor(self.data[col][idx], dtype=torch.float)
+            # else: #window
+            #     res[col] = torch.tensor(self.data[col][idx], dtype=torch.float32)        
             #     res[col] = torch.tensor(
             #         [self.nuc_to_idx[x] for x in self.data[col][idx]], dtype=torch.long
             #     )
