@@ -24,8 +24,9 @@ def loss_plot(train_loss, valid_loss, file):
     plt.grid(True)
     plt.legend()
     plt.tight_layout()
+    plt.close(fig)
     #plt.show()
-    fig.savefig(file, bbox_inches='tight')
+    plt.savefig(file, bbox_inches='tight')
 
 def str2bool(v): 
     if isinstance(v, bool): 

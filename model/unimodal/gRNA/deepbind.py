@@ -19,8 +19,7 @@ class ConvNet(nn.Module):
         self.sigmaConv = param["sigmaConv"]
         self.sigmaNeu = param["sigmaNeu"]
 
-        #self.batch_size = batch_size
-        self.glen = glen
+        self.glen = 4
         
         self.wConv=torch.randn(self.hnode, 4 , self.glen).to(device)
         torch.nn.init.normal_(self.wConv,mean=0,std=self.sigmaConv)
@@ -75,7 +74,7 @@ class ConvNet(nn.Module):
     #     x1=torch.stack(list1,0)
     #     x2=torch.stack(list2,0)
     #     return x1,x2
-    def forward_pass(self,x,mask=None,use_mask=False):
+    def forward_pass(self, x, mode, mask=None,use_mask=False):
         
         conv=F.conv1d(x, self.wConv, bias=self.wRect, stride=1, padding=0)
         rect=conv.clamp(min=0)
@@ -88,10 +87,10 @@ class ConvNet(nn.Module):
             pool=maxPool
 
         if(self.neuType=='nohidden'):
-            if self.mode=='training': 
-                if  not use_mask:
-                  mask=bernoulli.rvs(self.dropprob, size=len(pool[0]))
-                  mask=torch.from_numpy(mask).float().to(device)
+            if mode=='training': 
+                if not use_mask:
+                    mask=bernoulli.rvs(self.dropprob, size=len(pool[0]))
+                    mask=torch.from_numpy(mask).float().to(device)
                 pooldrop=pool*mask
                 out=pooldrop @ self.wNeu
                 out.add_(self.wNeuBias)
@@ -103,10 +102,10 @@ class ConvNet(nn.Module):
             hid.add_(self.wHiddenBias)
             hid=hid.clamp(min=0)
 
-            if self.mode=='training': 
+            if mode=='training': 
                 if  not use_mask:
-                  mask=bernoulli.rvs(self.dropprob, size=len(hid[0]))
-                  mask=torch.from_numpy(mask).float().to(device)
+                    mask=bernoulli.rvs(self.dropprob, size=len(hid[0]))
+                    mask=torch.from_numpy(mask).float().to(device)
                 hiddrop=hid*mask
                 out=self.dropprob*(hid @ self.wNeu)
                 out.add_(self.wNeuBias)
@@ -115,9 +114,9 @@ class ConvNet(nn.Module):
                 out.add_(self.wNeuBias) 
         return out,mask
        
-    def forward(self, x):
+    def forward(self, x, mode):
         
-        out,_ = self.forward_pass(x)
+        out,_ = self.forward_pass(x, mode)
             
         # else:
         #     x1,x2=self.divide_two_tensors(x)

@@ -21,7 +21,7 @@ class DataManager:
         
         if '1' in param['model_run']: #gRNA model -> regression
             self.seq_prefix = param['seq_prefix']
-            self.table_key = {'A': 0, 'C': 1, 'G': 2, 'T': 3}
+            
             #self.kmer = param['kmer']
             #self.DNA2Vec = MultiKModel(param['dna2vec_path'])
             self.gRNA_func = True
@@ -51,7 +51,12 @@ class DataManager:
         if self.gRNA_func == True:
             data_grna = pd.read_csv(f"%s_annot.tsv" % self.seq_prefix, sep='\t')
             #one hot encoding vs word-to-vec !!!
+            #word-to-vec
             #data_grna['window'] = data_grna.apply(lambda x: np.array(self.k_mer_stride(x['window'], self.kmer, 1)).T,axis=1)
+            
+            #one-hot encoding
+            data_grna['window'] = data_grna.apply(lambda x: np.array(self.one_hot(x['window'], 1)).T, axis=1)
+
             data_grna['efficiency'] = data_grna.apply(lambda x: (x['efficiency'] - min(data_grna['efficiency'])) / (max(data_grna['efficiency']) - min(data_grna['efficiency'])), axis=1)
             func_list.append(data_grna)
             print("grna data loaded.")
@@ -91,6 +96,19 @@ class DataManager:
         dataloader = self.data_loader(dataset)      
         return dataloader
  
+    def one_hot(self, seq, s):
+        l = []
+        table_key = {'A': 0, 'C': 1, 'G': 2, 'T': 3}
+        encoding_window = s
+        for i in range(len(seq)):
+            t = seq[i:i + encoding_window]
+            one_hot_char = [0] * len(table_key)
+            one_hot_idx = table_key.get(t, -1)
+            if one_hot_idx > -1:
+                one_hot_char[one_hot_idx] = 1
+            l.append(one_hot_char)
+        return l
+    
     def k_mer_stride(self, seq, k, s):
         l = []
         j = 0
@@ -129,9 +147,9 @@ class DataManager:
         )
 
         if self.gRNA_func == True:
-            #Xg = np.array(data['window'].values.tolist())
-            Xg = [pd.get_dummies(y) for y in [list(x) for x in data['window']]]
-            [list(x) for x in data['window']]
+            Xg = np.array(data['window'].values.tolist())
+            #Xg = [pd.get_dummies(y) for y in [list(x) for x in data['window']]]
+            #[list(x) for x in data['window']]
             Yg = data['efficiency'].values           
         # if self.RNAss_func == True:
         #     Xr = np.array(data['window'].values.tolist()) #
@@ -182,7 +200,6 @@ class DataWrapper:
         # self.rnamat = data['rnamat']
         # self.efficiency = data['efficiency']
         self.transform = transform
-        self.nuc_to_idx = {"A": 0, "C": 1, "G": 2, "T": 3}
 
     def __len__(self):
         return len(self.data['Xg'])
@@ -193,13 +210,10 @@ class DataWrapper:
 
         res = dict()
         for col in self.data.keys():
-            if col == "Xg":
-                #res[col] = torch.tensor(self.data[col][idx], dtype=torch.long)
-                #res[col][idx] = torch.tensor([self.nuc_to_idx[x] for x in self.data[col][idx]], dtype=torch.long)
-                a = self.data[col][idx].T
-                torch.tensor(np.array(a), dtype=torch.float)
-            else:
-                res[col] = torch.tensor(self.data[col][idx], dtype=torch.float)
+            # if col == "Xg":
+            #     res[col] = torch.tensor(self.data[col][idx], dtype=torch.long)
+            # else:
+            res[col] = torch.tensor(self.data[col][idx], dtype=torch.float)
             # else: #window
             #     res[col] = torch.tensor(self.data[col][idx], dtype=torch.float32)        
             #     res[col] = torch.tensor(

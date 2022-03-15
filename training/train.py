@@ -67,7 +67,8 @@ class Train:
         # load the last checkpoint with the best model
         self.framework.load_state_dict(torch.load(best_model + "_net.pth"))
 
-        return best_model, early_stopping.val_loss_min
+        #return best_model, early_stopping.val_loss_min
+        return early_stopping.val_loss_min
 
     def train(self, loader):
 
@@ -81,12 +82,12 @@ class Train:
             Xg, Yg = data['Xg'].to(self.device), data['Yg'].to(self.device)
             #dnaseq, rnass, rnamat, target = data['window'].to(self.device), data['rnass'].to(self.device), data['rnamat'].to(self.device), data['efficiency'].to(self.device)
             self.optimizer.zero_grad()
-            pred = self.framework(Xg)
+            pred = self.framework(Xg, "training")
             #loss = self.criterion(pred, Yg)
             if self.neuType == "hidden":
-                loss = self.criterion(pred, Yg) + self.beta1 * self.framework.wConv.norm + self.beta3 * self.framework.wNeu.norm()
+                loss = self.criterion(pred, Yg) + self.beta1 * self.framework.wConv.norm() + self.beta3 * self.framework.wNeu.norm()
             else:
-                loss = self.criterion(pred, Yg) + self.beta1 * self.framework.wConv.norm + self.beta3 * self.framework.wNeu.norm() + self.beta2 * self.framework.wHidden.norm()
+                loss = self.criterion(pred, Yg) + self.beta1 * self.framework.wConv.norm() + self.beta3 * self.framework.wNeu.norm() + self.beta2 * self.framework.wHidden.norm()
 
             self.optimizer.zero_grad()
             loss.backward()
@@ -121,7 +122,7 @@ class Train:
             for batch_idx, data in enumerate(loader):
                 #dnaseq, rnass, rnamat, target = data['window'].to(self.device), data['rnass'].to(self.device), data['rnamat'].to(self.device), data['efficiency'].to(self.device)
                 Xg, Yg = data['Xg'].to(self.device), data['Yg'].to(self.device)
-                pred = self.framework(Xg)
+                pred = self.framework(Xg, "-")
                 loss = self.criterion(pred, Yg)
 
                 eval["predicted_value"] += pred.cpu().detach().numpy().tolist()

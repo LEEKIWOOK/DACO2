@@ -7,6 +7,7 @@ import optuna
 import mlflow
 import torch
 import torch.optim as optim
+import joblib as joblib
 from pprint import pformat
 
 from data.data_manager import DataManager
@@ -123,7 +124,7 @@ class Runner:
       
         return model_dict
 
-    def train_model(self, model, loader, logger):
+    def train_model(self, model, logger):
 
         ML = Train(self.train_param, model) 
         loss = ML.run(loader, logger)
@@ -132,29 +133,26 @@ class Runner:
     
     def objective(self, trial):
         
-        logger = CompleteLogger(self.out_dir)
-        print("\n********************************\n")
-        mlflow.set_experiment('task_220311')
-
         best_val_loss = float('Inf')
 
         with mlflow.start_run():
+            
+            print("\n********************************\n")
+            
             param_m, param_l = self.define_hyperparam(trial)
             mlflow.log_params(trial.params)
-            mlflow.log_param("device", self.device)
 
             #Get DataLoader
-            loader = self.dataload()
+            #loader = self.dataload()
         
             #Initialize network
             model = self.define_model(param_m, param_l)
 
             #Train network
-            best_val_loss = self.train_model(model, loader, logger)
+            best_val_loss = self.train_model(model, logger)
         
         # Return the best validation loss achieved by the network.
         # This is needed as Optuna needs to know how the suggested hyperparameters are influencing the network loss.
-        logger.close()
 
         return best_val_loss
 
@@ -165,7 +163,7 @@ class Runner:
         print("  Number of finished trials: ", len(study.trials))
 
         print("Best trial:")
-        trial = study.best_trial
+        trial = study.best_trial #
 
         print("  Trial number: ", trial.number)
         print("  Loss (trial value): ", trial.value)
@@ -176,6 +174,7 @@ class Runner:
 
 if __name__ == "__main__":
     # Create the optuna study which shares the experiment name
+    mlflow.set_experiment('task_220311')
     study = optuna.create_study(study_name="XAI - Crispr", direction="minimize")
 
     parser = argparse.ArgumentParser()
@@ -185,9 +184,16 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     runner = Runner(args)
+    logger = CompleteLogger(runner.out_dir)
+
+    loader = runner.dataload()
+
     study.optimize(runner.objective, n_trials=10)
+    joblib.dump(study, f'{runner.out_dir}/optuna_run.pkl')
 
     # Print optuna study statistics
     runner.print_results(study)
-
+    logger.close()
     
+    df = study.trials_dataframe().drop(['state','datetime_start','datetime_complete','system_attrs'], axis=1)
+    df.to_csv(f'{runner.out_dir}/optuna_result.csv', sep='\t', index=False)
