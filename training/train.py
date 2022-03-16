@@ -5,7 +5,7 @@ import torch
 import torch.nn as nn
 from utils.torch_util import EarlyStopping
 from utils.general_util import loss_plot
-import mlflow
+#import mlflow
 
 class Train:
     def __init__(self, param, model_param):
@@ -24,15 +24,15 @@ class Train:
         self.swa_model = model_param['swa_model']
         self.swa_sch = model_param['swa_scheduler']
 
-        self.neuType = model_param['neuType']
-        self.beta1 = model_param['beta1']
-        self.beta2 = model_param['beta2']
-        self.beta3 = model_param['beta3']
+        #self.neuType = model_param['neuType']
+        #self.beta1 = model_param['beta1']
+        #self.beta2 = model_param['beta2']
+        #self.beta3 = model_param['beta3']
 
     def run(self, loader):
-
-        best_model = os.path.join(f"{self.out_dir}/checkpoints/latest")
-        torch.save(self.framework.state_dict(), os.path.join(best_model + "_net.pth"))
+        
+        best_model = os.path.join(f"{self.out_dir}/checkpoints/best_model.pth")
+        torch.save(self.framework.state_dict(), best_model)
 
         plot_fig = os.path.join(f"{self.out_dir}/visualize/latest.png")
         # early stopping patience; how long to wait after last time validation loss improved.
@@ -41,14 +41,16 @@ class Train:
         )
         avg_train_losses = []
         avg_valid_losses = []
+        val_corr = []
 
         for epoch in range(self.EPOCH):
             
             avg_train_loss = self.train(loader['train'], epoch)
-            avg_valid_loss = self.validate(loader['valid'])
+            avg_valid_loss, corr = self.validate(loader['valid'])
 
             avg_train_losses.append(avg_train_loss)
             avg_valid_losses.append(avg_valid_loss)
+            val_corr.append(corr)
 
             if epoch > self.swa_start:
                 self.swa_model.update_parameters(self.framework)
@@ -65,14 +67,14 @@ class Train:
             train_loss=avg_train_losses, valid_loss=avg_valid_losses, file=plot_fig
         )
         # Update bn statistics for the swa_model at the end
-        torch.optim.swa_utils.update_bn(loader['train'], self.swa_model)
-        # Use swa_model to make predictions on test data 
-        #preds = swa_model(test_input)
-        # load the last checkpoint with the best model
-        self.framework.load_state_dict(torch.load(best_model + "_net.pth"))
-
-        #return best_model, early_stopping.val_loss_min
-        return early_stopping.val_loss_min
+        torch.optim.swa_utils.update_bn(loader['train'], self.swa_model) #error
+        
+        torch.save(self.swa_model.state_dict(), os.path.join(f"{self.out_dir}/checkpoints/swa_best_model.pth"))
+        torch.save(self.framework.state_dict(), best_model)
+        #self.framework.load_state_dict(torch.load(best_model))
+        
+        #return early_stopping.val_loss_min
+        return val_corr.pop()
 
     def train(self, loader, epoch):
 
@@ -84,18 +86,11 @@ class Train:
 
             Xg, Yg = data['Xg'].to(self.device), data['Yg'].to(self.device)
             self.optimizer.zero_grad()
-            pred = self.framework(Xg, "training")
+            pred = self.framework(Xg)
+            loss = self.criterion(pred, Yg)
             
-            #loss = self.criterion(pred, Yg)
-            if self.neuType == "hidden":
-                loss = self.criterion(pred, Yg) + self.beta1 * self.framework.wConv.norm() + self.beta3 * self.framework.wNeu.norm()
-            else:
-                loss = self.criterion(pred, Yg) + self.beta1 * self.framework.wConv.norm() + self.beta3 * self.framework.wNeu.norm() + self.beta2 * self.framework.wHidden.norm()
-
-            self.optimizer.zero_grad()
             loss.backward()
             self.optimizer.step()
-
 
             eval["predicted_value"] += pred.cpu().detach().numpy().tolist()
             eval["real_value"] += Yg.cpu().detach().numpy().tolist()
@@ -120,9 +115,9 @@ class Train:
 
         with torch.no_grad():
             for batch_idx, data in enumerate(loader):
-                #dnaseq, rnass, rnamat, target = data['window'].to(self.device), data['rnass'].to(self.device), data['rnamat'].to(self.device), data['efficiency'].to(self.device)
+                
                 Xg, Yg = data['Xg'].to(self.device), data['Yg'].to(self.device)
-                pred = self.framework(Xg, "-")
+                pred = self.framework(Xg)
                 loss = self.criterion(pred, Yg)
 
                 eval["predicted_value"] += pred.cpu().detach().numpy().tolist()
@@ -134,7 +129,7 @@ class Train:
         print(f"Validation Spearman correlation = {corrs}")
         avg_val_loss = val_loss / idx
         
-        return avg_val_loss
+        return avg_val_loss, corrs
 
     # def test(self):
 

@@ -50,12 +50,15 @@ class DataManager:
         func_list = []
         if self.gRNA_func == True:
             data_grna = pd.read_csv(f"%s_annot.tsv" % self.seq_prefix, sep='\t')
-            #one hot encoding vs word-to-vec !!!
-            #word-to-vec
+                        
+            #1.word-to-vec
             #data_grna['window'] = data_grna.apply(lambda x: np.array(self.k_mer_stride(x['window'], self.kmer, 1)).T,axis=1)
             
-            #one-hot encoding
-            data_grna['window'] = data_grna.apply(lambda x: np.array(self.one_hot(x['window'], 1)).T, axis=1)
+            #2.one-hot encoding
+            #data_grna['window'] = data_grna.apply(lambda x: np.array(self.one_hot(x['window'], 1)).T, axis=1)
+
+            #3.embedding table
+            data_grna['window'] = data_grna.apply(lambda x: np.array(self.embd_table(x['window'])).T, axis=1)
 
             data_grna['efficiency'] = data_grna.apply(lambda x: (x['efficiency'] - min(data_grna['efficiency'])) / (max(data_grna['efficiency']) - min(data_grna['efficiency'])), axis=1)
             func_list.append(data_grna)
@@ -96,6 +99,15 @@ class DataManager:
         dataloader = self.data_loader(dataset)      
         return dataloader
  
+    def embd_table(self, seq):
+        l = []
+        table_key = {'A': 0, 'C': 1, 'G': 2, 'T': 3}
+        for i in range(len(seq)):
+            key = table_key.get(seq[i], -1)
+            if key > -1:
+                l.append(key)
+        return l    
+    
     def one_hot(self, seq, s):
         l = []
         table_key = {'A': 0, 'C': 1, 'G': 2, 'T': 3}
@@ -210,15 +222,9 @@ class DataWrapper:
 
         res = dict()
         for col in self.data.keys():
-            # if col == "Xg":
-            #     res[col] = torch.tensor(self.data[col][idx], dtype=torch.long)
-            # else:
-            res[col] = torch.tensor(self.data[col][idx], dtype=torch.float)
-            # else: #window
-            #     res[col] = torch.tensor(self.data[col][idx], dtype=torch.float32)        
-            #     res[col] = torch.tensor(
-            #         [self.nuc_to_idx[x] for x in self.data[col][idx]], dtype=torch.long
-            #     )
-            # else:
-            #res[col] = torch.tensor(self.data[col][idx], dtype=torch.float)
+            if col == "Xg":
+                res[col] = torch.tensor(self.data[col][idx], dtype=torch.long)
+            else:
+                res[col] = torch.tensor(self.data[col][idx], dtype=torch.float)
+
         return res

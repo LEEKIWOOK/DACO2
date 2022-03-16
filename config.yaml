@@ -18,5 +18,5 @@ MODEL:
   seed: 1234
   kmer: 5
   batch: 512
-  epoch: 10
+  epoch: 500
   earlystop: 10

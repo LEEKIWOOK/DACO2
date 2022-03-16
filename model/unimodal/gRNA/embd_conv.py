@@ -1,79 +1,100 @@
 import math
 import torch
 import torch.nn as nn
-#from model.mcnn import BasicBlock, MCNN
-from utils.torch_util import Flattening, PositionalEncoding
+from utils.torch_util import PositionalEncoding, Flattening
 
-class Framework(nn.Module):
-    def __init__(self, param):
-        super(Framework, self).__init__()
-        
-        self.dropout = param['dropout']
+
+class ATTN_CNN(nn.Module):
+    def __init__(self, drop_prob: float, len: int):
+        super(ATTN_CNN, self).__init__()
+
+        self.seq_len = len
+        self.embedding_dim = 128
+        self.dropout_rate = drop_prob
+        self.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
         self.embedding_layer = nn.Embedding(
-            num_embeddings=4, embedding_dim=100, max_norm=True
+            num_embeddings=4, embedding_dim=self.embedding_dim, max_norm=True
         )
-
         self.position_encoding = PositionalEncoding(
-            dim = 100, max_len = 33, dropout = 0.1
+            dim=self.embedding_dim, max_len=self.seq_len, dropout=0.1
         )
 
-        self.ConvLayer = nn.Sequential( #-> 1
-            nn.Conv1d(33, )
-        )
-
-
-        #DNA = MCNN(drop_rate=self.dropout, indim=self.indim)
-
-        #self.dna_prelayer = DNA.prelayer(indim = 100)
-        #self.
-
-        #self.dna_layer1 = DNA.make_layer(BasicBlock, self.indim * 2, blocks = 1, stride = 2)
-        #self.dna_layer2 = DNA.make_layer(BasicBlock, self.indim * 4, blocks = 1, stride = 2)
-        #self.dna_pooling = nn.AvgPool1d(kernel_size=3, stride=2)
-
-        self.embedding_rna = nn.Embedding(
-            num_embeddings=14, embedding_dim = self.indim, max_norm=True
-        )
-        self.position_rna = PositionalEncoding(
-            dim = self.indim, max_len = 102, dropout=0.1
-        )
-        
-        self.flattening = Flattening()
-        self.fc = nn.Sequential(
-            nn.Linear(1024, 128),
-            nn.BatchNorm1d(128),
+        self.Conv3 = nn.Sequential(
+            nn.Conv1d(self.embedding_dim, 64, kernel_size = 3, padding = "same", stride = 1),
+            nn.BatchNorm1d(64),
             nn.ReLU(),
-            nn.Dropout(self.dropout),
-            nn.Linear(128, 32),
+            nn.Dropout(self.dropout_rate),
+            nn.Conv1d(64, 32, kernel_size=3, padding="same", stride = 1),
+            nn.BatchNorm1d(32),
+            nn.MaxPool1d(kernel_size=3, stride=2),
+            nn.ReLU(),
+            nn.Dropout(self.dropout_rate),
+            nn.Conv1d(32, 16, kernel_size=3, padding="same", stride = 1),
+            nn.BatchNorm1d(16),
+            nn.MaxPool1d(kernel_size=3, stride=2),
+            nn.ReLU()
+        )
+
+        self.Conv5 = nn.Sequential(
+            nn.Conv1d(self.embedding_dim, 64, kernel_size = 5, padding = "same", stride = 1),
+            nn.BatchNorm1d(64),
+            nn.ReLU(),
+            nn.Dropout(self.dropout_rate),
+            nn.Conv1d(64, 32, kernel_size=5, padding="same", stride = 1),
+            nn.BatchNorm1d(32),
+            nn.MaxPool1d(kernel_size=3, stride=2),
+            nn.ReLU(),
+            nn.Dropout(self.dropout_rate),
+            nn.Conv1d(32, 16, kernel_size=5, padding="same", stride = 1),
+            nn.BatchNorm1d(16),
+            nn.MaxPool1d(kernel_size=3, stride=2),
+            nn.ReLU()
+        )
+
+        self.Conv7 = nn.Sequential(
+            nn.Conv1d(self.embedding_dim, 64, kernel_size = 7, padding = "same", stride = 1),
+            nn.BatchNorm1d(64),
+            nn.ReLU(),
+            nn.Dropout(self.dropout_rate),
+            nn.Conv1d(64, 32, kernel_size=7, padding="same", stride = 1),
+            nn.BatchNorm1d(32),
+            nn.MaxPool1d(kernel_size=3, stride=2),
+            nn.ReLU(),
+            nn.Dropout(self.dropout_rate),
+            nn.Conv1d(32, 16, kernel_size=7, padding="same", stride = 1),
+            nn.BatchNorm1d(16),
+            nn.MaxPool1d(kernel_size=3, stride=2),
+            nn.ReLU()
+        )
+
+        self.flattening = Flattening()
+
+        self.fclayer = nn.Sequential(
+            nn.Linear(in_features=336, out_features=32),
             nn.BatchNorm1d(32),
             nn.ReLU(),
-            nn.Linear(32, 1)
+            nn.Dropout(self.dropout_rate),
+            nn.Linear(in_features=32, out_features=1),
         )
-        
-        for m in self.modules():
-            if isinstance(m, nn.Conv1d):
-                nn.init.kaiming_normal_(m.weight, mode="fan_out", nonlinearity="relu")
-            elif isinstance(m, (nn.BatchNorm1d, nn.GroupNorm)):
-                nn.init.constant_(m.weight, 1)
-                nn.init.constant_(m.bias, 0)
-        
-    def forward(self, Xg):
-        
-        #x = x.transpose(1, 2)
 
-        x = self.dna_prelayer(Xg)
-        x = self.dna_layer1(x)
-        x = self.dna_layer2(x)
-        #x = self.dna_pooling(x)
-        
-        # r1 = self.embedding_rna(rnass[:,:,0]) * math.sqrt(self.indim)
-        # r1 = r1.transpose(1, 2)
-        # r1 = self.rna_layer1(r1)
-        
-        # r2 = self.rnam_prelayer(rnamat)
-        # r2 = self.rnam_layer1(r2)
-        # r2 = self.rnam_layer2(r2)
-        out = self.flattening(x)
-        out = self.fc(out)
+    def forward(self, inputs):
+
+        if isinstance(inputs, dict):
+            inputs = inputs['Xg'].to(self.device)
+
+        embd = self.embedding_layer(inputs) * math.sqrt(self.embedding_dim) #[batch, len, embd_dim]
+        embd = self.position_encoding(embd)
+
+        embd = embd.transpose(1, 2) #[batch, 128, 33]
+        embd5 = embd.clone()
+        embd7 = embd.clone()
+
+        embd = self.Conv3(embd) #[batch, 16, 7]
+        embd5 = self.Conv5(embd5)
+        embd7 = self.Conv7(embd7)
+
+        mc = torch.cat([embd, embd5, embd7], dim=1)
+        out = self.flattening(mc) #[batch, 48, 7]
+        out = self.fclayer(out)
         return out.squeeze()

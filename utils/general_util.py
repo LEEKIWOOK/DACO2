@@ -11,6 +11,7 @@ from optuna.integration.mlflow import MLflowCallback
 
 def loss_plot(train_loss, valid_loss, file):
     # visualize the loss as the network trained
+    plt.ioff() #Turn interactive plotting off
     fig = plt.figure(figsize=(10,8))
     plt.plot(range(1,len(train_loss)+1),train_loss, label='Training Loss')
     plt.plot(range(1,len(valid_loss)+1),valid_loss,label='Validation Loss')
@@ -26,9 +27,9 @@ def loss_plot(train_loss, valid_loss, file):
     plt.grid(True)
     plt.legend()
     plt.tight_layout()
-    plt.close(fig)
     #plt.show()
     plt.savefig(file, bbox_inches='tight')
+    plt.close(fig)
 
 def str2bool(v): 
     if isinstance(v, bool): 
