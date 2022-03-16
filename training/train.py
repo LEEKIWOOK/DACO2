@@ -5,13 +5,16 @@ import torch
 import torch.nn as nn
 from utils.torch_util import EarlyStopping
 from utils.general_util import loss_plot
+import mlflow
 
 class Train:
-    def __init__(self, train_param, model_param):
+    def __init__(self, param, model_param):
 
-        self.earlystop = train_param['earlystop']
-        self.EPOCH = train_param['EPOCH']
-        self.device = train_param['device']
+        self.out_dir = param['out_dir']
+        self.batch_size = param['batch_size']
+        self.earlystop = param['earlystop']
+        self.EPOCH = param['EPOCH']
+        self.device = param['device']
         self.criterion = nn.MSELoss(reduction="mean")
 
         self.framework = model_param['model']
@@ -26,11 +29,12 @@ class Train:
         self.beta2 = model_param['beta2']
         self.beta3 = model_param['beta3']
 
-    def run(self, loader, logger):
+    def run(self, loader):
 
-        best_model = os.path.join(logger.get_checkpoint_path("latest"))
+        best_model = os.path.join(f"{self.out_dir}/checkpoints/latest")
         torch.save(self.framework.state_dict(), os.path.join(best_model + "_net.pth"))
-        plot_fig = logger.get_image_path("latest.png")
+
+        plot_fig = os.path.join(f"{self.out_dir}/visualize/latest.png")
         # early stopping patience; how long to wait after last time validation loss improved.
         early_stopping = EarlyStopping(
             patience=self.earlystop, verbose=True, path=best_model
@@ -40,7 +44,7 @@ class Train:
 
         for epoch in range(self.EPOCH):
             
-            avg_train_loss = self.train(loader['train'])
+            avg_train_loss = self.train(loader['train'], epoch)
             avg_valid_loss = self.validate(loader['valid'])
 
             avg_train_losses.append(avg_train_loss)
@@ -70,19 +74,18 @@ class Train:
         #return best_model, early_stopping.val_loss_min
         return early_stopping.val_loss_min
 
-    def train(self, loader):
+    def train(self, loader, epoch):
 
         eval = {"predicted_value": list(), "real_value": list()}
         self.framework.train()
         train_loss = 0.0
-        #len_iter = len(iter)
 
         for batch_idx, data in enumerate(loader):
 
             Xg, Yg = data['Xg'].to(self.device), data['Yg'].to(self.device)
-            #dnaseq, rnass, rnamat, target = data['window'].to(self.device), data['rnass'].to(self.device), data['rnamat'].to(self.device), data['efficiency'].to(self.device)
             self.optimizer.zero_grad()
             pred = self.framework(Xg, "training")
+            
             #loss = self.criterion(pred, Yg)
             if self.neuType == "hidden":
                 loss = self.criterion(pred, Yg) + self.beta1 * self.framework.wConv.norm() + self.beta3 * self.framework.wNeu.norm()
@@ -92,7 +95,6 @@ class Train:
             self.optimizer.zero_grad()
             loss.backward()
             self.optimizer.step()
-            #self.optimizer.step()
 
 
             eval["predicted_value"] += pred.cpu().detach().numpy().tolist()
@@ -100,11 +102,9 @@ class Train:
             train_loss += loss.item()
             idx = batch_idx + 1
 
-            # if batch_idx % 10 == 0:
-            #     batch_size = len(data)
-            #     print(f"Train Epoch: {epoch} [{batch_idx * batch_size}/{set_size} "
-            #         f"({100. * batch_idx / num_batches:.0f}%)]\tLoss: {loss.item():.6f}")
-            #     #print(f"Training step : Epoch : [{epoch}/{self.EPOCH}] [{i}/{len(self.train_target_iter)}], Loss_reg : {loss}")
+            if batch_idx % 50 == 0:
+                #mlflow.log_text(f"Training step : Epoch : [{epoch}/{self.EPOCH}], [{batch_idx}/{self.batch_size}, Loss_reg : {loss}")
+                print(f"Training step : Epoch : [{epoch}/{self.EPOCH}], [{batch_idx}/{self.batch_size}, Loss_reg : {loss}")
 
         corrs = spearmanr(eval["real_value"], eval["predicted_value"])[0]
         print(f"Training Spearman correlation = {corrs}")

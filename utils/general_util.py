@@ -5,6 +5,8 @@ import argparse
 import matplotlib.pyplot as plt
 import multiprocessing as mp
 import multiprocessing.pool as pool
+import mlflow
+from optuna.integration.mlflow import MLflowCallback
 
 
 def loss_plot(train_loss, valid_loss, file):
@@ -139,3 +141,14 @@ class NoDaemonProcess(mp.Process):
 
 class Pool(pool.Pool):
     Process = NoDaemonProcess
+
+def make_mlflow_callback(dir):
+
+    mlrun_dir = f"{dir}/mlruns"
+    cb = MLflowCallback(
+         tracking_uri=mlrun_dir,
+         metric_name="MSE"
+     )
+    mlflow.set_tracking_uri(mlrun_dir)
+
+    return cb
