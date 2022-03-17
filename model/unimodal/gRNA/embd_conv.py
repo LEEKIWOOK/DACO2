@@ -4,9 +4,9 @@ import torch.nn as nn
 from utils.torch_util import PositionalEncoding, Flattening
 
 
-class ATTN_CNN(nn.Module):
+class EMBD_MK_CNN(nn.Module):
     def __init__(self, drop_prob: float, len: int):
-        super(ATTN_CNN, self).__init__()
+        super(EMBD_MK_CNN, self).__init__()
 
         self.seq_len = len
         self.embedding_dim = 128

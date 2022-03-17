@@ -22,8 +22,8 @@ class DataManager:
         if '1' in param['model_run']: #gRNA model -> regression
             self.seq_prefix = param['seq_prefix']
             
-            #self.kmer = param['kmer']
-            #self.DNA2Vec = MultiKModel(param['dna2vec_path'])
+            # self.kmer = param['kmer']
+            # self.DNA2Vec = MultiKModel(param['dna2vec_path'])
             self.gRNA_func = True
         
         if '2' in param['model_run']: #RNAss model -> regression
