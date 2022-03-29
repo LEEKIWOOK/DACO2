@@ -1,4 +1,5 @@
-import math
+#Spearman correlation : 0.81
+
 import torch
 import torch.nn as nn
 from utils.torch_util import Flattening

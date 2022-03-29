@@ -6,7 +6,7 @@ from functools import reduce
 
 import torch
 from torch.utils.data import DataLoader
-from data.gRNA.multi_k_model import MultiKModel
+#from data.gRNA.multi_k_model import MultiKModel
 #from data.RNAss.rnass_embd import preprocess_inputs
 #from utils.torch_util import ForeverDataIterator
 
@@ -60,7 +60,7 @@ class DataManager:
             #3.embedding table
             data_grna['window'] = data_grna.apply(lambda x: np.array(self.embd_table(x['window'])).T, axis=1)
 
-            data_grna['efficiency'] = data_grna.apply(lambda x: (x['efficiency'] - min(data_grna['efficiency'])) / (max(data_grna['efficiency']) - min(data_grna['efficiency'])), axis=1)
+            #data_grna['efficiency'] = data_grna.apply(lambda x: (x['efficiency'] - min(data_grna['efficiency'])) / (max(data_grna['efficiency']) - min(data_grna['efficiency'])), axis=1)
             func_list.append(data_grna)
             print("grna data loaded.")
                 #data_grna = pd.read_csv("/home/kwlee/Projects_gflas/DACO2/data/input/Annot/test_annot.tsv", sep='\t')

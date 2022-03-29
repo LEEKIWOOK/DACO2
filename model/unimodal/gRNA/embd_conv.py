@@ -1,3 +1,5 @@
+#Spearman correlation : 0.84
+
 import math
 import torch
 import torch.nn as nn
@@ -5,13 +7,13 @@ from utils.torch_util import PositionalEncoding, Flattening
 
 
 class EMBD_MK_CNN(nn.Module):
-    def __init__(self, drop_prob: float, len: int):
+    def __init__(self, drop_prob: float, len: int, device):
         super(EMBD_MK_CNN, self).__init__()
 
         self.seq_len = len
         self.embedding_dim = 128
         self.dropout_rate = drop_prob
-        self.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+        self.device = device
 
         self.embedding_layer = nn.Embedding(
             num_embeddings=4, embedding_dim=self.embedding_dim, max_norm=True
@@ -83,8 +85,8 @@ class EMBD_MK_CNN(nn.Module):
         if isinstance(inputs, dict):
             inputs = inputs['Xg'].to(self.device)
 
-        embd = self.embedding_layer(inputs) * math.sqrt(self.embedding_dim) #[batch, len, embd_dim]
-        embd = self.position_encoding(embd)
+        embd = self.embedding_layer(inputs) #* math.sqrt(self.embedding_dim) #[batch, len, embd_dim]
+        #embd = self.position_encoding(embd)
 
         embd = embd.transpose(1, 2) #[batch, 128, 33]
         embd5 = embd.clone()

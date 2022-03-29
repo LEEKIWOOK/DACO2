@@ -1,3 +1,5 @@
+#Spearman correlation : 0.81
+
 import math
 import torch
 import torch.nn as nn
