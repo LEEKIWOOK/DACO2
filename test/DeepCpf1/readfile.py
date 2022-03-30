@@ -20,19 +20,20 @@ def load_file():
 
             xlist += [k for k in tdata.iloc[:-1,1]]
             ylist += tdata.iloc[:-1,-1].apply(lambda x: x/100 if x > 0 else 0).to_list()
+            print(f'{id[idx]} : {len(xlist)}')
 
             if idx == 1:
                 ilist += ['HT1'] * len(xlist)
-                clist += [int(0)] * len(xlist)
+                clist += [0] * len(xlist)
             else:
                 ilist += [id[idx]] * len(tdata.iloc[:-1,1])
-                clist += [int(0)] * len(tdata.iloc[:-1,1])
+                clist += [0] * len(tdata.iloc[:-1,1])
         else:
-            print(id[idx])
-            xlist += [k for k in tdata.iloc[:-1,3]]
-            ylist += tdata.iloc[:-1,-2].apply(lambda x: x/100 if x > 0 else 0).to_list()
-            ilist += [id[idx]] * len(tdata.iloc[:-1,1])
-            clist += [int(0) if k == 'N.A.' else k for k in tdata.iloc[:-1,-1]]
+            xlist += [k for k in tdata.iloc[:,3]]
+            ylist += tdata.iloc[:,-2].apply(lambda x: x/100 if x > 0 else 0).to_list()
+            ilist += [id[idx]] * len(tdata.iloc[:,1])
+            clist += [0 if k == 'N.A.' else k for k in tdata.iloc[:,-1]]
+            print(f'{id[idx]} : {len(xlist)}')
     
     ret = pd.DataFrame({'I' : ilist, 'X' : xlist, 'Y' : ylist, 'C' : clist})
     return ret

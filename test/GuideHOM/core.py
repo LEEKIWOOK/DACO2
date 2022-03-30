@@ -563,21 +563,23 @@ class FastaSet(Dataset):
         self.length = length
         self.pam_regex = pam_regex
         self.pam_before = pam_before
-        line = FastaSet.fasta2line(self.fasta)
-        self.guides = FastaSet.find_guides(
-            line, self.pam_regex, self.length,
-            before=self.pam_before, strand=1
-        )
-        self.guides.extend(
-            FastaSet.find_guides(
-                "".join(list(reversed(line))),
-                self.pam_regex, self.length,
-                before=self.pam_before, strand=-1
-            )
-        )
-        self.guides = list(
-            filter(lambda x: len(x[0]) == self.length, self.guides)
-        )
+
+        plen = len(pam_regex.replace("[ATGC]", "N"))
+        guides = []
+        
+        #(guide, start, end, pam, guide+pam, strand)
+        if pam_before == False: #Cas9
+            for idx, key in enumerate(fasta['X']):    
+                guides.append(
+                    (key[:length], 0, self.length, key[length:], key, 1)
+                )
+        else: #Cas12a
+            for idx, key in enumerate(fasta['X']):    
+                guides.append(
+                    (key[plen:], 0, self.length, key[:plen], key, 1)
+                )
+        
+        self.guides = guides
 
     @staticmethod
     def get_pam_before(x, s, plen, length):
