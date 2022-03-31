@@ -2,7 +2,7 @@ import pandas as pd
 
 from readfile import load_file
 
-out_dir = f"/home/kwlee/Projects_gflas/DACO2/output/DeepCpf1"
+out_dir = f"/home/kwlee/Projects_gflas/DACO2/output/DeepCpf1/Kim-Cas12a"
 
 def run_model(data):
     
