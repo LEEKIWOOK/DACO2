@@ -6,11 +6,6 @@ from functools import reduce
 
 import torch
 from torch.utils.data import DataLoader
-#from data.gRNA.multi_k_model import MultiKModel
-#from data.RNAss.rnass_embd import preprocess_inputs
-#from utils.torch_util import ForeverDataIterator
-
-DEBUG=False
 
 class DataManager:
     def __init__(self, param):

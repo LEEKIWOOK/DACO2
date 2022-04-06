@@ -1,18 +1,16 @@
 Description: "AE"
 
 DATA:
-  in_dir: ../data/input/Annot
+  in_dir: ../data/input/Raw_data
   rna_dir: ../data/input/RNAss
   chr_dir: ../data/input/Chromatin
   out_dir: ../output
   w2v_model: ../data/word2vec/dna2vec.w2v
   
-  cas9_wt_kim: Cas9_wt_kim #.tsv
-  cas9_wt_wang: Cas9_wt_wang #.tsv
-  cas9_wt_xiang: Cas9_wt_xiang #.tsv
-  cas9_hf_wang: Cas9_HF1_wang #.tsv
-  cas9_esp_wang: Cas9_esp_wang #.tsv
-  cas12a_wt_kim: Cas12a_wt_kim #.tsv
+  cas9_kim: Kim-Cas9/aax9249_table_s1.xlsx
+  cas9_wang: Wang/41467_2019_12281_MOESM3_ESM.xlsx
+  cas9_xiang: Xiang/41467_2021_23576_MOESM4_ESM.xlsx
+  cas12a_kim: Kim-Cas12a/41587_2018_BFnbt4061_MOESM39_ESM.xlsx
 
 MODEL:
   seed: 1234
