@@ -19,6 +19,6 @@ MODEL:
   stride: 1
   batch: 256
   epoch: 500
-  earlystop: 30
+  earlystop: 10
   seqlen: 30
   embd: 1

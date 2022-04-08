@@ -62,7 +62,8 @@ def data_read(cfg):
     elif cfg['embd'] == 2: #word-to-vec
         ret['X'] = ret.apply(lambda x: np.array(k_mer_stride(x[xidx], cfg['kmer'], cfg['stride'], cfg['dna2vec_path'])).T,axis=1)
     
-    ret = ret.drop(['X30'], axis = 1)
+    if 'X30' in ret.keys():
+        ret = ret.drop(['X30'], axis = 1)
     return ret
 
 def data_loader(cfg, data, tidx, vidx):
@@ -76,7 +77,8 @@ def data_loader(cfg, data, tidx, vidx):
 class DataWrapper:
     def __init__(self, data, tvidx, embd, transform=None):
         np.random.shuffle(tvidx)
-        #self.dataidx = tvidx
+        data = data.reset_index()
+
         self.data = data['X'][tvidx].to_list()
         self.target = data['Y'][tvidx].to_list()
         self.transform = transform

@@ -10,6 +10,8 @@ class EMBD_MK_CNN(nn.Module):
         super(EMBD_MK_CNN, self).__init__()
 
         self.seqlen = seqlen
+        self.indim = 288 if self.seqlen == 30 else 240
+
         self.embedding_dim = 128
         self.dropout_rate = dropprob
         self.device = device
@@ -72,7 +74,7 @@ class EMBD_MK_CNN(nn.Module):
         self.flattening = Flattening()
 
         self.fclayer = nn.Sequential(
-            nn.Linear(in_features=288, out_features=32),
+            nn.Linear(in_features=self.indim, out_features=32),
             nn.BatchNorm1d(32),
             nn.ReLU(),
             nn.Dropout(self.dropout_rate),

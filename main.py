@@ -51,19 +51,20 @@ class Runner:
             'device' : torch.device("cuda:0" if torch.cuda.is_available() else "cpu"),
 
             'embd' : int(model_cfg["embd"]), #0: onehot / 1: embd_table / 2: word2vec
-            'seqlen' : int(model_cfg["seqlen"]),
             'kmer' : int(model_cfg["kmer"]),
             'stride' : int(model_cfg["stride"]),
             'dna2vec_path' : data_cfg['w2v_model'],
             'rna2_mod' : True if args.model.find('2') else 0,
             'chro_mod' : True if args.model.find('3') else 0,           
         }
-
+        
+        self.cfg['seqlen'] = int(model_cfg["seqlen"]) if self.cfg['seqidx'] != 1 else 23
         os.makedirs(f"{self.cfg['outdir']}/visualize", exist_ok=True)
         os.makedirs(f"{self.cfg['outdir']}/checkpoints", exist_ok=True)
         torch.manual_seed(self.cfg['seed'])
 
-    def define_hyperparam(self, trial):
+    def define_hyperparam(self):
+    #def define_hyperparam(self, trial):
         print("define_hyperparam.")
 
         params = {
@@ -90,7 +91,7 @@ class Runner:
         
         return params
     
-    def iteration(self, trial, params, train_loader, valid_loader): #Fold
+    def iteration(self, params, train_loader, valid_loader): #Fold
 
         best_model = os.path.join(f"{self.cfg['outdir']}/checkpoints/best_model.pth")
         #torch.save(params["model"].state_dict(), best_model)
@@ -130,12 +131,12 @@ class Runner:
         
         return corr_list.pop() #last correlation
 
-    
-    def objective_cv(self, trial):
+    def objective_cv(self):
+    #def objective_cv(self, trial):
         
         data = data_read(self.cfg)
         fold = KFold(n_splits = self.cfg["kfold"], shuffle=True)
-        params = self.define_hyperparam(trial)
+        params = self.define_hyperparam() #(trial)
 
         for fold_idx, (train_idx, valid_idx) in enumerate(fold.split(range(len(data)))):
             print("----------------------------------------------------------------------")
@@ -143,21 +144,23 @@ class Runner:
             train_loader, valid_loader = data_loader(self.cfg, data, train_idx, valid_idx)
             
             with mlflow.start_run():
-                corr = self.iteration(trial, params, train_loader, valid_loader) #model 
-                mlflow.log_params(trial.params)
+                corr = self.iteration(params, train_loader, valid_loader) #model 
+                #mlflow.log_params(trial.params)
                 self.cv_results[fold_idx] = corr
 
-    def print_results(self, study):
+    def print_cv_results(self):
 
         print("\n++++++++++++++++++++++++++++++++++\n")
         print(f"K-FOLD CROSS VALIDATION RESULTS FOR {self.cfg['kfold']} FOLDS")
         print("\n++++++++++++++++++++++++++++++++++\n")
         sum = 0.0
         for key, value in self.cv_results.items():
-            print(f'Fold {key}: {value} %')
+            print(f'Fold {key}: {value}')
             sum += value
-        print(f'Average: {sum/len(self.cv_results.items())} %')
+        print(f'Average: {sum/len(self.cv_results.items())}')
         print("\n++++++++++++++++++++++++++++++++++\n")
+
+    def hyperparameter_tunning(self, study):
 
         print("Study statistics: ")
         print("  Number of finished trials: ", len(study.trials))
@@ -194,8 +197,10 @@ if __name__ == "__main__":
 
     runner = Runner(args)
     #-> validate spearman correlation -> maximization
-    study = optuna.create_study(study_name="DACO - gRNA module : parameter optimization", direction="maximize",  pruner=optuna.pruners.HyperbandPruner(max_resource="auto")) #
-    mlflow_cb = make_mlflow_callback(runner.cfg['outdir'])
-
-    study.optimize(runner.objective_cv, n_trials = 1, timeout = 1200, callbacks=[mlflow_cb]) #OK
-    runner.print_results(study)
+    #study = optuna.create_study(study_name="DACO - gRNA module : parameter optimization", direction="maximize",  pruner=optuna.pruners.HyperbandPruner(max_resource="auto")) #
+    #mlflow_cb = make_mlflow_callback(runner.cfg['outdir'])
+    
+    #study.optimize(runner.objective_cv, n_trials = 1, timeout = 1200, callbacks=[mlflow_cb]) #hyperparameter tunning
+    runner.objective_cv()
+    #runner.hyperparameter_tunning(study)
+    runner.print_cv_results()
