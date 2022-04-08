@@ -7,7 +7,43 @@ import multiprocessing as mp
 import multiprocessing.pool as pool
 import mlflow
 from optuna.integration.mlflow import MLflowCallback
+from utils.multi_k_model import MultiKModel
 
+def one_hot(seq, s):
+    
+    l = []
+    table_key = {'A': 0, 'C': 1, 'G': 2, 'T': 3}
+    encoding_window = s
+    for i in range(len(seq)):
+        t = seq[i:i + encoding_window]
+        one_hot_char = [0] * len(table_key)
+        one_hot_idx = table_key.get(t, -1)
+        if one_hot_idx > -1:
+            one_hot_char[one_hot_idx] = 1
+        l.append(one_hot_char)
+    return l
+
+def embd_table(seq):
+
+    l = []
+    table_key = {'A': 0, 'C': 1, 'G': 2, 'T': 3}
+    for i in range(len(seq)):
+        key = table_key.get(seq[i], -1)
+        if key > -1:
+            l.append(key)
+    return l 
+
+def k_mer_stride(seq, k, s, path):
+    DNA2Vec = MultiKModel(path)
+    l = []
+    j = 0
+    for i in range(len(seq)):
+        t = seq[j:j + k]
+        if (len(t)) == k:
+            vec = DNA2Vec.vector(t)
+            l.append(vec)
+        j += s
+    return l
 
 def loss_plot(train_loss, valid_loss, file):
     # visualize the loss as the network trained

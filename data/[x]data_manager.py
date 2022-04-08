@@ -9,27 +9,27 @@ from torch.utils.data import DataLoader
 
 class DataManager:
     def __init__(self, param):
-        self.out_dir = param['out_dir']
-        self.batch_size = param['batch_size']
-        self.seed = param['seed']        
-        self.gRNA_func = self.RNAss_func = self.chro_func = False
+        # self.out_dir = param['out_dir']
+        # self.batch_size = param['batch_size']
+        # self.seed = param['seed']        
+        # self.gRNA_func = self.RNAss_func = self.chro_func = False
         
-        if '1' in param['model_run']: #gRNA model -> regression
-            self.seq_prefix = param['seq_prefix']
+        # if '1' in param['model_run']: #gRNA model -> regression
+        #     self.seq_prefix = param['seq_prefix']
             
-            # self.kmer = param['kmer']
-            # self.DNA2Vec = MultiKModel(param['dna2vec_path'])
-            self.gRNA_func = True
+        #     # self.kmer = param['kmer']
+        #     # self.DNA2Vec = MultiKModel(param['dna2vec_path'])
+        #     self.gRNA_func = True
         
-        if '2' in param['model_run']: #RNAss model -> regression
-            self.rna_prefix = param['rna_prefix']
-            #self.rna2st = RNAstruct(param['target_domain'])
-            self.RNAss_func = True
+        # if '2' in param['model_run']: #RNAss model -> regression
+        #     self.rna_prefix = param['rna_prefix']
+        #     #self.rna2st = RNAstruct(param['target_domain'])
+        #     self.RNAss_func = True
 
-        if '3' in param['model_run']: #Chromatin accessibility model -> classifier
-            self.chro_prefix = param['chro_prefix']
-            #self.chromatin = ChromatinAceess(param['target_domain'])
-            self.chro_func = True
+        # if '3' in param['model_run']: #Chromatin accessibility model -> classifier
+        #     self.chro_prefix = param['chro_prefix']
+        #     #self.chromatin = ChromatinAceess(param['target_domain'])
+        #     self.chro_func = True
   
     def seed_everything(self):
         random.seed(self.seed)
@@ -135,7 +135,7 @@ class DataManager:
         indice = list(range(data_size))
         np.random.shuffle(indice)
 
-        test_ratio = 0.15
+        test_ratio = 0.10
         val_ratio = test_ratio
 
         test_size = int(np.floor(data_size * test_ratio))

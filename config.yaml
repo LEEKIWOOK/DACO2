@@ -1,7 +1,7 @@
 Description: "AE"
 
 DATA:
-  in_dir: ../data/input/Raw_data
+  in_dir: ../data/Raw_data
   rna_dir: ../data/input/RNAss
   chr_dir: ../data/input/Chromatin
   out_dir: ../output
@@ -13,8 +13,12 @@ DATA:
   cas12a_kim: Kim-Cas12a/41587_2018_BFnbt4061_MOESM39_ESM.xlsx
 
 MODEL:
+  kfold: 5
   seed: 1234
   kmer: 5
-  batch: 512
+  stride: 1
+  batch: 256
   epoch: 500
-  earlystop: 10
+  earlystop: 30
+  seqlen: 30
+  embd: 1

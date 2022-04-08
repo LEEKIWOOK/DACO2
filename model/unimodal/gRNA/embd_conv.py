@@ -5,22 +5,21 @@ import torch
 import torch.nn as nn
 from utils.torch_util import PositionalEncoding, Flattening
 
-
 class EMBD_MK_CNN(nn.Module):
-    def __init__(self, drop_prob: float, len: int, device):
+    def __init__(self, dropprob, seqlen, device):
         super(EMBD_MK_CNN, self).__init__()
 
-        self.seq_len = len
+        self.seqlen = seqlen
         self.embedding_dim = 128
-        self.dropout_rate = drop_prob
+        self.dropout_rate = dropprob
         self.device = device
 
         self.embedding_layer = nn.Embedding(
             num_embeddings=4, embedding_dim=self.embedding_dim, max_norm=True
         )
-        self.position_encoding = PositionalEncoding(
-            dim=self.embedding_dim, max_len=self.seq_len, dropout=0.1
-        )
+        # self.position_encoding = PositionalEncoding(
+        #     dim=self.embedding_dim, max_len=self.seqlen, dropout=0.1
+        # )
 
         self.Conv3 = nn.Sequential(
             nn.Conv1d(self.embedding_dim, 64, kernel_size = 3, padding = "same", stride = 1),
@@ -73,7 +72,7 @@ class EMBD_MK_CNN(nn.Module):
         self.flattening = Flattening()
 
         self.fclayer = nn.Sequential(
-            nn.Linear(in_features=336, out_features=32),
+            nn.Linear(in_features=288, out_features=32),
             nn.BatchNorm1d(32),
             nn.ReLU(),
             nn.Dropout(self.dropout_rate),
@@ -83,7 +82,7 @@ class EMBD_MK_CNN(nn.Module):
     def forward(self, inputs):
 
         if isinstance(inputs, dict):
-            inputs = inputs['Xg'].to(self.device)
+            inputs = inputs['X'].to(self.device)
 
         embd = self.embedding_layer(inputs) #* math.sqrt(self.embedding_dim) #[batch, len, embd_dim]
         #embd = self.position_encoding(embd)
