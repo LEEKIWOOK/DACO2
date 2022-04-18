@@ -54,8 +54,8 @@ class Runner:
             'kmer' : int(model_cfg["kmer"]),
             'stride' : int(model_cfg["stride"]),
             'dna2vec_path' : data_cfg['w2v_model'],
-            'rna2_mod' : True if args.model.find('2') else 0,
-            'chro_mod' : True if args.model.find('3') else 0,           
+            'rna2_mod' : True if args.model.find('2') else False,
+            'chro_mod' : True if args.model.find('3') else False,           
         }
         
         self.cfg['seqlen'] = int(model_cfg["seqlen"]) if self.cfg['seqidx'] != 1 else 23
@@ -81,7 +81,7 @@ class Runner:
             "swa_start": 5,
             #"swa_start": trial.suggest_categorical("swa_start", [5, 25]),
         }
-        params["model"] = EMBD_MK_CNN(params["dropprob"], self.cfg["seqlen"], self.cfg["device"]).to(self.cfg['device'])
+        params["model"] = EMBD_MK_CNN(params["dropprob"], self.cfg["seqlen"], self.cfg["device"], (self.cfg["rna_mod"], self.cfg["chro_mod"])).to(self.cfg['device'])
         params["model"].apply(reset_weights)
 
         params['optimizer'] = AdamW(params["model"].parameters(), lr = params["lr"], weight_decay=params["weight_decay"])

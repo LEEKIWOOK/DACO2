@@ -13,10 +13,23 @@ def train(loader, params, cfg, epoch):
         # if batch_idx * cfg["batch_size"] >= 30:
         #     print("Limiting training data for faster epochs.")
         #     break
-
-        X, Y = data["X"].to(cfg["device"]), data["Y"].to(cfg["device"])
         params["optimizer"].zero_grad()
-        pred = params["model"](X)
+        X, Y = data["X"].to(cfg["device"]), data["Y"].to(cfg["device"])
+        
+        if cfg['rna_mod'] == True and cfg['chro_mod'] == False:
+            R = data["R"].to(cfg["device"])
+            input = (X, R)
+        elif cfg['rna_mod'] == False and cfg['chro_mod'] == True:
+            C = data["C"].to(cfg["device"])
+            input = (X, C)
+        elif cfg['rna_mod'] == True and cfg['chro_mod'] == True:
+            R, C = data["R"].to(cfg["device"]), data["C"].to(cfg["device"])
+            input = (X, R, C)
+        elif cfg['rna_mod'] == False and cfg['chro_mod'] == False:
+            input = (X)
+
+        pred = params["model"](input)
+
         loss = F.smooth_l1_loss(pred, Y)
         
         loss.backward()
@@ -46,8 +59,20 @@ def validate(loader, params, cfg):
     with torch.no_grad():
         for batch_idx, data in enumerate(loader):
             
-            X, Y = data['X'].to(cfg["device"]), data['Y'].to(cfg["device"])
-            pred = params["model"](X)
+            X, Y = data["X"].to(cfg["device"]), data["Y"].to(cfg["device"])
+            if cfg['rna_mod'] == True and cfg['chro_mod'] == False:
+                R = data["R"].to(cfg["device"])
+                input = (X, R)
+            elif cfg['rna_mod'] == False and cfg['chro_mod'] == True:
+                C = data["C"].to(cfg["device"])
+                input = (X, C)
+            elif cfg['rna_mod'] == True and cfg['chro_mod'] == True:
+                R, C = data["R"].to(cfg["device"]), data["C"].to(cfg["device"])
+                input = (X, R, C)
+            elif cfg['rna_mod'] == False and cfg['chro_mod'] == False:
+                input = (X)
+
+            pred = params["model"](input)
             loss = F.smooth_l1_loss(pred, Y)
 
             eval["predicted_value"] += pred.cpu().detach().numpy().tolist()
