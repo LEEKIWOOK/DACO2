@@ -1,0 +1,209 @@
+-e\nseqlen = 23, word2vec (k = 5, stride = 1)\n
+define_hyperparam.
+Reset trainable parameters of layer = Conv1d(100, 16, kernel_size=(3,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(16, 32, kernel_size=(3,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(100, 64, kernel_size=(3,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(64, 32, kernel_size=(3,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(32, 16, kernel_size=(3,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(100, 64, kernel_size=(5,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(64, 32, kernel_size=(5,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(32, 16, kernel_size=(5,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(100, 64, kernel_size=(7,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(64, 32, kernel_size=(7,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(32, 16, kernel_size=(7,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Linear(in_features=192, out_features=32, bias=True)
+Reset trainable parameters of layer = BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Linear(in_features=32, out_features=1, bias=True)
+Reset trainable parameters of layer = Embedding(4, 100, max_norm=True)
+----------------------------------------------------------------------
+FOLD : 0
+Run : epoch 1 / 5...
+Training step : Epoch : [0/5], [0/256, Loss_reg : 0.32173001766204834
+Training Spearman correlation = 0.1103953999977919
+Validation Spearman correlation = 0.28335799978324777
+Validation loss decreased (inf --> 0.030207).  Saving model ...
+Run : epoch 2 / 5...
+Training step : Epoch : [1/5], [0/256, Loss_reg : 0.0392245352268219
+Training Spearman correlation = 0.33546201465793407
+Validation Spearman correlation = 0.5266311739043466
+Validation loss decreased (0.030207 --> 0.024084).  Saving model ...
+Run : epoch 3 / 5...
+Training step : Epoch : [2/5], [0/256, Loss_reg : 0.025078266859054565
+Training Spearman correlation = 0.4476452919931038
+Validation Spearman correlation = 0.5377452607554157
+Validation loss decreased (0.024084 --> 0.017961).  Saving model ...
+Run : epoch 4 / 5...
+Training step : Epoch : [3/5], [0/256, Loss_reg : 0.01868468150496483
+Training Spearman correlation = 0.49327005168812227
+Validation Spearman correlation = 0.5722415427089128
+Validation loss decreased (0.017961 --> 0.017904).  Saving model ...
+Run : epoch 5 / 5...
+Training step : Epoch : [4/5], [0/256, Loss_reg : 0.018603049218654633
+Training Spearman correlation = 0.524980603822111
+Validation Spearman correlation = 0.5768051409127528
+Validation loss decreased (0.017904 --> 0.017846).  Saving model ...
+----------------------------------------------------------------------
+FOLD : 1
+Run : epoch 1 / 5...
+Training step : Epoch : [0/5], [0/256, Loss_reg : 0.01931728422641754
+Training Spearman correlation = 0.4946674170403383
+Validation Spearman correlation = 0.6220208769429426
+Validation loss decreased (inf --> 0.015887).  Saving model ...
+Run : epoch 2 / 5...
+Training step : Epoch : [1/5], [0/256, Loss_reg : 0.01924712583422661
+Training Spearman correlation = 0.49338562462422786
+Validation Spearman correlation = 0.6286133887012316
+Validation loss decreased (0.015887 --> 0.015859).  Saving model ...
+Run : epoch 3 / 5...
+Training step : Epoch : [2/5], [0/256, Loss_reg : 0.01849520206451416
+Training Spearman correlation = 0.5272255566853054
+Validation Spearman correlation = 0.6311607841369006
+Validation loss decreased (0.015859 --> 0.015830).  Saving model ...
+Run : epoch 4 / 5...
+Training step : Epoch : [3/5], [0/256, Loss_reg : 0.01909489929676056
+Training Spearman correlation = 0.5466096743310361
+Validation Spearman correlation = 0.6352550885238514
+EarlyStopping counter: 1 out of 10
+Run : epoch 5 / 5...
+Training step : Epoch : [4/5], [0/256, Loss_reg : 0.018552418798208237
+Training Spearman correlation = 0.5878243414676158
+Validation Spearman correlation = 0.6424898284315941
+Validation loss decreased (0.015830 --> 0.015830).  Saving model ...
+
+++++++++++++++++++++++++++++++++++
+
+K-FOLD CROSS VALIDATION RESULTS FOR 2 FOLDS
+
+++++++++++++++++++++++++++++++++++
+
+Fold 0: 0.5768051409127528
+Fold 1: 0.6424898284315941
+Average: 0.6096474846721734
+
+++++++++++++++++++++++++++++++++++
+
+define_hyperparam.
+Reset trainable parameters of layer = Conv1d(100, 16, kernel_size=(3,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(16, 32, kernel_size=(3,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(100, 64, kernel_size=(3,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(64, 32, kernel_size=(3,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(32, 16, kernel_size=(3,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(100, 64, kernel_size=(5,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(64, 32, kernel_size=(5,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(32, 16, kernel_size=(5,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(100, 64, kernel_size=(7,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(64, 32, kernel_size=(7,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(32, 16, kernel_size=(7,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Linear(in_features=192, out_features=32, bias=True)
+Reset trainable parameters of layer = BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Linear(in_features=32, out_features=1, bias=True)
+Reset trainable parameters of layer = Embedding(4, 100, max_norm=True)
+----------------------------------------------------------------------
+FOLD : 0
+Run : epoch 1 / 5...
+Training step : Epoch : [0/5], [0/256, Loss_reg : 0.5358490943908691
+Training step : Epoch : [0/5], [50/256, Loss_reg : 0.0354938767850399
+Training step : Epoch : [0/5], [100/256, Loss_reg : 0.02622523158788681
+Training Spearman correlation = 0.2282306536905403
+Validation Spearman correlation = 0.5706976439914464
+Validation loss decreased (inf --> 0.015896).  Saving model ...
+Run : epoch 2 / 5...
+Training step : Epoch : [1/5], [0/256, Loss_reg : 0.025493759661912918
+Training step : Epoch : [1/5], [50/256, Loss_reg : 0.018356192857027054
+Training step : Epoch : [1/5], [100/256, Loss_reg : 0.019451629370450974
+Training Spearman correlation = 0.5017545898582358
+Validation Spearman correlation = 0.6890423232168561
+Validation loss decreased (0.015896 --> 0.013894).  Saving model ...
+Run : epoch 3 / 5...
+Training step : Epoch : [2/5], [0/256, Loss_reg : 0.017525475472211838
+Training step : Epoch : [2/5], [50/256, Loss_reg : 0.014566143974661827
+Training step : Epoch : [2/5], [100/256, Loss_reg : 0.011098030023276806
+Training Spearman correlation = 0.6210815087506504
+Validation Spearman correlation = 0.7404184132957037
+Validation loss decreased (0.013894 --> 0.011893).  Saving model ...
+Run : epoch 4 / 5...
+Training step : Epoch : [3/5], [0/256, Loss_reg : 0.01681804098188877
+Training step : Epoch : [3/5], [50/256, Loss_reg : 0.012305001728236675
+Training step : Epoch : [3/5], [100/256, Loss_reg : 0.012343751266598701
+Training Spearman correlation = 0.6676034872665806
+Validation Spearman correlation = 0.7560941791642266
+Validation loss decreased (0.011893 --> 0.011113).  Saving model ...
+Run : epoch 5 / 5...
+Training step : Epoch : [4/5], [0/256, Loss_reg : 0.01160656102001667
+Training step : Epoch : [4/5], [50/256, Loss_reg : 0.011819224804639816
+Training step : Epoch : [4/5], [100/256, Loss_reg : 0.010834680870175362
+Training Spearman correlation = 0.6932348647236527
+Validation Spearman correlation = 0.7656645419288094
+Validation loss decreased (0.011113 --> 0.010333).  Saving model ...
+----------------------------------------------------------------------
+FOLD : 1
+Run : epoch 1 / 5...
+Training step : Epoch : [0/5], [0/256, Loss_reg : 0.014409665018320084
+Training step : Epoch : [0/5], [50/256, Loss_reg : 0.014904985204339027
+Training step : Epoch : [0/5], [100/256, Loss_reg : 0.012041904032230377
+Training Spearman correlation = 0.6691955157656502
+Validation Spearman correlation = 0.7889888261912534
+Validation loss decreased (inf --> 0.008961).  Saving model ...
+Run : epoch 2 / 5...
+Training step : Epoch : [1/5], [0/256, Loss_reg : 0.010774808004498482
+Training step : Epoch : [1/5], [50/256, Loss_reg : 0.011465812101960182
+Training step : Epoch : [1/5], [100/256, Loss_reg : 0.015583493746817112
+Training Spearman correlation = 0.6801167101690526
+Validation Spearman correlation = 0.7910501791301653
+Validation loss decreased (0.008961 --> 0.008943).  Saving model ...
+Run : epoch 3 / 5...
+Training step : Epoch : [2/5], [0/256, Loss_reg : 0.011189194396138191
+Training step : Epoch : [2/5], [50/256, Loss_reg : 0.011492359451949596
+Training step : Epoch : [2/5], [100/256, Loss_reg : 0.010941245593130589
+Training Spearman correlation = 0.6909612574737494
+Validation Spearman correlation = 0.7984807505289259
+Validation loss decreased (0.008943 --> 0.008924).  Saving model ...
+Run : epoch 4 / 5...
+Training step : Epoch : [3/5], [0/256, Loss_reg : 0.011417190544307232
+Training step : Epoch : [3/5], [50/256, Loss_reg : 0.008934780955314636
+Training step : Epoch : [3/5], [100/256, Loss_reg : 0.008841563016176224
+Training Spearman correlation = 0.7167903934235232
+Validation Spearman correlation = 0.8058491517074687
+Validation loss decreased (0.008924 --> 0.008854).  Saving model ...
+Run : epoch 5 / 5...
+Training step : Epoch : [4/5], [0/256, Loss_reg : 0.011369148269295692
+Training step : Epoch : [4/5], [50/256, Loss_reg : 0.009930920787155628
+Training step : Epoch : [4/5], [100/256, Loss_reg : 0.008393066003918648
+Training Spearman correlation = 0.7330094112401226
+Validation Spearman correlation = 0.8054561805708518
+Validation loss decreased (0.008854 --> 0.008784).  Saving model ...
+
+++++++++++++++++++++++++++++++++++
+
+K-FOLD CROSS VALIDATION RESULTS FOR 2 FOLDS
+
+++++++++++++++++++++++++++++++++++
+
+Fold 0: 0.7656645419288094
+Fold 1: 0.8054561805708518
+Average: 0.7855603612498305
+
+++++++++++++++++++++++++++++++++++
+

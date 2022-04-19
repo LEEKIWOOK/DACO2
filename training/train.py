@@ -15,17 +15,17 @@ def train(loader, params, cfg, epoch):
         #     break
         params["optimizer"].zero_grad()
         X, Y = data["X"].to(cfg["device"]), data["Y"].to(cfg["device"])
-        
-        if cfg['rna_mod'] == True and cfg['chro_mod'] == False:
+
+        if cfg['rna2_mod'] == True and cfg['chro_mod'] == False:
             R = data["R"].to(cfg["device"])
             input = (X, R)
-        elif cfg['rna_mod'] == False and cfg['chro_mod'] == True:
+        elif cfg['rna2_mod'] == False and cfg['chro_mod'] == True:
             C = data["C"].to(cfg["device"])
             input = (X, C)
-        elif cfg['rna_mod'] == True and cfg['chro_mod'] == True:
+        elif cfg['rna2_mod'] == True and cfg['chro_mod'] == True:
             R, C = data["R"].to(cfg["device"]), data["C"].to(cfg["device"])
             input = (X, R, C)
-        elif cfg['rna_mod'] == False and cfg['chro_mod'] == False:
+        elif cfg['rna2_mod'] == False and cfg['chro_mod'] == False:
             input = (X)
 
         pred = params["model"](input)
@@ -60,16 +60,16 @@ def validate(loader, params, cfg):
         for batch_idx, data in enumerate(loader):
             
             X, Y = data["X"].to(cfg["device"]), data["Y"].to(cfg["device"])
-            if cfg['rna_mod'] == True and cfg['chro_mod'] == False:
+            if cfg['rna2_mod'] == True and cfg['chro_mod'] == False:
                 R = data["R"].to(cfg["device"])
                 input = (X, R)
-            elif cfg['rna_mod'] == False and cfg['chro_mod'] == True:
+            elif cfg['rna2_mod'] == False and cfg['chro_mod'] == True:
                 C = data["C"].to(cfg["device"])
                 input = (X, C)
-            elif cfg['rna_mod'] == True and cfg['chro_mod'] == True:
+            elif cfg['rna2_mod'] == True and cfg['chro_mod'] == True:
                 R, C = data["R"].to(cfg["device"]), data["C"].to(cfg["device"])
                 input = (X, R, C)
-            elif cfg['rna_mod'] == False and cfg['chro_mod'] == False:
+            elif cfg['rna2_mod'] == False and cfg['chro_mod'] == False:
                 input = (X)
 
             pred = params["model"](input)

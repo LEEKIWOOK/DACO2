@@ -43,22 +43,23 @@ class Runner:
             'target' : int(args.target),
             'seqidx' : idx,
             'seqpath' : f"%s/%s" % (data_cfg['in_dir'], data_cfg[data_list[idx]]),
-            'outdir' : f"{data_cfg['out_dir']}/data{args.target}",
             'earlystop' : int(model_cfg["earlystop"]),
             'batch_size' : int(model_cfg["batch"]),
             'EPOCH' : int(model_cfg["epoch"]),
             'seed' : int(model_cfg["seed"]),
             'device' : torch.device("cuda:0" if torch.cuda.is_available() else "cpu"),
 
-            'embd' : int(model_cfg["embd"]), #0: onehot / 1: embd_table / 2: word2vec
-            'kmer' : int(model_cfg["kmer"]),
-            'stride' : int(model_cfg["stride"]),
+            'seqlen' : int(args.seqlen), #self.cfg['seqlen'] = int(model_cfg["seqlen"]) if self.cfg['seqidx'] != 1 else 23
+            'embd' : int(args.embd), #int(model_cfg["embd"]), #0: onehot / 1: embd_table / 2: word2vec
+            'kmer' : int(args.kmer), #int(model_cfg["kmer"])
+            'stride' : int(args.stride), #int(model_cfg["stride"])
+
             'dna2vec_path' : data_cfg['w2v_model'],
-            'rna2_mod' : True if args.model.find('2') else False,
-            'chro_mod' : True if args.model.find('3') else False,           
+            'rna2_mod' : False if args.model.find('2') else True,
+            'chro_mod' : False if args.model.find('3') else True,           
         }
-        
-        self.cfg['seqlen'] = int(model_cfg["seqlen"]) if self.cfg['seqidx'] != 1 else 23
+        self.cfg['outdir'] = f"../output/embd/embd{args.embd}_k{args.kmer}_s{args.stride}_seqlen{args.seqlen}_data{args.target}" if args.embd == 2 else "embd{args.embd}_seqlen{args.seqlen}_data{args.target}"
+
         os.makedirs(f"{self.cfg['outdir']}/visualize", exist_ok=True)
         os.makedirs(f"{self.cfg['outdir']}/checkpoints", exist_ok=True)
         torch.manual_seed(self.cfg['seed'])
@@ -81,7 +82,7 @@ class Runner:
             "swa_start": 5,
             #"swa_start": trial.suggest_categorical("swa_start", [5, 25]),
         }
-        params["model"] = EMBD_MK_CNN(params["dropprob"], self.cfg["seqlen"], self.cfg["device"], (self.cfg["rna_mod"], self.cfg["chro_mod"])).to(self.cfg['device'])
+        params["model"] = EMBD_MK_CNN(params["dropprob"], self.cfg).to(self.cfg['device'])
         params["model"].apply(reset_weights)
 
         params['optimizer'] = AdamW(params["model"].parameters(), lr = params["lr"], weight_decay=params["weight_decay"])
@@ -193,6 +194,10 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--target", type=int, help="1:Kim-Cas9, 2:Wang-wt, 3:Wang-HF1, 4:Wang-esp1, 5:Xiang-D2, 6:Xiang-D8, 7:Xiang-D10, 8:Kim-Cas12a", required=True)
     parser.add_argument("--model", type=str, help="gRNA module, add RNAss module : 1, Cromatin information : 2, .more than one input is possible (e.g. 1,2)", default='0')
+    parser.add_argument("--embd", type=int, help="0:onehot encoding, 1:embd table, 2:word2vec")
+    parser.add_argument("--seqlen", type=int, default=23)
+    parser.add_argument("--kmer", type=int, default=5)
+    parser.add_argument("--stride", type=int, default=1)
     args = parser.parse_args()
 
     runner = Runner(args)

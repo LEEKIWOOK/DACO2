@@ -54,9 +54,9 @@ def data_read(cfg):
             'Y': tr.iloc[:-1,-1].apply(lambda x: x/100 if x > 0 else 0).to_list() + te.iloc[:-1,-1].apply(lambda x: x/100 if x > 0 else 0).to_list()
         })
 
-    if cfg['rna2_mod']:
+    #if cfg['rna2_mod']:
         #ret = load_mfe(cfg['target'], ret)
-        calc_mfe(cfg['seqidx'], ret)
+        #calc_mfe(cfg['target'], ret)
 
     #elif cfg['chro_mod']:
     #    load_chro(ret)
@@ -70,7 +70,7 @@ def data_read(cfg):
         ret['X'] = ret.apply(lambda x: np.array(embd_table(x[xidx])).T, axis=1)
 
     elif cfg['embd'] == 2: #word-to-vec
-        ret['X'] = ret.apply(lambda x: np.array(k_mer_stride(x[xidx], cfg['kmer'], cfg['stride'], cfg['dna2vec_path'])).T,axis=1)
+        ret['X'] = k_mer_stride(ret[xidx], cfg)
     
     if 'X30' in ret.keys():
         ret = ret.drop(['X30'], axis = 1)
@@ -92,13 +92,13 @@ class DataWrapper:
         self.data = data['X'][tvidx].to_list()
         self.target = data['Y'][tvidx].to_list()
 
-        if cfg['rna2_mod']:
+        if self.mod[0]:
             self.mfe = data['R'][tvidx].to_list()
-        if cfg['chro_mod']:
+        if self.mod[1]:
             self.chro = data['C'][tvidx].to_list()
 
         self.transform = transform
-        self.xdtype = torch.float if cfg['embd'] == 2 else torch.long
+        self.xdtype = torch.long if cfg['embd'] == 1 else torch.float
 
 
     def __len__(self):

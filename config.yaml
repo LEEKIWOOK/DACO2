@@ -4,7 +4,7 @@ DATA:
   in_dir: ../data/Raw_data
   rna_dir: ../data/input/RNAss
   chr_dir: ../data/input/Chromatin
-  out_dir: ../output
+  out_dir: ../output/embd
   w2v_model: ../data/word2vec/dna2vec.w2v
   
   cas9_kim: Kim-Cas9/aax9249_table_s1.xlsx
@@ -13,12 +13,8 @@ DATA:
   cas12a_kim: Kim-Cas12a/41587_2018_BFnbt4061_MOESM39_ESM.xlsx
 
 MODEL:
-  kfold: 5
+  kfold: 10
   seed: 1234
-  kmer: 5
-  stride: 1
   batch: 256
   epoch: 500
   earlystop: 10
-  seqlen: 30
-  embd: 1

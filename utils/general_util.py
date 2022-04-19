@@ -3,6 +3,7 @@ import sys
 import time
 import argparse
 import matplotlib.pyplot as plt
+import numpy as np
 import multiprocessing as mp
 import multiprocessing.pool as pool
 import mlflow
@@ -33,17 +34,13 @@ def embd_table(seq):
             l.append(key)
     return l 
 
-def k_mer_stride(seq, k, s, path):
-    DNA2Vec = MultiKModel(path)
-    l = []
-    j = 0
-    for i in range(len(seq)):
-        t = seq[j:j + k]
-        if (len(t)) == k:
-            vec = DNA2Vec.vector(t)
-            l.append(vec)
-        j += s
-    return l
+def k_mer_stride(seqarr, cfg):
+    DNA2Vec = MultiKModel(cfg['dna2vec_path'])
+    k = cfg['kmer']
+    s = cfg['stride']
+
+    ret = [np.array([DNA2Vec.vector(seq[l:l + k]) for l in range(0, len(seq) - k + 1, s)]) for seq in seqarr]
+    return ret
 
 def loss_plot(train_loss, valid_loss, file):
     # visualize the loss as the network trained
