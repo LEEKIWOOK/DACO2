@@ -210,10 +210,10 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--target", type=int, help="1:Kim-Cas9, 2:Wang-wt, 3:Wang-HF1, 4:Wang-esp1, 5:Xiang-D2, 6:Xiang-D8, 7:Xiang-D10, 8:Kim-Cas12a", required=True)
     parser.add_argument("--model", type=str, help="gRNA module, add RNAss module : 1, Cromatin information : 2, .more than one input is possible (e.g. 1,2)", default='0')
-    parser.add_argument("--embd", type=int, help="0:onehot encoding, 1:embd table, 2:word2vec")
+    parser.add_argument("--embd", type=int, help="0:onehot encoding, 1:embd table, 2:word2vec", default=1)
     parser.add_argument("--seqinfo", type=str, default='spacer', help="spacer=20+pam, full=34, d[1-5], i[1-3]")
-    parser.add_argument("--kmer", type=int, default=5)
-    parser.add_argument("--stride", type=int, default=1)
+    parser.add_argument("--kmer", type=int)
+    parser.add_argument("--stride", type=int)
     args = parser.parse_args()
 
     runner = Runner(args)
