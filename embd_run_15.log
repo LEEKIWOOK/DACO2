@@ -1,0 +1,3125 @@
+
+seqlen = 30, word2vec (k = 5, stride = 2)
+
+define_hyperparam.
+Reset trainable parameters of layer = Conv1d(100, 16, kernel_size=(3,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(16, 32, kernel_size=(3,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(100, 64, kernel_size=(3,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(64, 32, kernel_size=(3,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(32, 16, kernel_size=(3,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(100, 64, kernel_size=(5,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(64, 32, kernel_size=(5,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(32, 16, kernel_size=(5,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(100, 64, kernel_size=(7,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(64, 32, kernel_size=(7,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(32, 16, kernel_size=(7,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Linear(in_features=96, out_features=32, bias=True)
+Reset trainable parameters of layer = BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Linear(in_features=32, out_features=1, bias=True)
+Reset trainable parameters of layer = Embedding(4, 100, max_norm=True)
+----------------------------------------------------------------------
+FOLD : 0
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.30055946111679077
+Training Spearman correlation = 0.18595335405320368
+Validation Spearman correlation = 0.4611227180325225
+Validation loss decreased (inf --> 0.022689).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.024877600371837616
+Training Spearman correlation = 0.40635051423451923
+Validation Spearman correlation = 0.5526058617509575
+Validation loss decreased (0.022689 --> 0.021174).  Saving model ...
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.01940954476594925
+Training Spearman correlation = 0.5143006516788484
+Validation Spearman correlation = 0.6011828157780309
+Validation loss decreased (0.021174 --> 0.019659).  Saving model ...
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.018553633242845535
+Training Spearman correlation = 0.5943393629290562
+Validation Spearman correlation = 0.6501155225000185
+Validation loss decreased (0.019659 --> 0.018737).  Saving model ...
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.014618786983191967
+Training Spearman correlation = 0.6367371109465689
+Validation Spearman correlation = 0.6717143337998276
+Validation loss decreased (0.018737 --> 0.017815).  Saving model ...
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.013859940692782402
+Training Spearman correlation = 0.6403086408591794
+Validation Spearman correlation = 0.67156173774861
+Validation loss decreased (0.017815 --> 0.017435).  Saving model ...
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.01566377282142639
+Training Spearman correlation = 0.6634058225799653
+Validation Spearman correlation = 0.6988164771002938
+Validation loss decreased (0.017435 --> 0.017055).  Saving model ...
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.012776208110153675
+Training Spearman correlation = 0.6504481585810199
+Validation Spearman correlation = 0.6888271042429853
+Validation loss decreased (0.017055 --> 0.016375).  Saving model ...
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.014802273362874985
+Training Spearman correlation = 0.7065474537819911
+Validation Spearman correlation = 0.7126850960732941
+Validation loss decreased (0.016375 --> 0.015696).  Saving model ...
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.011678728275001049
+Training Spearman correlation = 0.7125949704081846
+Validation Spearman correlation = 0.7077098561227033
+Validation loss decreased (0.015696 --> 0.015189).  Saving model ...
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.011502480134367943
+Training Spearman correlation = 0.7186897759511968
+Validation Spearman correlation = 0.7236265084801529
+Validation loss decreased (0.015189 --> 0.014681).  Saving model ...
+Run : epoch 12 / 500...
+Training step : Epoch : [11/500], [0/256, Loss_reg : 0.011413742788136005
+Training Spearman correlation = 0.7471357087386973
+Validation Spearman correlation = 0.7325740951707237
+Validation loss decreased (0.014681 --> 0.014625).  Saving model ...
+Run : epoch 13 / 500...
+Training step : Epoch : [12/500], [0/256, Loss_reg : 0.011190197430551052
+Training Spearman correlation = 0.7585556438236075
+Validation Spearman correlation = 0.7324624285265465
+Validation loss decreased (0.014625 --> 0.014569).  Saving model ...
+Run : epoch 14 / 500...
+Training step : Epoch : [13/500], [0/256, Loss_reg : 0.009515425190329552
+Training Spearman correlation = 0.7553233509769198
+Validation Spearman correlation = 0.7267410334622849
+Validation loss decreased (0.014569 --> 0.014297).  Saving model ...
+Run : epoch 15 / 500...
+Training step : Epoch : [14/500], [0/256, Loss_reg : 0.010516578331589699
+Training Spearman correlation = 0.7670867810074844
+Validation Spearman correlation = 0.7344571610020356
+Validation loss decreased (0.014297 --> 0.014025).  Saving model ...
+Run : epoch 16 / 500...
+Training step : Epoch : [15/500], [0/256, Loss_reg : 0.011581488884985447
+Training Spearman correlation = 0.776089610775754
+Validation Spearman correlation = 0.7345721991873314
+Validation loss decreased (0.014025 --> 0.013843).  Saving model ...
+Run : epoch 17 / 500...
+Training step : Epoch : [16/500], [0/256, Loss_reg : 0.010679197497665882
+Training Spearman correlation = 0.7805672088462938
+Validation Spearman correlation = 0.7357185732648133
+Validation loss decreased (0.013843 --> 0.013662).  Saving model ...
+Run : epoch 18 / 500...
+Training step : Epoch : [17/500], [0/256, Loss_reg : 0.009181431494653225
+Training Spearman correlation = 0.7980558884850361
+Validation Spearman correlation = 0.741973207865767
+Validation loss decreased (0.013662 --> 0.013634).  Saving model ...
+Run : epoch 19 / 500...
+Training step : Epoch : [18/500], [0/256, Loss_reg : 0.008892250247299671
+Training Spearman correlation = 0.7938156992111983
+Validation Spearman correlation = 0.7351704172887746
+Validation loss decreased (0.013634 --> 0.013606).  Saving model ...
+Run : epoch 20 / 500...
+Training step : Epoch : [19/500], [0/256, Loss_reg : 0.007800115272402763
+Training Spearman correlation = 0.7959441056681207
+Validation Spearman correlation = 0.7384612668577968
+Validation loss decreased (0.013606 --> 0.013581).  Saving model ...
+Run : epoch 21 / 500...
+Training step : Epoch : [20/500], [0/256, Loss_reg : 0.007716381456702948
+Training Spearman correlation = 0.810434611015349
+Validation Spearman correlation = 0.7405653289433892
+Validation loss decreased (0.013581 --> 0.013556).  Saving model ...
+Run : epoch 22 / 500...
+Training step : Epoch : [21/500], [0/256, Loss_reg : 0.00880655087530613
+Training Spearman correlation = 0.803106727507883
+Validation Spearman correlation = 0.738985083112403
+Validation loss decreased (0.013556 --> 0.013443).  Saving model ...
+Run : epoch 23 / 500...
+Training step : Epoch : [22/500], [0/256, Loss_reg : 0.007794559933245182
+Training Spearman correlation = 0.8065255908524274
+Validation Spearman correlation = 0.7342397617262442
+Validation loss decreased (0.013443 --> 0.013329).  Saving model ...
+Run : epoch 24 / 500...
+Training step : Epoch : [23/500], [0/256, Loss_reg : 0.009130118414759636
+Training Spearman correlation = 0.8108421305056572
+Validation Spearman correlation = 0.7330090014312727
+Validation loss decreased (0.013329 --> 0.013265).  Saving model ...
+Run : epoch 25 / 500...
+Training step : Epoch : [24/500], [0/256, Loss_reg : 0.007598171941936016
+Training Spearman correlation = 0.7821039925188314
+Validation Spearman correlation = 0.7330544170419854
+Validation loss decreased (0.013265 --> 0.013202).  Saving model ...
+Run : epoch 26 / 500...
+Training step : Epoch : [25/500], [0/256, Loss_reg : 0.010906165465712547
+Training Spearman correlation = 0.7932147155321133
+Validation Spearman correlation = 0.7375801824681751
+Validation loss decreased (0.013202 --> 0.013153).  Saving model ...
+Run : epoch 27 / 500...
+Training step : Epoch : [26/500], [0/256, Loss_reg : 0.009867975488305092
+Training Spearman correlation = 0.7755917053663667
+Validation Spearman correlation = 0.725259859841045
+Validation loss decreased (0.013153 --> 0.013104).  Saving model ...
+Run : epoch 28 / 500...
+Training step : Epoch : [27/500], [0/256, Loss_reg : 0.010760622099041939
+Training Spearman correlation = 0.7726530902703781
+Validation Spearman correlation = 0.7290153909375371
+EarlyStopping counter: 1 out of 10
+Run : epoch 29 / 500...
+Training step : Epoch : [28/500], [0/256, Loss_reg : 0.008339655585587025
+Training Spearman correlation = 0.8129876337289575
+Validation Spearman correlation = 0.731120923375757
+EarlyStopping counter: 2 out of 10
+Run : epoch 30 / 500...
+Training step : Epoch : [29/500], [0/256, Loss_reg : 0.006987545173615217
+Training Spearman correlation = 0.8310522151006919
+Validation Spearman correlation = 0.7325756657177379
+EarlyStopping counter: 3 out of 10
+Run : epoch 31 / 500...
+Training step : Epoch : [30/500], [0/256, Loss_reg : 0.008095433004200459
+Training Spearman correlation = 0.834224217509034
+Validation Spearman correlation = 0.7349618676822041
+Validation loss decreased (0.013104 --> 0.013104).  Saving model ...
+Run : epoch 32 / 500...
+Training step : Epoch : [31/500], [0/256, Loss_reg : 0.00830794870853424
+Training Spearman correlation = 0.8401677494173476
+Validation Spearman correlation = 0.7263778688876014
+Validation loss decreased (0.013104 --> 0.013095).  Saving model ...
+Run : epoch 33 / 500...
+Training step : Epoch : [32/500], [0/256, Loss_reg : 0.007955387234687805
+Training Spearman correlation = 0.8462075979268672
+Validation Spearman correlation = 0.7420742664292334
+Validation loss decreased (0.013095 --> 0.013085).  Saving model ...
+Run : epoch 34 / 500...
+Training step : Epoch : [33/500], [0/256, Loss_reg : 0.006910401396453381
+Training Spearman correlation = 0.8427464573359726
+Validation Spearman correlation = 0.7425098039144197
+Validation loss decreased (0.013085 --> 0.013025).  Saving model ...
+Run : epoch 35 / 500...
+Training step : Epoch : [34/500], [0/256, Loss_reg : 0.007383941672742367
+Training Spearman correlation = 0.8411433916688238
+Validation Spearman correlation = 0.7444576078439541
+Validation loss decreased (0.013025 --> 0.012965).  Saving model ...
+Run : epoch 36 / 500...
+Training step : Epoch : [35/500], [0/256, Loss_reg : 0.00652815168723464
+Training Spearman correlation = 0.8543623672051713
+Validation Spearman correlation = 0.7410759721409804
+Validation loss decreased (0.012965 --> 0.012963).  Saving model ...
+Run : epoch 37 / 500...
+Training step : Epoch : [36/500], [0/256, Loss_reg : 0.007203784305602312
+Training Spearman correlation = 0.8629007397246105
+Validation Spearman correlation = 0.7429012884325547
+Validation loss decreased (0.012963 --> 0.012962).  Saving model ...
+Run : epoch 38 / 500...
+Training step : Epoch : [37/500], [0/256, Loss_reg : 0.006265453994274139
+Training Spearman correlation = 0.8710052867119649
+Validation Spearman correlation = 0.7457485323633871
+Validation loss decreased (0.012962 --> 0.012941).  Saving model ...
+Run : epoch 39 / 500...
+Training step : Epoch : [38/500], [0/256, Loss_reg : 0.0056564719416201115
+Training Spearman correlation = 0.8747472424031366
+Validation Spearman correlation = 0.7406211797994956
+Validation loss decreased (0.012941 --> 0.012920).  Saving model ...
+Run : epoch 40 / 500...
+Training step : Epoch : [39/500], [0/256, Loss_reg : 0.0053406404331326485
+Training Spearman correlation = 0.8803479604622156
+Validation Spearman correlation = 0.7408865872157604
+EarlyStopping counter: 1 out of 10
+Run : epoch 41 / 500...
+Training step : Epoch : [40/500], [0/256, Loss_reg : 0.006093647330999374
+Training Spearman correlation = 0.8717357849388689
+Validation Spearman correlation = 0.7343973023704542
+Validation loss decreased (0.012920 --> 0.012920).  Saving model ...
+Run : epoch 42 / 500...
+Training step : Epoch : [41/500], [0/256, Loss_reg : 0.007562522776424885
+Training Spearman correlation = 0.8720754181062843
+Validation Spearman correlation = 0.7389989500155469
+Validation loss decreased (0.012920 --> 0.012916).  Saving model ...
+Run : epoch 43 / 500...
+Training step : Epoch : [42/500], [0/256, Loss_reg : 0.005571569316089153
+Training Spearman correlation = 0.8812594603774906
+Validation Spearman correlation = 0.7333196866909683
+EarlyStopping counter: 1 out of 10
+Run : epoch 44 / 500...
+Training step : Epoch : [43/500], [0/256, Loss_reg : 0.004825877025723457
+Training Spearman correlation = 0.882900576845902
+Validation Spearman correlation = 0.7311583760375725
+EarlyStopping counter: 2 out of 10
+Run : epoch 45 / 500...
+Training step : Epoch : [44/500], [0/256, Loss_reg : 0.005658132955431938
+Training Spearman correlation = 0.8851234963349658
+Validation Spearman correlation = 0.7363965961954061
+EarlyStopping counter: 3 out of 10
+Run : epoch 46 / 500...
+Training step : Epoch : [45/500], [0/256, Loss_reg : 0.005385652184486389
+Training Spearman correlation = 0.8677800635940949
+Validation Spearman correlation = 0.7375879700768954
+Validation loss decreased (0.012916 --> 0.012916).  Saving model ...
+Run : epoch 47 / 500...
+Training step : Epoch : [46/500], [0/256, Loss_reg : 0.005522102117538452
+Training Spearman correlation = 0.8853573037542481
+Validation Spearman correlation = 0.7347284047413362
+Validation loss decreased (0.012916 --> 0.012912).  Saving model ...
+Run : epoch 48 / 500...
+Training step : Epoch : [47/500], [0/256, Loss_reg : 0.006061570718884468
+Training Spearman correlation = 0.8914072135045694
+Validation Spearman correlation = 0.7339056635431945
+EarlyStopping counter: 1 out of 10
+Run : epoch 49 / 500...
+Training step : Epoch : [48/500], [0/256, Loss_reg : 0.0049188099801540375
+Training Spearman correlation = 0.8918404236292402
+Validation Spearman correlation = 0.7301772926401258
+EarlyStopping counter: 2 out of 10
+Run : epoch 50 / 500...
+Training step : Epoch : [49/500], [0/256, Loss_reg : 0.0055170441046357155
+Training Spearman correlation = 0.8885988909507103
+Validation Spearman correlation = 0.7333471123995169
+EarlyStopping counter: 3 out of 10
+Run : epoch 51 / 500...
+Training step : Epoch : [50/500], [0/256, Loss_reg : 0.005922037176787853
+Training Spearman correlation = 0.8954547766502055
+Validation Spearman correlation = 0.7354191348250448
+EarlyStopping counter: 4 out of 10
+Run : epoch 52 / 500...
+Training step : Epoch : [51/500], [0/256, Loss_reg : 0.0049788071773946285
+Training Spearman correlation = 0.9040165565334135
+Validation Spearman correlation = 0.7370876669400301
+EarlyStopping counter: 5 out of 10
+Run : epoch 53 / 500...
+Training step : Epoch : [52/500], [0/256, Loss_reg : 0.004049165640026331
+Training Spearman correlation = 0.8799765226367108
+Validation Spearman correlation = 0.7214509376606445
+EarlyStopping counter: 6 out of 10
+Run : epoch 54 / 500...
+Training step : Epoch : [53/500], [0/256, Loss_reg : 0.0067300945520401
+Training Spearman correlation = 0.8811182696613532
+Validation Spearman correlation = 0.7266651387190832
+EarlyStopping counter: 7 out of 10
+Run : epoch 55 / 500...
+Training step : Epoch : [54/500], [0/256, Loss_reg : 0.006760359741747379
+Training Spearman correlation = 0.8616255286161395
+Validation Spearman correlation = 0.7195924945999082
+Validation loss decreased (0.012912 --> 0.012912).  Saving model ...
+Run : epoch 56 / 500...
+Training step : Epoch : [55/500], [0/256, Loss_reg : 0.007117845118045807
+Training Spearman correlation = 0.8290290054148792
+Validation Spearman correlation = 0.7211048687532223
+EarlyStopping counter: 1 out of 10
+Run : epoch 57 / 500...
+Training step : Epoch : [56/500], [0/256, Loss_reg : 0.006263739429414272
+Training Spearman correlation = 0.8496046173985083
+Validation Spearman correlation = 0.719027212898292
+EarlyStopping counter: 2 out of 10
+Run : epoch 58 / 500...
+Training step : Epoch : [57/500], [0/256, Loss_reg : 0.007375693414360285
+Training Spearman correlation = 0.8470200684651454
+Validation Spearman correlation = 0.7180163893019597
+EarlyStopping counter: 3 out of 10
+Run : epoch 59 / 500...
+Training step : Epoch : [58/500], [0/256, Loss_reg : 0.005870456341654062
+Training Spearman correlation = 0.8584906107574096
+Validation Spearman correlation = 0.7222280778884578
+EarlyStopping counter: 4 out of 10
+Run : epoch 60 / 500...
+Training step : Epoch : [59/500], [0/256, Loss_reg : 0.006623624823987484
+Training Spearman correlation = 0.8653228377886739
+Validation Spearman correlation = 0.7202657633068434
+EarlyStopping counter: 5 out of 10
+Run : epoch 61 / 500...
+Training step : Epoch : [60/500], [0/256, Loss_reg : 0.00608882587403059
+Training Spearman correlation = 0.8847305910438116
+Validation Spearman correlation = 0.7210486371584459
+EarlyStopping counter: 6 out of 10
+Run : epoch 62 / 500...
+Training step : Epoch : [61/500], [0/256, Loss_reg : 0.006680828519165516
+Training Spearman correlation = 0.8718612569268467
+Validation Spearman correlation = 0.7253316866921392
+EarlyStopping counter: 7 out of 10
+Run : epoch 63 / 500...
+Training step : Epoch : [62/500], [0/256, Loss_reg : 0.005101247224956751
+Training Spearman correlation = 0.8882333771807768
+Validation Spearman correlation = 0.7278973878123399
+EarlyStopping counter: 8 out of 10
+Run : epoch 64 / 500...
+Training step : Epoch : [63/500], [0/256, Loss_reg : 0.0058885919861495495
+Training Spearman correlation = 0.8813529435459567
+Validation Spearman correlation = 0.7131670836762377
+EarlyStopping counter: 9 out of 10
+Run : epoch 65 / 500...
+Training step : Epoch : [64/500], [0/256, Loss_reg : 0.005020306445658207
+Training Spearman correlation = 0.8714786278970681
+Validation Spearman correlation = 0.7176015670062608
+EarlyStopping counter: 10 out of 10
+Early stopping
+----------------------------------------------------------------------
+FOLD : 1
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.006931456737220287
+Training Spearman correlation = 0.854367486762558
+Validation Spearman correlation = 0.9481790976841714
+Validation loss decreased (inf --> 0.003949).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.006553887389600277
+Training Spearman correlation = 0.8486764139523223
+Validation Spearman correlation = 0.9313039181687588
+EarlyStopping counter: 1 out of 10
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.006125673186033964
+Training Spearman correlation = 0.8619269607276818
+Validation Spearman correlation = 0.9230516604185439
+EarlyStopping counter: 2 out of 10
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.007070709019899368
+Training Spearman correlation = 0.8378302006897439
+Validation Spearman correlation = 0.9054134207170749
+EarlyStopping counter: 3 out of 10
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.007613846100866795
+Training Spearman correlation = 0.8584429516998815
+Validation Spearman correlation = 0.907554308616775
+EarlyStopping counter: 4 out of 10
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.00642605172470212
+Training Spearman correlation = 0.8104724170265442
+Validation Spearman correlation = 0.8737598390201641
+EarlyStopping counter: 5 out of 10
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.008270170539617538
+Training Spearman correlation = 0.8368189287026703
+Validation Spearman correlation = 0.8857579630110772
+EarlyStopping counter: 6 out of 10
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.006411646492779255
+Training Spearman correlation = 0.8572956885189035
+Validation Spearman correlation = 0.886976156065009
+EarlyStopping counter: 7 out of 10
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.0075484830886125565
+Training Spearman correlation = 0.8661348084698732
+Validation Spearman correlation = 0.8827651124721196
+EarlyStopping counter: 8 out of 10
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.005754772573709488
+Training Spearman correlation = 0.8768266985114962
+Validation Spearman correlation = 0.8841832082979478
+EarlyStopping counter: 9 out of 10
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.006102655082941055
+Training Spearman correlation = 0.8678592977624963
+Validation Spearman correlation = 0.8745346570140456
+EarlyStopping counter: 10 out of 10
+Early stopping
+----------------------------------------------------------------------
+FOLD : 2
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.006598798558115959
+Training Spearman correlation = 0.8673260380326361
+Validation Spearman correlation = 0.9343092121892188
+Validation loss decreased (inf --> 0.004143).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.0062384228222072124
+Training Spearman correlation = 0.8722860494878022
+Validation Spearman correlation = 0.9309252461865067
+EarlyStopping counter: 1 out of 10
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.004976334981620312
+Training Spearman correlation = 0.8867967580893708
+Validation Spearman correlation = 0.9318191603643683
+Validation loss decreased (0.004143 --> 0.004143).  Saving model ...
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.006554772146046162
+Training Spearman correlation = 0.8907833537155816
+Validation Spearman correlation = 0.9286733275036704
+EarlyStopping counter: 1 out of 10
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.004710673354566097
+Training Spearman correlation = 0.8972400315177579
+Validation Spearman correlation = 0.9294772671324814
+Validation loss decreased (0.004143 --> 0.004143).  Saving model ...
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.004849236458539963
+Training Spearman correlation = 0.8888869546070757
+Validation Spearman correlation = 0.9225122200630542
+EarlyStopping counter: 1 out of 10
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.005433216225355864
+Training Spearman correlation = 0.891955018269353
+Validation Spearman correlation = 0.9171002208793473
+EarlyStopping counter: 2 out of 10
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.004633663687855005
+Training Spearman correlation = 0.8980883192822516
+Validation Spearman correlation = 0.9184005735407544
+EarlyStopping counter: 3 out of 10
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.004666917026042938
+Training Spearman correlation = 0.8821253149650323
+Validation Spearman correlation = 0.9047680516869255
+EarlyStopping counter: 4 out of 10
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.0054647489450871944
+Training Spearman correlation = 0.9013444549254848
+Validation Spearman correlation = 0.9121238868784709
+EarlyStopping counter: 5 out of 10
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.004859898239374161
+Training Spearman correlation = 0.9018902774039638
+Validation Spearman correlation = 0.9105968745011815
+EarlyStopping counter: 6 out of 10
+Run : epoch 12 / 500...
+Training step : Epoch : [11/500], [0/256, Loss_reg : 0.0041727633215487
+Training Spearman correlation = 0.8942357395617154
+Validation Spearman correlation = 0.9068843823313402
+EarlyStopping counter: 7 out of 10
+Run : epoch 13 / 500...
+Training step : Epoch : [12/500], [0/256, Loss_reg : 0.005260774400085211
+Training Spearman correlation = 0.9070920993364001
+Validation Spearman correlation = 0.9076777264049596
+EarlyStopping counter: 8 out of 10
+Run : epoch 14 / 500...
+Training step : Epoch : [13/500], [0/256, Loss_reg : 0.005319090560078621
+Training Spearman correlation = 0.9096691291306904
+Validation Spearman correlation = 0.9072046235937852
+EarlyStopping counter: 9 out of 10
+Run : epoch 15 / 500...
+Training step : Epoch : [14/500], [0/256, Loss_reg : 0.00491001270711422
+Training Spearman correlation = 0.9110361179715009
+Validation Spearman correlation = 0.9048619087680204
+EarlyStopping counter: 10 out of 10
+Early stopping
+----------------------------------------------------------------------
+FOLD : 3
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.004463330842554569
+Training Spearman correlation = 0.9040262912574905
+Validation Spearman correlation = 0.9658469047404695
+Validation loss decreased (inf --> 0.002480).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.0043060327880084515
+Training Spearman correlation = 0.912268235001617
+Validation Spearman correlation = 0.9635194599572603
+EarlyStopping counter: 1 out of 10
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.003544850740581751
+Training Spearman correlation = 0.9148192501064727
+Validation Spearman correlation = 0.963013568627995
+EarlyStopping counter: 2 out of 10
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.003032928565517068
+Training Spearman correlation = 0.910734007278283
+Validation Spearman correlation = 0.9544515800611679
+EarlyStopping counter: 3 out of 10
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.00480557419359684
+Training Spearman correlation = 0.9113495352521798
+Validation Spearman correlation = 0.9525982449570995
+EarlyStopping counter: 4 out of 10
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.0037950044497847557
+Training Spearman correlation = 0.9152586570273479
+Validation Spearman correlation = 0.9505254090648535
+EarlyStopping counter: 5 out of 10
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.003729416523128748
+Training Spearman correlation = 0.9016699720078398
+Validation Spearman correlation = 0.9392563493145769
+EarlyStopping counter: 6 out of 10
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.005037348717451096
+Training Spearman correlation = 0.913300045996574
+Validation Spearman correlation = 0.9408254868074402
+EarlyStopping counter: 7 out of 10
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.004483054392039776
+Training Spearman correlation = 0.9192738333770292
+Validation Spearman correlation = 0.9414080782437332
+EarlyStopping counter: 8 out of 10
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.0035028678830713034
+Training Spearman correlation = 0.9206719037273883
+Validation Spearman correlation = 0.9388149430736472
+EarlyStopping counter: 9 out of 10
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.004493944812566042
+Training Spearman correlation = 0.9181462084108317
+Validation Spearman correlation = 0.9343026588012127
+EarlyStopping counter: 10 out of 10
+Early stopping
+----------------------------------------------------------------------
+FOLD : 4
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.0040896241553127766
+Training Spearman correlation = 0.9153171763528475
+Validation Spearman correlation = 0.9742847662843022
+Validation loss decreased (inf --> 0.001919).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.0050032539293169975
+Training Spearman correlation = 0.9181577732299891
+Validation Spearman correlation = 0.9721336890634171
+EarlyStopping counter: 1 out of 10
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.003957807086408138
+Training Spearman correlation = 0.924846613825602
+Validation Spearman correlation = 0.9703126549987888
+EarlyStopping counter: 2 out of 10
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.0036875689402222633
+Training Spearman correlation = 0.9266509264446234
+Validation Spearman correlation = 0.9680078106950023
+EarlyStopping counter: 3 out of 10
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.0044805011712014675
+Training Spearman correlation = 0.9289805260369425
+Validation Spearman correlation = 0.9669334294172164
+EarlyStopping counter: 4 out of 10
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.0052987439557909966
+Training Spearman correlation = 0.9140390378254009
+Validation Spearman correlation = 0.9619443515998103
+EarlyStopping counter: 5 out of 10
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.003973181359469891
+Training Spearman correlation = 0.9291167939377585
+Validation Spearman correlation = 0.9631660128724617
+EarlyStopping counter: 6 out of 10
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.0033814457710832357
+Training Spearman correlation = 0.9296368167447386
+Validation Spearman correlation = 0.9589915817630947
+EarlyStopping counter: 7 out of 10
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.0035582236014306545
+Training Spearman correlation = 0.930596163433435
+Validation Spearman correlation = 0.9558184216459911
+EarlyStopping counter: 8 out of 10
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.0038872172590345144
+Training Spearman correlation = 0.9277471650041381
+Validation Spearman correlation = 0.9505764327515946
+EarlyStopping counter: 9 out of 10
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.004038071259856224
+Training Spearman correlation = 0.9310865242799745
+Validation Spearman correlation = 0.9511477383437863
+EarlyStopping counter: 10 out of 10
+Early stopping
+----------------------------------------------------------------------
+FOLD : 5
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.003433640580624342
+Training Spearman correlation = 0.9254730760451837
+Validation Spearman correlation = 0.9794852140933273
+Validation loss decreased (inf --> 0.001625).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.0032150186598300934
+Training Spearman correlation = 0.926810757385592
+Validation Spearman correlation = 0.9762380427326839
+EarlyStopping counter: 1 out of 10
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.0034060555044561625
+Training Spearman correlation = 0.8873454751027672
+Validation Spearman correlation = 0.9486833945678241
+EarlyStopping counter: 2 out of 10
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.004717590287327766
+Training Spearman correlation = 0.9067222154814408
+Validation Spearman correlation = 0.9520831481670162
+EarlyStopping counter: 3 out of 10
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.004492197185754776
+Training Spearman correlation = 0.9143019684903114
+Validation Spearman correlation = 0.9498392166985832
+EarlyStopping counter: 4 out of 10
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.00489072035998106
+Training Spearman correlation = 0.8975696308216317
+Validation Spearman correlation = 0.9381574745232267
+EarlyStopping counter: 5 out of 10
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.0047699869610369205
+Training Spearman correlation = 0.9136714406622691
+Validation Spearman correlation = 0.9409268303536047
+EarlyStopping counter: 6 out of 10
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.004529975354671478
+Training Spearman correlation = 0.9148834618848176
+Validation Spearman correlation = 0.9386367160087965
+EarlyStopping counter: 7 out of 10
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.004195302724838257
+Training Spearman correlation = 0.9183499560094656
+Validation Spearman correlation = 0.937289429252595
+EarlyStopping counter: 8 out of 10
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.0035897535271942616
+Training Spearman correlation = 0.9242501255672054
+Validation Spearman correlation = 0.9371882165517933
+EarlyStopping counter: 9 out of 10
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.004228341393172741
+Training Spearman correlation = 0.9250691068927215
+Validation Spearman correlation = 0.9382563876200514
+EarlyStopping counter: 10 out of 10
+Early stopping
+----------------------------------------------------------------------
+FOLD : 6
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.004115418065339327
+Training Spearman correlation = 0.9234392952455961
+Validation Spearman correlation = 0.9762014769513373
+Validation loss decreased (inf --> 0.001854).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.003123353235423565
+Training Spearman correlation = 0.927022044148145
+Validation Spearman correlation = 0.9757245904650249
+EarlyStopping counter: 1 out of 10
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.0038595942314714193
+Training Spearman correlation = 0.9317604520514193
+Validation Spearman correlation = 0.9736313741570917
+EarlyStopping counter: 2 out of 10
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.0036790017038583755
+Training Spearman correlation = 0.887268790766985
+Validation Spearman correlation = 0.9467819128367507
+EarlyStopping counter: 3 out of 10
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.00469606090337038
+Training Spearman correlation = 0.9037750613420475
+Validation Spearman correlation = 0.9513337413522888
+EarlyStopping counter: 4 out of 10
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.004043501801788807
+Training Spearman correlation = 0.9171575367216325
+Validation Spearman correlation = 0.9527695774288718
+EarlyStopping counter: 5 out of 10
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.004337404854595661
+Training Spearman correlation = 0.9209189610395133
+Validation Spearman correlation = 0.950837160120374
+EarlyStopping counter: 6 out of 10
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.003788246074691415
+Training Spearman correlation = 0.92243791776724
+Validation Spearman correlation = 0.9524824031842005
+EarlyStopping counter: 7 out of 10
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.003254628973081708
+Training Spearman correlation = 0.9225476502844151
+Validation Spearman correlation = 0.9495824981299456
+EarlyStopping counter: 8 out of 10
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.00394582562148571
+Training Spearman correlation = 0.9279847560731246
+Validation Spearman correlation = 0.9507862600608347
+EarlyStopping counter: 9 out of 10
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.003983268514275551
+Training Spearman correlation = 0.9321090344848418
+Validation Spearman correlation = 0.9499704206009731
+EarlyStopping counter: 10 out of 10
+Early stopping
+----------------------------------------------------------------------
+FOLD : 7
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.003418223699554801
+Training Spearman correlation = 0.9282391200368227
+Validation Spearman correlation = 0.9808756328860533
+Validation loss decreased (inf --> 0.001992).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.004040904343128204
+Training Spearman correlation = 0.9290434370941375
+Validation Spearman correlation = 0.9804381258852558
+Validation loss decreased (0.001992 --> 0.001777).  Saving model ...
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.004093576222658157
+Training Spearman correlation = 0.9302513695977437
+Validation Spearman correlation = 0.97639701044987
+EarlyStopping counter: 1 out of 10
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.0034524709917604923
+Training Spearman correlation = 0.9240839430727743
+Validation Spearman correlation = 0.9729144023046249
+EarlyStopping counter: 2 out of 10
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.004105425905436277
+Training Spearman correlation = 0.9207732438840379
+Validation Spearman correlation = 0.9657836547664035
+EarlyStopping counter: 3 out of 10
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.0038781610783189535
+Training Spearman correlation = 0.9235657928612218
+Validation Spearman correlation = 0.965049283077967
+EarlyStopping counter: 4 out of 10
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.003731607459485531
+Training Spearman correlation = 0.9152834236034123
+Validation Spearman correlation = 0.9595077570253702
+EarlyStopping counter: 5 out of 10
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.004463275894522667
+Training Spearman correlation = 0.9199127516886714
+Validation Spearman correlation = 0.9606625543840783
+EarlyStopping counter: 6 out of 10
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.003853699192404747
+Training Spearman correlation = 0.9256450966278431
+Validation Spearman correlation = 0.9577792187619368
+EarlyStopping counter: 7 out of 10
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.004000926855951548
+Training Spearman correlation = 0.9297816299904466
+Validation Spearman correlation = 0.95854504178912
+EarlyStopping counter: 8 out of 10
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.003977663349360228
+Training Spearman correlation = 0.9292091470462365
+Validation Spearman correlation = 0.957530113514616
+EarlyStopping counter: 9 out of 10
+Run : epoch 12 / 500...
+Training step : Epoch : [11/500], [0/256, Loss_reg : 0.0035209895577281713
+Training Spearman correlation = 0.9353711602092483
+Validation Spearman correlation = 0.9569945005258325
+EarlyStopping counter: 10 out of 10
+Early stopping
+----------------------------------------------------------------------
+FOLD : 8
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.003812489565461874
+Training Spearman correlation = 0.9285290696349034
+Validation Spearman correlation = 0.9813205782371208
+Validation loss decreased (inf --> 0.001996).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.00382211827673018
+Training Spearman correlation = 0.932878834868165
+Validation Spearman correlation = 0.9794740926595651
+EarlyStopping counter: 1 out of 10
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.0036621340550482273
+Training Spearman correlation = 0.9366373686046799
+Validation Spearman correlation = 0.9788242239295991
+EarlyStopping counter: 2 out of 10
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.003456085454672575
+Training Spearman correlation = 0.9308740969661168
+Validation Spearman correlation = 0.9741574111946454
+EarlyStopping counter: 3 out of 10
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.004237458109855652
+Training Spearman correlation = 0.931731007363275
+Validation Spearman correlation = 0.9732107807433741
+EarlyStopping counter: 4 out of 10
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.00290147983469069
+Training Spearman correlation = 0.9362837582239003
+Validation Spearman correlation = 0.9726038990190838
+EarlyStopping counter: 5 out of 10
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.003569838358089328
+Training Spearman correlation = 0.9335579840636552
+Validation Spearman correlation = 0.9672928259738731
+EarlyStopping counter: 6 out of 10
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.0033105791080743074
+Training Spearman correlation = 0.9351661905184984
+Validation Spearman correlation = 0.9677150239936414
+EarlyStopping counter: 7 out of 10
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.003220557700842619
+Training Spearman correlation = 0.9293759751871984
+Validation Spearman correlation = 0.9628404562125691
+EarlyStopping counter: 8 out of 10
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.0033419441897422075
+Training Spearman correlation = 0.9262772957734836
+Validation Spearman correlation = 0.9596380937473573
+EarlyStopping counter: 9 out of 10
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.0033870525658130646
+Training Spearman correlation = 0.9338626890761562
+Validation Spearman correlation = 0.9581493068524316
+EarlyStopping counter: 10 out of 10
+Early stopping
+----------------------------------------------------------------------
+FOLD : 9
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.003874311689287424
+Training Spearman correlation = 0.9262549227601918
+Validation Spearman correlation = 0.9819912777608396
+Validation loss decreased (inf --> 0.001518).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.003454656805843115
+Training Spearman correlation = 0.9284632373858828
+Validation Spearman correlation = 0.9772553127882344
+EarlyStopping counter: 1 out of 10
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.0035350630059838295
+Training Spearman correlation = 0.9098230335171004
+Validation Spearman correlation = 0.9687003370598802
+EarlyStopping counter: 2 out of 10
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.004715394228696823
+Training Spearman correlation = 0.9251854592710672
+Validation Spearman correlation = 0.9718458628305455
+EarlyStopping counter: 3 out of 10
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.002840113127604127
+Training Spearman correlation = 0.9326103775439051
+Validation Spearman correlation = 0.9723619731161299
+EarlyStopping counter: 4 out of 10
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.0033963031601160765
+Training Spearman correlation = 0.9175057837678793
+Validation Spearman correlation = 0.9643371387674549
+EarlyStopping counter: 5 out of 10
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.004037558101117611
+Training Spearman correlation = 0.9146389927784443
+Validation Spearman correlation = 0.9603055101156511
+EarlyStopping counter: 6 out of 10
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.004390573129057884
+Training Spearman correlation = 0.9206170503741985
+Validation Spearman correlation = 0.9604365096720913
+EarlyStopping counter: 7 out of 10
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.0036373629700392485
+Training Spearman correlation = 0.924516408303112
+Validation Spearman correlation = 0.9613998049098621
+EarlyStopping counter: 8 out of 10
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.003203737083822489
+Training Spearman correlation = 0.9297419530224622
+Validation Spearman correlation = 0.9615781006780824
+EarlyStopping counter: 9 out of 10
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.0034481394104659557
+Training Spearman correlation = 0.9293142547851165
+Validation Spearman correlation = 0.958315419462256
+EarlyStopping counter: 10 out of 10
+Early stopping
+
+++++++++++++++++++++++++++++++++++
+
+K-FOLD CROSS VALIDATION RESULTS FOR 10 FOLDS
+
+++++++++++++++++++++++++++++++++++
+
+Fold 0: 0.7176015670062608
+Fold 1: 0.8745346570140456
+Fold 2: 0.9048619087680204
+Fold 3: 0.9343026588012127
+Fold 4: 0.9511477383437863
+Fold 5: 0.9382563876200514
+Fold 6: 0.9499704206009731
+Fold 7: 0.9569945005258325
+Fold 8: 0.9581493068524316
+Fold 9: 0.958315419462256
+Average: 0.914413456499487
+
+++++++++++++++++++++++++++++++++++
+
+define_hyperparam.
+Reset trainable parameters of layer = Conv1d(100, 16, kernel_size=(3,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(16, 32, kernel_size=(3,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(100, 64, kernel_size=(3,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(64, 32, kernel_size=(3,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(32, 16, kernel_size=(3,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(100, 64, kernel_size=(5,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(64, 32, kernel_size=(5,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(32, 16, kernel_size=(5,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(100, 64, kernel_size=(7,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(64, 32, kernel_size=(7,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(32, 16, kernel_size=(7,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Linear(in_features=96, out_features=32, bias=True)
+Reset trainable parameters of layer = BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Linear(in_features=32, out_features=1, bias=True)
+Reset trainable parameters of layer = Embedding(4, 100, max_norm=True)
+----------------------------------------------------------------------
+FOLD : 0
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.2536647319793701
+Training Spearman correlation = 0.012688492798707759
+Validation Spearman correlation = 0.024991331413736658
+Validation loss decreased (inf --> 0.026858).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.023506559431552887
+Training Spearman correlation = 0.03333948458475877
+Validation Spearman correlation = 0.07658987717092021
+Validation loss decreased (0.026858 --> 0.023712).  Saving model ...
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.020297817885875702
+Training Spearman correlation = 0.05549255472693839
+Validation Spearman correlation = 0.07804222652386848
+Validation loss decreased (0.023712 --> 0.020566).  Saving model ...
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.017522305250167847
+Training Spearman correlation = 0.1049270243879353
+Validation Spearman correlation = 0.1001341397397624
+Validation loss decreased (0.020566 --> 0.020504).  Saving model ...
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.024608422070741653
+Training Spearman correlation = 0.1270406558759519
+Validation Spearman correlation = 0.08548584031468234
+Validation loss decreased (0.020504 --> 0.020446).  Saving model ...
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.01929934322834015
+Training Spearman correlation = 0.15091286532474024
+Validation Spearman correlation = 0.11210562503610305
+Validation loss decreased (0.020446 --> 0.020444).  Saving model ...
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.022908614948391914
+Training Spearman correlation = 0.17130060966477262
+Validation Spearman correlation = 0.11903464837277607
+EarlyStopping counter: 1 out of 10
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.02166956104338169
+Training Spearman correlation = 0.18383427838657587
+Validation Spearman correlation = 0.10506995521392654
+EarlyStopping counter: 2 out of 10
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.018169257789850235
+Training Spearman correlation = 0.22238060222308445
+Validation Spearman correlation = 0.1038724392395333
+EarlyStopping counter: 3 out of 10
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.01677064225077629
+Training Spearman correlation = 0.23045933299062854
+Validation Spearman correlation = 0.10246975789492684
+EarlyStopping counter: 4 out of 10
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.02019967883825302
+Training Spearman correlation = 0.27728289765848096
+Validation Spearman correlation = 0.11664401009249654
+EarlyStopping counter: 5 out of 10
+Run : epoch 12 / 500...
+Training step : Epoch : [11/500], [0/256, Loss_reg : 0.02187197655439377
+Training Spearman correlation = 0.29051599486551993
+Validation Spearman correlation = 0.11324788397003457
+EarlyStopping counter: 6 out of 10
+Run : epoch 13 / 500...
+Training step : Epoch : [12/500], [0/256, Loss_reg : 0.01695283129811287
+Training Spearman correlation = 0.3259042915487787
+Validation Spearman correlation = 0.09736158426462391
+EarlyStopping counter: 7 out of 10
+Run : epoch 14 / 500...
+Training step : Epoch : [13/500], [0/256, Loss_reg : 0.016949573531746864
+Training Spearman correlation = 0.3489392669697259
+Validation Spearman correlation = 0.10574859345160607
+EarlyStopping counter: 8 out of 10
+Run : epoch 15 / 500...
+Training step : Epoch : [14/500], [0/256, Loss_reg : 0.01681397669017315
+Training Spearman correlation = 0.37458906230537997
+Validation Spearman correlation = 0.0984744107937401
+EarlyStopping counter: 9 out of 10
+Run : epoch 16 / 500...
+Training step : Epoch : [15/500], [0/256, Loss_reg : 0.014765161089599133
+Training Spearman correlation = 0.396983557898154
+Validation Spearman correlation = 0.08756774489074845
+EarlyStopping counter: 10 out of 10
+Early stopping
+----------------------------------------------------------------------
+FOLD : 1
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.01689654216170311
+Training Spearman correlation = 0.3871759348265722
+Validation Spearman correlation = 0.55261356854406
+Validation loss decreased (inf --> 0.013248).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.014100883156061172
+Training Spearman correlation = 0.42386478607083505
+Validation Spearman correlation = 0.530262445256904
+Validation loss decreased (0.013248 --> 0.013212).  Saving model ...
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.014863267540931702
+Training Spearman correlation = 0.4371121142357386
+Validation Spearman correlation = 0.4856223979760798
+EarlyStopping counter: 1 out of 10
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.013016851618885994
+Training Spearman correlation = 0.45472675760791165
+Validation Spearman correlation = 0.4593973167848228
+EarlyStopping counter: 2 out of 10
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.012815147638320923
+Training Spearman correlation = 0.48323914106186755
+Validation Spearman correlation = 0.43920694751043476
+EarlyStopping counter: 3 out of 10
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.012656494975090027
+Training Spearman correlation = 0.4881572604981571
+Validation Spearman correlation = 0.421993375113055
+EarlyStopping counter: 4 out of 10
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.011212749406695366
+Training Spearman correlation = 0.5111679978021043
+Validation Spearman correlation = 0.40841202786160674
+EarlyStopping counter: 5 out of 10
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.01230553537607193
+Training Spearman correlation = 0.5315833507937613
+Validation Spearman correlation = 0.3949119807232491
+EarlyStopping counter: 6 out of 10
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.011061262339353561
+Training Spearman correlation = 0.5505174630509506
+Validation Spearman correlation = 0.3492841611965585
+EarlyStopping counter: 7 out of 10
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.010712053626775742
+Training Spearman correlation = 0.5593955855001873
+Validation Spearman correlation = 0.35128555053303856
+EarlyStopping counter: 8 out of 10
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.01177639327943325
+Training Spearman correlation = 0.5631453379455833
+Validation Spearman correlation = 0.3473689872943218
+EarlyStopping counter: 9 out of 10
+Run : epoch 12 / 500...
+Training step : Epoch : [11/500], [0/256, Loss_reg : 0.01072615385055542
+Training Spearman correlation = 0.5679584742888628
+Validation Spearman correlation = 0.31636831090455475
+EarlyStopping counter: 10 out of 10
+Early stopping
+----------------------------------------------------------------------
+FOLD : 2
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.014000678434967995
+Training Spearman correlation = 0.5483030802185973
+Validation Spearman correlation = 0.7272964812506352
+Validation loss decreased (inf --> 0.007924).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.011910911649465561
+Training Spearman correlation = 0.5730841815784016
+Validation Spearman correlation = 0.6907256550134225
+EarlyStopping counter: 1 out of 10
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.012967558577656746
+Training Spearman correlation = 0.5924983128381521
+Validation Spearman correlation = 0.6896410104324778
+EarlyStopping counter: 2 out of 10
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.010272668674588203
+Training Spearman correlation = 0.6116581736333487
+Validation Spearman correlation = 0.6363885233936366
+EarlyStopping counter: 3 out of 10
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.010844958946108818
+Training Spearman correlation = 0.6301969500890295
+Validation Spearman correlation = 0.619417932562434
+EarlyStopping counter: 4 out of 10
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.009694421663880348
+Training Spearman correlation = 0.638709063819092
+Validation Spearman correlation = 0.6029749794019464
+EarlyStopping counter: 5 out of 10
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.008315684273838997
+Training Spearman correlation = 0.6554646149126043
+Validation Spearman correlation = 0.5866480475927645
+EarlyStopping counter: 6 out of 10
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.009631140157580376
+Training Spearman correlation = 0.6619538075405921
+Validation Spearman correlation = 0.5662044146478621
+EarlyStopping counter: 7 out of 10
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.007362028118222952
+Training Spearman correlation = 0.6745708426117472
+Validation Spearman correlation = 0.5532418844766208
+EarlyStopping counter: 8 out of 10
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.0072239297442138195
+Training Spearman correlation = 0.6906270353534109
+Validation Spearman correlation = 0.5165948683011548
+EarlyStopping counter: 9 out of 10
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.006658459082245827
+Training Spearman correlation = 0.6968072616982256
+Validation Spearman correlation = 0.5275654401853781
+EarlyStopping counter: 10 out of 10
+Early stopping
+----------------------------------------------------------------------
+FOLD : 3
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.009421955794095993
+Training Spearman correlation = 0.6722977842817404
+Validation Spearman correlation = 0.8120403727412577
+Validation loss decreased (inf --> 0.006269).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.0074265701696276665
+Training Spearman correlation = 0.6822708285572362
+Validation Spearman correlation = 0.7729896107358617
+EarlyStopping counter: 1 out of 10
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.00840701162815094
+Training Spearman correlation = 0.685681555240214
+Validation Spearman correlation = 0.7665237945863735
+EarlyStopping counter: 2 out of 10
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.006847519427537918
+Training Spearman correlation = 0.709427943969109
+Validation Spearman correlation = 0.7363661042791183
+EarlyStopping counter: 3 out of 10
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.009230841882526875
+Training Spearman correlation = 0.7195259765157314
+Validation Spearman correlation = 0.7129677048988791
+EarlyStopping counter: 4 out of 10
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.008882330730557442
+Training Spearman correlation = 0.7240204042589378
+Validation Spearman correlation = 0.6880098375541114
+EarlyStopping counter: 5 out of 10
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.008465594612061977
+Training Spearman correlation = 0.7371041800240168
+Validation Spearman correlation = 0.685210083037741
+EarlyStopping counter: 6 out of 10
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.007151391822844744
+Training Spearman correlation = 0.7421886167941648
+Validation Spearman correlation = 0.666818651562659
+EarlyStopping counter: 7 out of 10
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.006735782139003277
+Training Spearman correlation = 0.7543932617602589
+Validation Spearman correlation = 0.6439717686920369
+EarlyStopping counter: 8 out of 10
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.00884297676384449
+Training Spearman correlation = 0.7580223059389218
+Validation Spearman correlation = 0.6526861497391956
+EarlyStopping counter: 9 out of 10
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.006293413694947958
+Training Spearman correlation = 0.759958453751206
+Validation Spearman correlation = 0.6330098946696093
+EarlyStopping counter: 10 out of 10
+Early stopping
+----------------------------------------------------------------------
+FOLD : 4
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.00781949982047081
+Training Spearman correlation = 0.7358949243974723
+Validation Spearman correlation = 0.8774362762489822
+Validation loss decreased (inf --> 0.004569).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.007243601605296135
+Training Spearman correlation = 0.7492164694999819
+Validation Spearman correlation = 0.8658729624412379
+Validation loss decreased (0.004569 --> 0.004461).  Saving model ...
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.007799533195793629
+Training Spearman correlation = 0.7626690130545745
+Validation Spearman correlation = 0.855517827834406
+EarlyStopping counter: 1 out of 10
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.006081361323595047
+Training Spearman correlation = 0.76175247051259
+Validation Spearman correlation = 0.8316720035530167
+EarlyStopping counter: 2 out of 10
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.006723568309098482
+Training Spearman correlation = 0.7716184379850656
+Validation Spearman correlation = 0.8325042679272089
+EarlyStopping counter: 3 out of 10
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.00882784090936184
+Training Spearman correlation = 0.7777072812594944
+Validation Spearman correlation = 0.8092070131375563
+EarlyStopping counter: 4 out of 10
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.007192743010818958
+Training Spearman correlation = 0.7765967075291021
+Validation Spearman correlation = 0.7989133222321302
+EarlyStopping counter: 5 out of 10
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.006443323101848364
+Training Spearman correlation = 0.7798718948167638
+Validation Spearman correlation = 0.7842467455143965
+EarlyStopping counter: 6 out of 10
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.005151685792952776
+Training Spearman correlation = 0.794911645415901
+Validation Spearman correlation = 0.7693835481610779
+EarlyStopping counter: 7 out of 10
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.006129326298832893
+Training Spearman correlation = 0.7919052001669108
+Validation Spearman correlation = 0.7629047500875739
+EarlyStopping counter: 8 out of 10
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.006601913832128048
+Training Spearman correlation = 0.7953326296284109
+Validation Spearman correlation = 0.7560773240754709
+EarlyStopping counter: 9 out of 10
+Run : epoch 12 / 500...
+Training step : Epoch : [11/500], [0/256, Loss_reg : 0.0065057361498475075
+Training Spearman correlation = 0.7998860778283875
+Validation Spearman correlation = 0.735851006085619
+EarlyStopping counter: 10 out of 10
+Early stopping
+----------------------------------------------------------------------
+FOLD : 5
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.006336154416203499
+Training Spearman correlation = 0.7717596021989425
+Validation Spearman correlation = 0.9088323140954025
+Validation loss decreased (inf --> 0.003666).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.006576907820999622
+Training Spearman correlation = 0.7914890759172712
+Validation Spearman correlation = 0.9034832331302711
+Validation loss decreased (0.003666 --> 0.003617).  Saving model ...
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.007325716782361269
+Training Spearman correlation = 0.7992925414972339
+Validation Spearman correlation = 0.8941001000144068
+EarlyStopping counter: 1 out of 10
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.006286816671490669
+Training Spearman correlation = 0.797918618552743
+Validation Spearman correlation = 0.8781811952546492
+EarlyStopping counter: 2 out of 10
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.006263504736125469
+Training Spearman correlation = 0.8052789060007185
+Validation Spearman correlation = 0.8637295720220108
+EarlyStopping counter: 3 out of 10
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.005664861761033535
+Training Spearman correlation = 0.8003668028642875
+Validation Spearman correlation = 0.8595802979674655
+EarlyStopping counter: 4 out of 10
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.006331141106784344
+Training Spearman correlation = 0.8050115067868553
+Validation Spearman correlation = 0.8527465394596645
+EarlyStopping counter: 5 out of 10
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.006077297963202
+Training Spearman correlation = 0.8131576315090634
+Validation Spearman correlation = 0.8310445907847929
+EarlyStopping counter: 6 out of 10
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.005842960439622402
+Training Spearman correlation = 0.8195266930445338
+Validation Spearman correlation = 0.8285762314542401
+EarlyStopping counter: 7 out of 10
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.006251662503927946
+Training Spearman correlation = 0.8220514299603539
+Validation Spearman correlation = 0.8127896598223217
+EarlyStopping counter: 8 out of 10
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.0050812349654734135
+Training Spearman correlation = 0.8236906118532158
+Validation Spearman correlation = 0.8012648548966627
+EarlyStopping counter: 9 out of 10
+Run : epoch 12 / 500...
+Training step : Epoch : [11/500], [0/256, Loss_reg : 0.005117084830999374
+Training Spearman correlation = 0.8308905260957188
+Validation Spearman correlation = 0.7927958946598012
+EarlyStopping counter: 10 out of 10
+Early stopping
+----------------------------------------------------------------------
+FOLD : 6
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.005802378058433533
+Training Spearman correlation = 0.8083109650566571
+Validation Spearman correlation = 0.9324709706036891
+Validation loss decreased (inf --> 0.003182).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.005676118191331625
+Training Spearman correlation = 0.8210950216545485
+Validation Spearman correlation = 0.9170798421310692
+Validation loss decreased (0.003182 --> 0.003070).  Saving model ...
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.006637172773480415
+Training Spearman correlation = 0.8190742679343808
+Validation Spearman correlation = 0.9033195962860383
+EarlyStopping counter: 1 out of 10
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.005493406672030687
+Training Spearman correlation = 0.8243637625980903
+Validation Spearman correlation = 0.8974367549733929
+EarlyStopping counter: 2 out of 10
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.004896262660622597
+Training Spearman correlation = 0.8282553732942971
+Validation Spearman correlation = 0.8841495660336405
+EarlyStopping counter: 3 out of 10
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.005495085380971432
+Training Spearman correlation = 0.8293485508373193
+Validation Spearman correlation = 0.8834573767781796
+EarlyStopping counter: 4 out of 10
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.005285388324409723
+Training Spearman correlation = 0.8389500096660575
+Validation Spearman correlation = 0.8712390671860345
+EarlyStopping counter: 5 out of 10
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.004890311509370804
+Training Spearman correlation = 0.8396175365138707
+Validation Spearman correlation = 0.8599870719263301
+EarlyStopping counter: 6 out of 10
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.006054717116057873
+Training Spearman correlation = 0.8378586584788954
+Validation Spearman correlation = 0.859229063856663
+EarlyStopping counter: 7 out of 10
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.004905370995402336
+Training Spearman correlation = 0.8409311177785318
+Validation Spearman correlation = 0.8454977759166082
+EarlyStopping counter: 8 out of 10
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.005683784373104572
+Training Spearman correlation = 0.8389205476430371
+Validation Spearman correlation = 0.8427664691671753
+EarlyStopping counter: 9 out of 10
+Run : epoch 12 / 500...
+Training step : Epoch : [11/500], [0/256, Loss_reg : 0.004779891576617956
+Training Spearman correlation = 0.8471768649700037
+Validation Spearman correlation = 0.8288562323705394
+EarlyStopping counter: 10 out of 10
+Early stopping
+----------------------------------------------------------------------
+FOLD : 7
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.00520190317183733
+Training Spearman correlation = 0.8268658887721307
+Validation Spearman correlation = 0.9388037236007234
+Validation loss decreased (inf --> 0.002790).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.005206033121794462
+Training Spearman correlation = 0.8322084266520949
+Validation Spearman correlation = 0.9301447458784986
+EarlyStopping counter: 1 out of 10
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.005808408372104168
+Training Spearman correlation = 0.8392185759347094
+Validation Spearman correlation = 0.923124472575369
+EarlyStopping counter: 2 out of 10
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.005189130548387766
+Training Spearman correlation = 0.8438081746293861
+Validation Spearman correlation = 0.9141234171053804
+EarlyStopping counter: 3 out of 10
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.004840860143303871
+Training Spearman correlation = 0.8397703972230421
+Validation Spearman correlation = 0.9100176099814292
+EarlyStopping counter: 4 out of 10
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.004821698646992445
+Training Spearman correlation = 0.8492079597425978
+Validation Spearman correlation = 0.9043841946966238
+EarlyStopping counter: 5 out of 10
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.005641924683004618
+Training Spearman correlation = 0.8461625213641875
+Validation Spearman correlation = 0.8956255519187187
+EarlyStopping counter: 6 out of 10
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.005149076692759991
+Training Spearman correlation = 0.8495453318793171
+Validation Spearman correlation = 0.8916115227162247
+EarlyStopping counter: 7 out of 10
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.004566531162708998
+Training Spearman correlation = 0.8541448528862958
+Validation Spearman correlation = 0.8678873947830147
+EarlyStopping counter: 8 out of 10
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.005391803570091724
+Training Spearman correlation = 0.8550068075624391
+Validation Spearman correlation = 0.8704451678879721
+EarlyStopping counter: 9 out of 10
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.0040139686316251755
+Training Spearman correlation = 0.858700807988445
+Validation Spearman correlation = 0.8617634108247282
+EarlyStopping counter: 10 out of 10
+Early stopping
+----------------------------------------------------------------------
+FOLD : 8
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.006349246483296156
+Training Spearman correlation = 0.8466851661077346
+Validation Spearman correlation = 0.9499778122954162
+Validation loss decreased (inf --> 0.001903).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.00519647728651762
+Training Spearman correlation = 0.8504742014314661
+Validation Spearman correlation = 0.9402751639584144
+EarlyStopping counter: 1 out of 10
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.004497595597058535
+Training Spearman correlation = 0.8559975837145877
+Validation Spearman correlation = 0.9338127068757011
+EarlyStopping counter: 2 out of 10
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.004897239618003368
+Training Spearman correlation = 0.8564605299227575
+Validation Spearman correlation = 0.9288276181824973
+EarlyStopping counter: 3 out of 10
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.004590599797666073
+Training Spearman correlation = 0.8575442613943788
+Validation Spearman correlation = 0.9200506158354246
+EarlyStopping counter: 4 out of 10
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.004784696735441685
+Training Spearman correlation = 0.8583102718160827
+Validation Spearman correlation = 0.9193925940741534
+EarlyStopping counter: 5 out of 10
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.004157323855906725
+Training Spearman correlation = 0.8633943976085762
+Validation Spearman correlation = 0.9045983474947419
+EarlyStopping counter: 6 out of 10
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.004783550277352333
+Training Spearman correlation = 0.8618562447696682
+Validation Spearman correlation = 0.8965359390770684
+EarlyStopping counter: 7 out of 10
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.00526701845228672
+Training Spearman correlation = 0.8648242621536313
+Validation Spearman correlation = 0.8958972603094945
+EarlyStopping counter: 8 out of 10
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.004018370993435383
+Training Spearman correlation = 0.8665311939377879
+Validation Spearman correlation = 0.8830509007282187
+EarlyStopping counter: 9 out of 10
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.005659821443259716
+Training Spearman correlation = 0.8692032091159432
+Validation Spearman correlation = 0.8852914978941081
+EarlyStopping counter: 10 out of 10
+Early stopping
+----------------------------------------------------------------------
+FOLD : 9
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.004512821324169636
+Training Spearman correlation = 0.8654960186666105
+Validation Spearman correlation = 0.9557667915559664
+Validation loss decreased (inf --> 0.002926).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.004082594532519579
+Training Spearman correlation = 0.862628561267755
+Validation Spearman correlation = 0.9456533410349728
+EarlyStopping counter: 1 out of 10
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.004831357859075069
+Training Spearman correlation = 0.8632198955619811
+Validation Spearman correlation = 0.9345468950497777
+EarlyStopping counter: 2 out of 10
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.004212229512631893
+Training Spearman correlation = 0.8606380509753444
+Validation Spearman correlation = 0.9281333313833772
+EarlyStopping counter: 3 out of 10
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.005064535420387983
+Training Spearman correlation = 0.8643210427163059
+Validation Spearman correlation = 0.9317339393135204
+EarlyStopping counter: 4 out of 10
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.004168221727013588
+Training Spearman correlation = 0.867417552503671
+Validation Spearman correlation = 0.9183005736399515
+EarlyStopping counter: 5 out of 10
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.004508067388087511
+Training Spearman correlation = 0.8711091724463519
+Validation Spearman correlation = 0.913417893843916
+EarlyStopping counter: 6 out of 10
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.003828829387202859
+Training Spearman correlation = 0.871060340747713
+Validation Spearman correlation = 0.9141157532197389
+EarlyStopping counter: 7 out of 10
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.0038262540474534035
+Training Spearman correlation = 0.8709089775113994
+Validation Spearman correlation = 0.9110713475917851
+EarlyStopping counter: 8 out of 10
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.003997305408120155
+Training Spearman correlation = 0.8724627725062944
+Validation Spearman correlation = 0.8984245752532368
+EarlyStopping counter: 9 out of 10
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.0043160514906048775
+Training Spearman correlation = 0.87682038231414
+Validation Spearman correlation = 0.8977950459832009
+EarlyStopping counter: 10 out of 10
+Early stopping
+
+++++++++++++++++++++++++++++++++++
+
+K-FOLD CROSS VALIDATION RESULTS FOR 10 FOLDS
+
+++++++++++++++++++++++++++++++++++
+
+Fold 0: 0.08756774489074845
+Fold 1: 0.31636831090455475
+Fold 2: 0.5275654401853781
+Fold 3: 0.6330098946696093
+Fold 4: 0.735851006085619
+Fold 5: 0.7927958946598012
+Fold 6: 0.8288562323705394
+Fold 7: 0.8617634108247282
+Fold 8: 0.8852914978941081
+Fold 9: 0.8977950459832009
+Average: 0.6566864478468287
+
+++++++++++++++++++++++++++++++++++
+
+define_hyperparam.
+Reset trainable parameters of layer = Conv1d(100, 16, kernel_size=(3,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(16, 32, kernel_size=(3,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(100, 64, kernel_size=(3,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(64, 32, kernel_size=(3,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(32, 16, kernel_size=(3,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(100, 64, kernel_size=(5,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(64, 32, kernel_size=(5,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(32, 16, kernel_size=(5,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(100, 64, kernel_size=(7,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(64, 32, kernel_size=(7,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(32, 16, kernel_size=(7,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Linear(in_features=96, out_features=32, bias=True)
+Reset trainable parameters of layer = BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Linear(in_features=32, out_features=1, bias=True)
+Reset trainable parameters of layer = Embedding(4, 100, max_norm=True)
+----------------------------------------------------------------------
+FOLD : 0
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.3044269382953644
+Training Spearman correlation = 0.09841374928451845
+Validation Spearman correlation = 0.4185015542196209
+Validation loss decreased (inf --> 0.028376).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.0300075002014637
+Training Spearman correlation = 0.4035824529054968
+Validation Spearman correlation = 0.577717253800551
+Validation loss decreased (0.028376 --> 0.023878).  Saving model ...
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.02231435291469097
+Training Spearman correlation = 0.5321278286409911
+Validation Spearman correlation = 0.6302081858433782
+Validation loss decreased (0.023878 --> 0.019380).  Saving model ...
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.02089012786746025
+Training Spearman correlation = 0.5914213265143743
+Validation Spearman correlation = 0.6605705418157091
+Validation loss decreased (0.019380 --> 0.018562).  Saving model ...
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.0157865472137928
+Training Spearman correlation = 0.6315192739642598
+Validation Spearman correlation = 0.677532484288034
+Validation loss decreased (0.018562 --> 0.017744).  Saving model ...
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.018832603469491005
+Training Spearman correlation = 0.6607745786132561
+Validation Spearman correlation = 0.6983655190463911
+Validation loss decreased (0.017744 --> 0.017053).  Saving model ...
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.016676070168614388
+Training Spearman correlation = 0.6878065875978434
+Validation Spearman correlation = 0.7025024718993454
+Validation loss decreased (0.017053 --> 0.016363).  Saving model ...
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.015847841277718544
+Training Spearman correlation = 0.7101282942229528
+Validation Spearman correlation = 0.7106702054755656
+Validation loss decreased (0.016363 --> 0.016242).  Saving model ...
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.012547793798148632
+Training Spearman correlation = 0.7349337310478475
+Validation Spearman correlation = 0.712477838835067
+Validation loss decreased (0.016242 --> 0.016122).  Saving model ...
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.012836078181862831
+Training Spearman correlation = 0.7462667491073388
+Validation Spearman correlation = 0.715316220146479
+Validation loss decreased (0.016122 --> 0.015754).  Saving model ...
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.009450937621295452
+Training Spearman correlation = 0.7606461189038973
+Validation Spearman correlation = 0.7196148564783126
+Validation loss decreased (0.015754 --> 0.015386).  Saving model ...
+Run : epoch 12 / 500...
+Training step : Epoch : [11/500], [0/256, Loss_reg : 0.013306936249136925
+Training Spearman correlation = 0.7707654856899187
+Validation Spearman correlation = 0.7256001740652932
+Validation loss decreased (0.015386 --> 0.015200).  Saving model ...
+Run : epoch 13 / 500...
+Training step : Epoch : [12/500], [0/256, Loss_reg : 0.010918799787759781
+Training Spearman correlation = 0.7786800967149464
+Validation Spearman correlation = 0.7216757811118525
+EarlyStopping counter: 1 out of 10
+Run : epoch 14 / 500...
+Training step : Epoch : [13/500], [0/256, Loss_reg : 0.00957057811319828
+Training Spearman correlation = 0.790491932790654
+Validation Spearman correlation = 0.726814568159356
+Validation loss decreased (0.015200 --> 0.015200).  Saving model ...
+Run : epoch 15 / 500...
+Training step : Epoch : [14/500], [0/256, Loss_reg : 0.008958455175161362
+Training Spearman correlation = 0.8092678512163308
+Validation Spearman correlation = 0.7251135246325853
+Validation loss decreased (0.015200 --> 0.015014).  Saving model ...
+Run : epoch 16 / 500...
+Training step : Epoch : [15/500], [0/256, Loss_reg : 0.010052083060145378
+Training Spearman correlation = 0.8132064310389472
+Validation Spearman correlation = 0.7281576437596937
+Validation loss decreased (0.015014 --> 0.014998).  Saving model ...
+Run : epoch 17 / 500...
+Training step : Epoch : [16/500], [0/256, Loss_reg : 0.009628912433981895
+Training Spearman correlation = 0.817511254478984
+Validation Spearman correlation = 0.7277885226436844
+Validation loss decreased (0.014998 --> 0.014982).  Saving model ...
+Run : epoch 18 / 500...
+Training step : Epoch : [17/500], [0/256, Loss_reg : 0.0088074691593647
+Training Spearman correlation = 0.8245393567055068
+Validation Spearman correlation = 0.7245818752046701
+Validation loss decreased (0.014982 --> 0.014942).  Saving model ...
+Run : epoch 19 / 500...
+Training step : Epoch : [18/500], [0/256, Loss_reg : 0.007716312538832426
+Training Spearman correlation = 0.8327334587582516
+Validation Spearman correlation = 0.7285774353994026
+Validation loss decreased (0.014942 --> 0.014903).  Saving model ...
+Run : epoch 20 / 500...
+Training step : Epoch : [19/500], [0/256, Loss_reg : 0.007497140672057867
+Training Spearman correlation = 0.8375850635334557
+Validation Spearman correlation = 0.7216166732742655
+Validation loss decreased (0.014903 --> 0.014812).  Saving model ...
+Run : epoch 21 / 500...
+Training step : Epoch : [20/500], [0/256, Loss_reg : 0.007774369791150093
+Training Spearman correlation = 0.8407335760316523
+Validation Spearman correlation = 0.7246270323950555
+Validation loss decreased (0.014812 --> 0.014721).  Saving model ...
+Run : epoch 22 / 500...
+Training step : Epoch : [21/500], [0/256, Loss_reg : 0.007420441135764122
+Training Spearman correlation = 0.8419012046609687
+Validation Spearman correlation = 0.7173543093049012
+Validation loss decreased (0.014721 --> 0.014621).  Saving model ...
+Run : epoch 23 / 500...
+Training step : Epoch : [22/500], [0/256, Loss_reg : 0.00765445688739419
+Training Spearman correlation = 0.8502882373893235
+Validation Spearman correlation = 0.7182366151664606
+EarlyStopping counter: 1 out of 10
+Run : epoch 24 / 500...
+Training step : Epoch : [23/500], [0/256, Loss_reg : 0.007431668229401112
+Training Spearman correlation = 0.8533272459399637
+Validation Spearman correlation = 0.7194796417870813
+EarlyStopping counter: 2 out of 10
+Run : epoch 25 / 500...
+Training step : Epoch : [24/500], [0/256, Loss_reg : 0.006588379852473736
+Training Spearman correlation = 0.8598204155663881
+Validation Spearman correlation = 0.7192249089182404
+EarlyStopping counter: 3 out of 10
+Run : epoch 26 / 500...
+Training step : Epoch : [25/500], [0/256, Loss_reg : 0.007496722042560577
+Training Spearman correlation = 0.8634786180962882
+Validation Spearman correlation = 0.7140117685515702
+EarlyStopping counter: 4 out of 10
+Run : epoch 27 / 500...
+Training step : Epoch : [26/500], [0/256, Loss_reg : 0.007911354303359985
+Training Spearman correlation = 0.8638902395781658
+Validation Spearman correlation = 0.7188462295686064
+EarlyStopping counter: 5 out of 10
+Run : epoch 28 / 500...
+Training step : Epoch : [27/500], [0/256, Loss_reg : 0.006711728870868683
+Training Spearman correlation = 0.8697153029917226
+Validation Spearman correlation = 0.7222061077998558
+EarlyStopping counter: 6 out of 10
+Run : epoch 29 / 500...
+Training step : Epoch : [28/500], [0/256, Loss_reg : 0.006108392030000687
+Training Spearman correlation = 0.8769151487142862
+Validation Spearman correlation = 0.711082497755078
+EarlyStopping counter: 7 out of 10
+Run : epoch 30 / 500...
+Training step : Epoch : [29/500], [0/256, Loss_reg : 0.00597317423671484
+Training Spearman correlation = 0.8783530619590616
+Validation Spearman correlation = 0.7192068429748633
+EarlyStopping counter: 8 out of 10
+Run : epoch 31 / 500...
+Training step : Epoch : [30/500], [0/256, Loss_reg : 0.006717816926538944
+Training Spearman correlation = 0.8804017041745579
+Validation Spearman correlation = 0.7134055089245633
+EarlyStopping counter: 9 out of 10
+Run : epoch 32 / 500...
+Training step : Epoch : [31/500], [0/256, Loss_reg : 0.005541286896914244
+Training Spearman correlation = 0.8822923267374065
+Validation Spearman correlation = 0.7165473612780358
+EarlyStopping counter: 10 out of 10
+Early stopping
+----------------------------------------------------------------------
+FOLD : 1
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.008615643717348576
+Training Spearman correlation = 0.8576340637981071
+Validation Spearman correlation = 0.9260711346397968
+Validation loss decreased (inf --> 0.003696).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.006473172456026077
+Training Spearman correlation = 0.8705827499163392
+Validation Spearman correlation = 0.9191981758305549
+EarlyStopping counter: 1 out of 10
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.006783139891922474
+Training Spearman correlation = 0.8768639488332244
+Validation Spearman correlation = 0.9093737867701348
+EarlyStopping counter: 2 out of 10
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.006252639926970005
+Training Spearman correlation = 0.8811413820720208
+Validation Spearman correlation = 0.9058319079057593
+EarlyStopping counter: 3 out of 10
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.00598879624158144
+Training Spearman correlation = 0.8816342179268223
+Validation Spearman correlation = 0.891646449177977
+EarlyStopping counter: 4 out of 10
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.005506114102900028
+Training Spearman correlation = 0.8845578362970914
+Validation Spearman correlation = 0.8880795915943968
+EarlyStopping counter: 5 out of 10
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.0060382261872291565
+Training Spearman correlation = 0.8874706040938198
+Validation Spearman correlation = 0.8883840865906403
+EarlyStopping counter: 6 out of 10
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.005201735533773899
+Training Spearman correlation = 0.8886110469877917
+Validation Spearman correlation = 0.8778635676559083
+EarlyStopping counter: 7 out of 10
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.005729961674660444
+Training Spearman correlation = 0.891664245985655
+Validation Spearman correlation = 0.8783009348689996
+EarlyStopping counter: 8 out of 10
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.00541240070015192
+Training Spearman correlation = 0.8945424616504939
+Validation Spearman correlation = 0.8684972419139159
+EarlyStopping counter: 9 out of 10
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.004695079289376736
+Training Spearman correlation = 0.8951625058357973
+Validation Spearman correlation = 0.863933639500277
+EarlyStopping counter: 10 out of 10
+Early stopping
+----------------------------------------------------------------------
+FOLD : 2
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.005091734696179628
+Training Spearman correlation = 0.8885503644993246
+Validation Spearman correlation = 0.9495738897521866
+Validation loss decreased (inf --> 0.003254).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.005173140205442905
+Training Spearman correlation = 0.8935736000765263
+Validation Spearman correlation = 0.9412960544051469
+Validation loss decreased (0.003254 --> 0.003083).  Saving model ...
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.005545374937355518
+Training Spearman correlation = 0.8935671966408387
+Validation Spearman correlation = 0.9400034094875759
+EarlyStopping counter: 1 out of 10
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.004804597701877356
+Training Spearman correlation = 0.8966994041534236
+Validation Spearman correlation = 0.9344627679939345
+EarlyStopping counter: 2 out of 10
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.005489070899784565
+Training Spearman correlation = 0.8998203814996956
+Validation Spearman correlation = 0.9309805474235837
+EarlyStopping counter: 3 out of 10
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.005236798897385597
+Training Spearman correlation = 0.9006116366415797
+Validation Spearman correlation = 0.9240109709979434
+EarlyStopping counter: 4 out of 10
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.0046991584822535515
+Training Spearman correlation = 0.9059018376348708
+Validation Spearman correlation = 0.9204388981727071
+EarlyStopping counter: 5 out of 10
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.004298592917621136
+Training Spearman correlation = 0.9043603846195091
+Validation Spearman correlation = 0.9212561636335541
+EarlyStopping counter: 6 out of 10
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.0047777146100997925
+Training Spearman correlation = 0.9062827473269238
+Validation Spearman correlation = 0.917564327243686
+EarlyStopping counter: 7 out of 10
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.0037987350951880217
+Training Spearman correlation = 0.9069852483342029
+Validation Spearman correlation = 0.9122677733418163
+EarlyStopping counter: 8 out of 10
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.004403911530971527
+Training Spearman correlation = 0.9099470103217829
+Validation Spearman correlation = 0.9090884431137121
+EarlyStopping counter: 9 out of 10
+Run : epoch 12 / 500...
+Training step : Epoch : [11/500], [0/256, Loss_reg : 0.005011158995330334
+Training Spearman correlation = 0.9110716298461897
+Validation Spearman correlation = 0.9040677284299952
+EarlyStopping counter: 10 out of 10
+Early stopping
+----------------------------------------------------------------------
+FOLD : 3
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.004644314292818308
+Training Spearman correlation = 0.9038462715857124
+Validation Spearman correlation = 0.9623154517623467
+Validation loss decreased (inf --> 0.001913).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.004641505889594555
+Training Spearman correlation = 0.9082549807064149
+Validation Spearman correlation = 0.959435245022717
+EarlyStopping counter: 1 out of 10
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.004746981896460056
+Training Spearman correlation = 0.9081796486013346
+Validation Spearman correlation = 0.9536365264056429
+EarlyStopping counter: 2 out of 10
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.0037817861884832382
+Training Spearman correlation = 0.9140134788577463
+Validation Spearman correlation = 0.9487720844410706
+EarlyStopping counter: 3 out of 10
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.0041144005954265594
+Training Spearman correlation = 0.9146113063655208
+Validation Spearman correlation = 0.9484471166433552
+EarlyStopping counter: 4 out of 10
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.003388157580047846
+Training Spearman correlation = 0.9148306198681024
+Validation Spearman correlation = 0.9415244184427994
+EarlyStopping counter: 5 out of 10
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.004024605732411146
+Training Spearman correlation = 0.91509359227903
+Validation Spearman correlation = 0.9390601715650004
+EarlyStopping counter: 6 out of 10
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.004486818797886372
+Training Spearman correlation = 0.9177209768848567
+Validation Spearman correlation = 0.9338905005020418
+EarlyStopping counter: 7 out of 10
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.0052470434457063675
+Training Spearman correlation = 0.9197704269181203
+Validation Spearman correlation = 0.9312267755204499
+EarlyStopping counter: 8 out of 10
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.004036341793835163
+Training Spearman correlation = 0.9196548973465135
+Validation Spearman correlation = 0.9286960590051054
+EarlyStopping counter: 9 out of 10
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.0038635737728327513
+Training Spearman correlation = 0.9198384654264776
+Validation Spearman correlation = 0.9249188791837052
+EarlyStopping counter: 10 out of 10
+Early stopping
+----------------------------------------------------------------------
+FOLD : 4
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.004258259199559689
+Training Spearman correlation = 0.9155000603143991
+Validation Spearman correlation = 0.9695038031403324
+Validation loss decreased (inf --> 0.001741).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.004364342428743839
+Training Spearman correlation = 0.9194847363999723
+Validation Spearman correlation = 0.9636948022054221
+EarlyStopping counter: 1 out of 10
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.00414813868701458
+Training Spearman correlation = 0.9182448856627565
+Validation Spearman correlation = 0.9625746204971523
+EarlyStopping counter: 2 out of 10
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.004025985486805439
+Training Spearman correlation = 0.9246295814712893
+Validation Spearman correlation = 0.9569329007072127
+EarlyStopping counter: 3 out of 10
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.0034409533254802227
+Training Spearman correlation = 0.9221858594356437
+Validation Spearman correlation = 0.9551598197445098
+EarlyStopping counter: 4 out of 10
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.003423361573368311
+Training Spearman correlation = 0.9232795137046658
+Validation Spearman correlation = 0.9500639989343719
+EarlyStopping counter: 5 out of 10
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.004110546782612801
+Training Spearman correlation = 0.9249758356291546
+Validation Spearman correlation = 0.9501343855570467
+EarlyStopping counter: 6 out of 10
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.003814030671492219
+Training Spearman correlation = 0.9255362388995071
+Validation Spearman correlation = 0.9477439965003798
+EarlyStopping counter: 7 out of 10
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.0037490692920982838
+Training Spearman correlation = 0.9259076194272053
+Validation Spearman correlation = 0.9459840234172748
+EarlyStopping counter: 8 out of 10
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.003907722420990467
+Training Spearman correlation = 0.9282377839125933
+Validation Spearman correlation = 0.9441636887408186
+EarlyStopping counter: 9 out of 10
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.003990824334323406
+Training Spearman correlation = 0.9253724642876311
+Validation Spearman correlation = 0.9399405029121946
+EarlyStopping counter: 10 out of 10
+Early stopping
+----------------------------------------------------------------------
+FOLD : 5
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.004773332737386227
+Training Spearman correlation = 0.9196688893378694
+Validation Spearman correlation = 0.9709992098472309
+Validation loss decreased (inf --> 0.001454).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.004055515397340059
+Training Spearman correlation = 0.9224206387802848
+Validation Spearman correlation = 0.9682539449767953
+EarlyStopping counter: 1 out of 10
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.004942307248711586
+Training Spearman correlation = 0.9252599010760814
+Validation Spearman correlation = 0.9665460700878121
+EarlyStopping counter: 2 out of 10
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.0037033765111118555
+Training Spearman correlation = 0.9272210567859333
+Validation Spearman correlation = 0.9627268823305019
+EarlyStopping counter: 3 out of 10
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.0039091394282877445
+Training Spearman correlation = 0.927843189554223
+Validation Spearman correlation = 0.9602247857678323
+EarlyStopping counter: 4 out of 10
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.003816224867478013
+Training Spearman correlation = 0.9278489790095427
+Validation Spearman correlation = 0.9564890040481747
+EarlyStopping counter: 5 out of 10
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.0035740211606025696
+Training Spearman correlation = 0.9277391996718876
+Validation Spearman correlation = 0.951938466271333
+EarlyStopping counter: 6 out of 10
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.003384420881047845
+Training Spearman correlation = 0.929007311039661
+Validation Spearman correlation = 0.9468061004609775
+EarlyStopping counter: 7 out of 10
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.0036405844148248434
+Training Spearman correlation = 0.9286163289836418
+Validation Spearman correlation = 0.9452308495516739
+EarlyStopping counter: 8 out of 10
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.004017826169729233
+Training Spearman correlation = 0.9315865569351642
+Validation Spearman correlation = 0.945038163845645
+EarlyStopping counter: 9 out of 10
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.003785912413150072
+Training Spearman correlation = 0.9292180483397566
+Validation Spearman correlation = 0.9405340686785791
+EarlyStopping counter: 10 out of 10
+Early stopping
+----------------------------------------------------------------------
+FOLD : 6
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.0034531638957560062
+Training Spearman correlation = 0.9290738636201672
+Validation Spearman correlation = 0.9747008037571142
+Validation loss decreased (inf --> 0.001366).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.003324221819639206
+Training Spearman correlation = 0.9294654632444502
+Validation Spearman correlation = 0.9723348238031798
+EarlyStopping counter: 1 out of 10
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.0045155612751841545
+Training Spearman correlation = 0.9290754230818848
+Validation Spearman correlation = 0.9671931478156145
+EarlyStopping counter: 2 out of 10
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.0033829351887106895
+Training Spearman correlation = 0.928117129844342
+Validation Spearman correlation = 0.9648724497011055
+EarlyStopping counter: 3 out of 10
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.003709216136485338
+Training Spearman correlation = 0.9335921442669942
+Validation Spearman correlation = 0.9631415090346738
+EarlyStopping counter: 4 out of 10
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.004224164877086878
+Training Spearman correlation = 0.9332663293132302
+Validation Spearman correlation = 0.9610914237970063
+EarlyStopping counter: 5 out of 10
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.002796027809381485
+Training Spearman correlation = 0.932306087632676
+Validation Spearman correlation = 0.9592871577576213
+EarlyStopping counter: 6 out of 10
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.0032482142560184
+Training Spearman correlation = 0.9342165418251523
+Validation Spearman correlation = 0.9557352817935617
+EarlyStopping counter: 7 out of 10
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.003727731527760625
+Training Spearman correlation = 0.9330131802208657
+Validation Spearman correlation = 0.9534631444156793
+EarlyStopping counter: 8 out of 10
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.004121036268770695
+Training Spearman correlation = 0.9333058407111912
+Validation Spearman correlation = 0.9501167472908795
+EarlyStopping counter: 9 out of 10
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.003887494094669819
+Training Spearman correlation = 0.9350014659379767
+Validation Spearman correlation = 0.9482628941777603
+EarlyStopping counter: 10 out of 10
+Early stopping
+----------------------------------------------------------------------
+FOLD : 7
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.004163323901593685
+Training Spearman correlation = 0.9308676068089901
+Validation Spearman correlation = 0.9781533710458218
+Validation loss decreased (inf --> 0.001315).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.0029249440412968397
+Training Spearman correlation = 0.9335722728542514
+Validation Spearman correlation = 0.9743228174778711
+EarlyStopping counter: 1 out of 10
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.0039601195603609085
+Training Spearman correlation = 0.9336418193418263
+Validation Spearman correlation = 0.9728878787305277
+EarlyStopping counter: 2 out of 10
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.0031705687288194895
+Training Spearman correlation = 0.9353800844476426
+Validation Spearman correlation = 0.9692321864359208
+EarlyStopping counter: 3 out of 10
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.0033145579509437084
+Training Spearman correlation = 0.9355463696611941
+Validation Spearman correlation = 0.9691860705709768
+EarlyStopping counter: 4 out of 10
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.0034995069727301598
+Training Spearman correlation = 0.938388993520204
+Validation Spearman correlation = 0.9672154697404726
+EarlyStopping counter: 5 out of 10
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.00320587120950222
+Training Spearman correlation = 0.9363217187923025
+Validation Spearman correlation = 0.9615812619228616
+EarlyStopping counter: 6 out of 10
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.003105484414845705
+Training Spearman correlation = 0.93646880082119
+Validation Spearman correlation = 0.9578692980481166
+EarlyStopping counter: 7 out of 10
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.0039443038403987885
+Training Spearman correlation = 0.9352894349367447
+Validation Spearman correlation = 0.9533798645883211
+EarlyStopping counter: 8 out of 10
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.0036144203040748835
+Training Spearman correlation = 0.9363924837411403
+Validation Spearman correlation = 0.9551804129265973
+EarlyStopping counter: 9 out of 10
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.0037276512011885643
+Training Spearman correlation = 0.9371857697960511
+Validation Spearman correlation = 0.9506656055546159
+EarlyStopping counter: 10 out of 10
+Early stopping
+----------------------------------------------------------------------
+FOLD : 8
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.0030477389227598906
+Training Spearman correlation = 0.9350625793690758
+Validation Spearman correlation = 0.979558936686522
+Validation loss decreased (inf --> 0.001205).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.003428238909691572
+Training Spearman correlation = 0.9366811043094991
+Validation Spearman correlation = 0.9781051396894394
+EarlyStopping counter: 1 out of 10
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.0028768288902938366
+Training Spearman correlation = 0.9373300105135851
+Validation Spearman correlation = 0.9751980415647324
+EarlyStopping counter: 2 out of 10
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.002876531332731247
+Training Spearman correlation = 0.9397140288217198
+Validation Spearman correlation = 0.9709631434127539
+EarlyStopping counter: 3 out of 10
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.003481019288301468
+Training Spearman correlation = 0.9374550514361415
+Validation Spearman correlation = 0.9684540362656331
+EarlyStopping counter: 4 out of 10
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.003089982783421874
+Training Spearman correlation = 0.9376640995780076
+Validation Spearman correlation = 0.9670920097138879
+EarlyStopping counter: 5 out of 10
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.0031392783857882023
+Training Spearman correlation = 0.9398408255013417
+Validation Spearman correlation = 0.9669840793057375
+EarlyStopping counter: 6 out of 10
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.00238425494171679
+Training Spearman correlation = 0.9399467592209938
+Validation Spearman correlation = 0.9639425121469857
+EarlyStopping counter: 7 out of 10
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.0033571720123291016
+Training Spearman correlation = 0.9396155857454703
+Validation Spearman correlation = 0.9616035804788599
+EarlyStopping counter: 8 out of 10
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.003334344830363989
+Training Spearman correlation = 0.939303125243672
+Validation Spearman correlation = 0.9584138290749982
+EarlyStopping counter: 9 out of 10
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.0035261628217995167
+Training Spearman correlation = 0.9379929203028724
+Validation Spearman correlation = 0.9584427547934016
+EarlyStopping counter: 10 out of 10
+Early stopping
+----------------------------------------------------------------------
+FOLD : 9
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.003937535919249058
+Training Spearman correlation = 0.9348946867376329
+Validation Spearman correlation = 0.9826625500572601
+Validation loss decreased (inf --> 0.001870).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.004949941299855709
+Training Spearman correlation = 0.936151677188448
+Validation Spearman correlation = 0.9795786539366447
+Validation loss decreased (0.001870 --> 0.001495).  Saving model ...
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.0034336831886321306
+Training Spearman correlation = 0.9397511775148312
+Validation Spearman correlation = 0.977216544619458
+Validation loss decreased (0.001495 --> 0.001454).  Saving model ...
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.0033672628924250603
+Training Spearman correlation = 0.9396579189804243
+Validation Spearman correlation = 0.9732531673542778
+EarlyStopping counter: 1 out of 10
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.0038713044486939907
+Training Spearman correlation = 0.9406124478949012
+Validation Spearman correlation = 0.970071031318578
+EarlyStopping counter: 2 out of 10
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.0031180414371192455
+Training Spearman correlation = 0.9412539948185552
+Validation Spearman correlation = 0.9698616665568695
+EarlyStopping counter: 3 out of 10
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.002375533804297447
+Training Spearman correlation = 0.9412052002003972
+Validation Spearman correlation = 0.9671156846850015
+EarlyStopping counter: 4 out of 10
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.0030481922440230846
+Training Spearman correlation = 0.9408836542115907
+Validation Spearman correlation = 0.9668749263565012
+EarlyStopping counter: 5 out of 10
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.0034539769403636456
+Training Spearman correlation = 0.9427040532080279
+Validation Spearman correlation = 0.9627333549471115
+EarlyStopping counter: 6 out of 10
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.002708433661609888
+Training Spearman correlation = 0.9415116387068683
+Validation Spearman correlation = 0.9617535235570878
+EarlyStopping counter: 7 out of 10
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.0036170450039207935
+Training Spearman correlation = 0.9425054738059936
+Validation Spearman correlation = 0.9607731655454587
+EarlyStopping counter: 8 out of 10
+Run : epoch 12 / 500...
+Training step : Epoch : [11/500], [0/256, Loss_reg : 0.003253389848396182
+Training Spearman correlation = 0.9431828261619652
+Validation Spearman correlation = 0.9612615667228612
+EarlyStopping counter: 9 out of 10
+Run : epoch 13 / 500...
+Training step : Epoch : [12/500], [0/256, Loss_reg : 0.002758106216788292
+Training Spearman correlation = 0.9426383970821121
+Validation Spearman correlation = 0.9584861171048165
+EarlyStopping counter: 10 out of 10
+Early stopping
+
+++++++++++++++++++++++++++++++++++
+
+K-FOLD CROSS VALIDATION RESULTS FOR 10 FOLDS
+
+++++++++++++++++++++++++++++++++++
+
+Fold 0: 0.7165473612780358
+Fold 1: 0.863933639500277
+Fold 2: 0.9040677284299952
+Fold 3: 0.9249188791837052
+Fold 4: 0.9399405029121946
+Fold 5: 0.9405340686785791
+Fold 6: 0.9482628941777603
+Fold 7: 0.9506656055546159
+Fold 8: 0.9584427547934016
+Fold 9: 0.9584861171048165
+Average: 0.9105799551613382
+
+++++++++++++++++++++++++++++++++++
+
+define_hyperparam.
+Reset trainable parameters of layer = Conv1d(100, 16, kernel_size=(3,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(16, 32, kernel_size=(3,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(100, 64, kernel_size=(3,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(64, 32, kernel_size=(3,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(32, 16, kernel_size=(3,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(100, 64, kernel_size=(5,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(64, 32, kernel_size=(5,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(32, 16, kernel_size=(5,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(100, 64, kernel_size=(7,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(64, 32, kernel_size=(7,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Conv1d(32, 16, kernel_size=(7,), stride=(1,), padding=same)
+Reset trainable parameters of layer = BatchNorm1d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Linear(in_features=96, out_features=32, bias=True)
+Reset trainable parameters of layer = BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+Reset trainable parameters of layer = Linear(in_features=32, out_features=1, bias=True)
+Reset trainable parameters of layer = Embedding(4, 100, max_norm=True)
+----------------------------------------------------------------------
+FOLD : 0
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.3215671181678772
+Training Spearman correlation = 0.1243621484663134
+Validation Spearman correlation = 0.4595727107727251
+Validation loss decreased (inf --> 0.030555).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.0284099243581295
+Training Spearman correlation = 0.4478986192502429
+Validation Spearman correlation = 0.5728966237939478
+Validation loss decreased (0.030555 --> 0.026002).  Saving model ...
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.02176356129348278
+Training Spearman correlation = 0.5663963959417571
+Validation Spearman correlation = 0.6211614647698002
+Validation loss decreased (0.026002 --> 0.021449).  Saving model ...
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.020815910771489143
+Training Spearman correlation = 0.6332949915882702
+Validation Spearman correlation = 0.66328502299536
+Validation loss decreased (0.021449 --> 0.020343).  Saving model ...
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.018375683575868607
+Training Spearman correlation = 0.6730476996033967
+Validation Spearman correlation = 0.6633669881187585
+Validation loss decreased (0.020343 --> 0.019238).  Saving model ...
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.018250536173582077
+Training Spearman correlation = 0.6988357494643508
+Validation Spearman correlation = 0.683458781746565
+Validation loss decreased (0.019238 --> 0.019195).  Saving model ...
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.018073871731758118
+Training Spearman correlation = 0.7175573988625915
+Validation Spearman correlation = 0.6900267946671368
+Validation loss decreased (0.019195 --> 0.019152).  Saving model ...
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.01564164273440838
+Training Spearman correlation = 0.7395613903652397
+Validation Spearman correlation = 0.7095619558691317
+Validation loss decreased (0.019152 --> 0.018735).  Saving model ...
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.012523792684078217
+Training Spearman correlation = 0.7618105156986618
+Validation Spearman correlation = 0.7141822651329122
+Validation loss decreased (0.018735 --> 0.018319).  Saving model ...
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.011078495532274246
+Training Spearman correlation = 0.778606874056001
+Validation Spearman correlation = 0.7142991460160283
+Validation loss decreased (0.018319 --> 0.018098).  Saving model ...
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.013266004621982574
+Training Spearman correlation = 0.7837840892178777
+Validation Spearman correlation = 0.7159614825023201
+Validation loss decreased (0.018098 --> 0.017877).  Saving model ...
+Run : epoch 12 / 500...
+Training step : Epoch : [11/500], [0/256, Loss_reg : 0.011605048552155495
+Training Spearman correlation = 0.7964625772221723
+Validation Spearman correlation = 0.7282288700083663
+EarlyStopping counter: 1 out of 10
+Run : epoch 13 / 500...
+Training step : Epoch : [12/500], [0/256, Loss_reg : 0.010044150054454803
+Training Spearman correlation = 0.811301744185605
+Validation Spearman correlation = 0.7255502082772692
+Validation loss decreased (0.017877 --> 0.017877).  Saving model ...
+Run : epoch 14 / 500...
+Training step : Epoch : [13/500], [0/256, Loss_reg : 0.010342160239815712
+Training Spearman correlation = 0.823990229085854
+Validation Spearman correlation = 0.7221048799996471
+Validation loss decreased (0.017877 --> 0.017385).  Saving model ...
+Run : epoch 15 / 500...
+Training step : Epoch : [14/500], [0/256, Loss_reg : 0.01133047416806221
+Training Spearman correlation = 0.8288096384309541
+Validation Spearman correlation = 0.729580839642358
+Validation loss decreased (0.017385 --> 0.016892).  Saving model ...
+Run : epoch 16 / 500...
+Training step : Epoch : [15/500], [0/256, Loss_reg : 0.009824227541685104
+Training Spearman correlation = 0.8359079233226965
+Validation Spearman correlation = 0.7299523467760107
+Validation loss decreased (0.016892 --> 0.016839).  Saving model ...
+Run : epoch 17 / 500...
+Training step : Epoch : [16/500], [0/256, Loss_reg : 0.009463542141020298
+Training Spearman correlation = 0.8416872371463509
+Validation Spearman correlation = 0.7148979291817891
+Validation loss decreased (0.016839 --> 0.016785).  Saving model ...
+Run : epoch 18 / 500...
+Training step : Epoch : [17/500], [0/256, Loss_reg : 0.008384332060813904
+Training Spearman correlation = 0.8463242028408346
+Validation Spearman correlation = 0.7234802189268178
+Validation loss decreased (0.016785 --> 0.016746).  Saving model ...
+Run : epoch 19 / 500...
+Training step : Epoch : [18/500], [0/256, Loss_reg : 0.00906597264111042
+Training Spearman correlation = 0.8499941699458093
+Validation Spearman correlation = 0.721287027396961
+EarlyStopping counter: 1 out of 10
+Run : epoch 20 / 500...
+Training step : Epoch : [19/500], [0/256, Loss_reg : 0.007802589796483517
+Training Spearman correlation = 0.8566400620565793
+Validation Spearman correlation = 0.7256193639470203
+Validation loss decreased (0.016746 --> 0.016746).  Saving model ...
+Run : epoch 21 / 500...
+Training step : Epoch : [20/500], [0/256, Loss_reg : 0.007771630305796862
+Training Spearman correlation = 0.8584533957076721
+Validation Spearman correlation = 0.7298402231176883
+Validation loss decreased (0.016746 --> 0.016707).  Saving model ...
+Run : epoch 22 / 500...
+Training step : Epoch : [21/500], [0/256, Loss_reg : 0.008996427059173584
+Training Spearman correlation = 0.8595110744042503
+Validation Spearman correlation = 0.7336646609107075
+Validation loss decreased (0.016707 --> 0.016635).  Saving model ...
+Run : epoch 23 / 500...
+Training step : Epoch : [22/500], [0/256, Loss_reg : 0.00823886226862669
+Training Spearman correlation = 0.8650393839270895
+Validation Spearman correlation = 0.7294056100969404
+Validation loss decreased (0.016635 --> 0.016564).  Saving model ...
+Run : epoch 24 / 500...
+Training step : Epoch : [23/500], [0/256, Loss_reg : 0.00800982117652893
+Training Spearman correlation = 0.8717025659986153
+Validation Spearman correlation = 0.7215400322139666
+Validation loss decreased (0.016564 --> 0.016452).  Saving model ...
+Run : epoch 25 / 500...
+Training step : Epoch : [24/500], [0/256, Loss_reg : 0.008808603510260582
+Training Spearman correlation = 0.874259158117923
+Validation Spearman correlation = 0.722787277892189
+Validation loss decreased (0.016452 --> 0.016340).  Saving model ...
+Run : epoch 26 / 500...
+Training step : Epoch : [25/500], [0/256, Loss_reg : 0.007434044033288956
+Training Spearman correlation = 0.8742900181813309
+Validation Spearman correlation = 0.726714994117688
+Validation loss decreased (0.016340 --> 0.016340).  Saving model ...
+Run : epoch 27 / 500...
+Training step : Epoch : [26/500], [0/256, Loss_reg : 0.006686885841190815
+Training Spearman correlation = 0.8774696285716744
+Validation Spearman correlation = 0.7281120197183357
+Validation loss decreased (0.016340 --> 0.016340).  Saving model ...
+Run : epoch 28 / 500...
+Training step : Epoch : [27/500], [0/256, Loss_reg : 0.0071056801825761795
+Training Spearman correlation = 0.8844223005063404
+Validation Spearman correlation = 0.7308488962669853
+Validation loss decreased (0.016340 --> 0.016296).  Saving model ...
+Run : epoch 29 / 500...
+Training step : Epoch : [28/500], [0/256, Loss_reg : 0.00746923265978694
+Training Spearman correlation = 0.8841033195505535
+Validation Spearman correlation = 0.7243248175344941
+Validation loss decreased (0.016296 --> 0.016252).  Saving model ...
+Run : epoch 30 / 500...
+Training step : Epoch : [29/500], [0/256, Loss_reg : 0.006063529290258884
+Training Spearman correlation = 0.8835102228334867
+Validation Spearman correlation = 0.7277450059441144
+Validation loss decreased (0.016252 --> 0.016106).  Saving model ...
+Run : epoch 31 / 500...
+Training step : Epoch : [30/500], [0/256, Loss_reg : 0.008228703401982784
+Training Spearman correlation = 0.8890515098513972
+Validation Spearman correlation = 0.7317397477957873
+Validation loss decreased (0.016106 --> 0.015961).  Saving model ...
+Run : epoch 32 / 500...
+Training step : Epoch : [31/500], [0/256, Loss_reg : 0.007083900272846222
+Training Spearman correlation = 0.8909718678034022
+Validation Spearman correlation = 0.7234414651357729
+EarlyStopping counter: 1 out of 10
+Run : epoch 33 / 500...
+Training step : Epoch : [32/500], [0/256, Loss_reg : 0.006694468203932047
+Training Spearman correlation = 0.8905636694543544
+Validation Spearman correlation = 0.723932384730366
+EarlyStopping counter: 2 out of 10
+Run : epoch 34 / 500...
+Training step : Epoch : [33/500], [0/256, Loss_reg : 0.006303228437900543
+Training Spearman correlation = 0.8918140227460319
+Validation Spearman correlation = 0.7262419217643429
+EarlyStopping counter: 3 out of 10
+Run : epoch 35 / 500...
+Training step : Epoch : [34/500], [0/256, Loss_reg : 0.006181336939334869
+Training Spearman correlation = 0.8935321038958158
+Validation Spearman correlation = 0.7224073500117552
+EarlyStopping counter: 4 out of 10
+Run : epoch 36 / 500...
+Training step : Epoch : [35/500], [0/256, Loss_reg : 0.005577550269663334
+Training Spearman correlation = 0.8968375799715269
+Validation Spearman correlation = 0.7204641766489327
+EarlyStopping counter: 5 out of 10
+Run : epoch 37 / 500...
+Training step : Epoch : [36/500], [0/256, Loss_reg : 0.005777374375611544
+Training Spearman correlation = 0.8997614917761143
+Validation Spearman correlation = 0.7229687101856898
+EarlyStopping counter: 6 out of 10
+Run : epoch 38 / 500...
+Training step : Epoch : [37/500], [0/256, Loss_reg : 0.005409907549619675
+Training Spearman correlation = 0.8986815132208695
+Validation Spearman correlation = 0.7205903272369524
+EarlyStopping counter: 7 out of 10
+Run : epoch 39 / 500...
+Training step : Epoch : [38/500], [0/256, Loss_reg : 0.005629219114780426
+Training Spearman correlation = 0.9014906511662356
+Validation Spearman correlation = 0.7196006753385591
+EarlyStopping counter: 8 out of 10
+Run : epoch 40 / 500...
+Training step : Epoch : [39/500], [0/256, Loss_reg : 0.005544195882976055
+Training Spearman correlation = 0.9004618460109549
+Validation Spearman correlation = 0.7183294676261264
+EarlyStopping counter: 9 out of 10
+Run : epoch 41 / 500...
+Training step : Epoch : [40/500], [0/256, Loss_reg : 0.005473234690725803
+Training Spearman correlation = 0.9027762157635416
+Validation Spearman correlation = 0.7181206086314834
+EarlyStopping counter: 10 out of 10
+Early stopping
+----------------------------------------------------------------------
+FOLD : 1
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.006366507615894079
+Training Spearman correlation = 0.8816756082612387
+Validation Spearman correlation = 0.9506105310713232
+Validation loss decreased (inf --> 0.003079).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.006177173927426338
+Training Spearman correlation = 0.8876437695897537
+Validation Spearman correlation = 0.9424085800829771
+EarlyStopping counter: 1 out of 10
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.005495521239936352
+Training Spearman correlation = 0.893807097856337
+Validation Spearman correlation = 0.9366389280301317
+EarlyStopping counter: 2 out of 10
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.0055364519357681274
+Training Spearman correlation = 0.8973518189932456
+Validation Spearman correlation = 0.9281452452629284
+EarlyStopping counter: 3 out of 10
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.006913576275110245
+Training Spearman correlation = 0.9007486339114269
+Validation Spearman correlation = 0.9237040709042188
+EarlyStopping counter: 4 out of 10
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.006990605965256691
+Training Spearman correlation = 0.8966151236124895
+Validation Spearman correlation = 0.920831365473351
+EarlyStopping counter: 5 out of 10
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.005364296957850456
+Training Spearman correlation = 0.9018290307729514
+Validation Spearman correlation = 0.9186844655493187
+EarlyStopping counter: 6 out of 10
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.006591398268938065
+Training Spearman correlation = 0.9061892152099382
+Validation Spearman correlation = 0.9145338774776475
+EarlyStopping counter: 7 out of 10
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.006123070139437914
+Training Spearman correlation = 0.9050151241229509
+Validation Spearman correlation = 0.9069945976044786
+EarlyStopping counter: 8 out of 10
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.005066836252808571
+Training Spearman correlation = 0.90857590507678
+Validation Spearman correlation = 0.8988795271368485
+EarlyStopping counter: 9 out of 10
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.0048699332401156425
+Training Spearman correlation = 0.9106460607328033
+Validation Spearman correlation = 0.9044420372747497
+EarlyStopping counter: 10 out of 10
+Early stopping
+----------------------------------------------------------------------
+FOLD : 2
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.004445470869541168
+Training Spearman correlation = 0.9034439733542581
+Validation Spearman correlation = 0.9668454416844854
+Validation loss decreased (inf --> 0.002295).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.006003826856613159
+Training Spearman correlation = 0.9047427521279201
+Validation Spearman correlation = 0.9617184959519423
+EarlyStopping counter: 1 out of 10
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.005441916175186634
+Training Spearman correlation = 0.9100861123490648
+Validation Spearman correlation = 0.9594231083648397
+EarlyStopping counter: 2 out of 10
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.0064484127797186375
+Training Spearman correlation = 0.9110566804034046
+Validation Spearman correlation = 0.9557624585342455
+EarlyStopping counter: 3 out of 10
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.005099230445921421
+Training Spearman correlation = 0.9123449916402139
+Validation Spearman correlation = 0.9503968485085798
+EarlyStopping counter: 4 out of 10
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.004737335257232189
+Training Spearman correlation = 0.9125053438908719
+Validation Spearman correlation = 0.9490879807904956
+EarlyStopping counter: 5 out of 10
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.005018792115151882
+Training Spearman correlation = 0.9140964879357871
+Validation Spearman correlation = 0.9434226273803796
+EarlyStopping counter: 6 out of 10
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.004261735826730728
+Training Spearman correlation = 0.9176797128158019
+Validation Spearman correlation = 0.9397348223639905
+EarlyStopping counter: 7 out of 10
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.005014405120164156
+Training Spearman correlation = 0.9195949881599672
+Validation Spearman correlation = 0.9381316568303296
+EarlyStopping counter: 8 out of 10
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.003948685713112354
+Training Spearman correlation = 0.9204039600093131
+Validation Spearman correlation = 0.9348054544133491
+EarlyStopping counter: 9 out of 10
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.005067775491625071
+Training Spearman correlation = 0.9219206059062316
+Validation Spearman correlation = 0.9306797055816625
+EarlyStopping counter: 10 out of 10
+Early stopping
+----------------------------------------------------------------------
+FOLD : 3
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.004180533811450005
+Training Spearman correlation = 0.9143077530080416
+Validation Spearman correlation = 0.9698287562357083
+Validation loss decreased (inf --> 0.002168).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.00469237333163619
+Training Spearman correlation = 0.9193612619948733
+Validation Spearman correlation = 0.9660601741720474
+EarlyStopping counter: 1 out of 10
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.00478697381913662
+Training Spearman correlation = 0.916809182752112
+Validation Spearman correlation = 0.9641376436995163
+EarlyStopping counter: 2 out of 10
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.0046011339873075485
+Training Spearman correlation = 0.922075081047126
+Validation Spearman correlation = 0.9616549462433648
+EarlyStopping counter: 3 out of 10
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.0043633198365569115
+Training Spearman correlation = 0.9205165404505339
+Validation Spearman correlation = 0.9568014187603151
+EarlyStopping counter: 4 out of 10
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.004288253374397755
+Training Spearman correlation = 0.9213498319160547
+Validation Spearman correlation = 0.9568325452268613
+EarlyStopping counter: 5 out of 10
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.00510536739602685
+Training Spearman correlation = 0.9235539189906996
+Validation Spearman correlation = 0.9517493383495571
+EarlyStopping counter: 6 out of 10
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.004476424306631088
+Training Spearman correlation = 0.9242460563129083
+Validation Spearman correlation = 0.9498768122699057
+EarlyStopping counter: 7 out of 10
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.006334009580314159
+Training Spearman correlation = 0.9244481878507542
+Validation Spearman correlation = 0.9440046766421143
+EarlyStopping counter: 8 out of 10
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.0043129525147378445
+Training Spearman correlation = 0.9251534196990476
+Validation Spearman correlation = 0.9429976173859088
+EarlyStopping counter: 9 out of 10
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.0038903537206351757
+Training Spearman correlation = 0.9277098325261613
+Validation Spearman correlation = 0.9399892810635516
+EarlyStopping counter: 10 out of 10
+Early stopping
+----------------------------------------------------------------------
+FOLD : 4
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.004580524750053883
+Training Spearman correlation = 0.9225610285143818
+Validation Spearman correlation = 0.9749548269291218
+Validation loss decreased (inf --> 0.001724).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.005922012031078339
+Training Spearman correlation = 0.9256692909646251
+Validation Spearman correlation = 0.9716643462772462
+EarlyStopping counter: 1 out of 10
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.004721710458397865
+Training Spearman correlation = 0.9270463399981866
+Validation Spearman correlation = 0.9690267945847423
+EarlyStopping counter: 2 out of 10
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.004183114506304264
+Training Spearman correlation = 0.9273371105744409
+Validation Spearman correlation = 0.965758816988893
+EarlyStopping counter: 3 out of 10
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.004375916440039873
+Training Spearman correlation = 0.926726303921477
+Validation Spearman correlation = 0.964661479648404
+EarlyStopping counter: 4 out of 10
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.004257532302290201
+Training Spearman correlation = 0.9287337893722022
+Validation Spearman correlation = 0.9604987176624228
+EarlyStopping counter: 5 out of 10
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.004182685166597366
+Training Spearman correlation = 0.9300360709750985
+Validation Spearman correlation = 0.9589265508171787
+EarlyStopping counter: 6 out of 10
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.0046491678804159164
+Training Spearman correlation = 0.9287661289311794
+Validation Spearman correlation = 0.9590768852062218
+EarlyStopping counter: 7 out of 10
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.003793478012084961
+Training Spearman correlation = 0.9312494812238458
+Validation Spearman correlation = 0.9515030446518797
+EarlyStopping counter: 8 out of 10
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.003472047857940197
+Training Spearman correlation = 0.9287583025756304
+Validation Spearman correlation = 0.9506310577761575
+EarlyStopping counter: 9 out of 10
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.003824252635240555
+Training Spearman correlation = 0.9338773634152586
+Validation Spearman correlation = 0.9457686511995329
+EarlyStopping counter: 10 out of 10
+Early stopping
+----------------------------------------------------------------------
+FOLD : 5
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.0046564266085624695
+Training Spearman correlation = 0.9269210772402652
+Validation Spearman correlation = 0.9776111228039531
+Validation loss decreased (inf --> 0.001594).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.004579237662255764
+Training Spearman correlation = 0.9287914971424379
+Validation Spearman correlation = 0.9749941521798624
+EarlyStopping counter: 1 out of 10
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.004320333246141672
+Training Spearman correlation = 0.931359765083784
+Validation Spearman correlation = 0.9707476600712766
+EarlyStopping counter: 2 out of 10
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.0046921949833631516
+Training Spearman correlation = 0.9319413741625387
+Validation Spearman correlation = 0.968753541687228
+EarlyStopping counter: 3 out of 10
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.003688172437250614
+Training Spearman correlation = 0.9296398891162967
+Validation Spearman correlation = 0.9660383366712625
+EarlyStopping counter: 4 out of 10
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.003924185410141945
+Training Spearman correlation = 0.9331321490782774
+Validation Spearman correlation = 0.9657156828895104
+EarlyStopping counter: 5 out of 10
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.003416032064706087
+Training Spearman correlation = 0.933094617798896
+Validation Spearman correlation = 0.9632951504560854
+EarlyStopping counter: 6 out of 10
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.0036289661657065153
+Training Spearman correlation = 0.9344816077465241
+Validation Spearman correlation = 0.9590245624699223
+EarlyStopping counter: 7 out of 10
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.004458331502974033
+Training Spearman correlation = 0.9329873674599063
+Validation Spearman correlation = 0.9580346735318985
+EarlyStopping counter: 8 out of 10
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.0033775537740439177
+Training Spearman correlation = 0.9355257672943814
+Validation Spearman correlation = 0.9547716917033776
+EarlyStopping counter: 9 out of 10
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.00391692528501153
+Training Spearman correlation = 0.9362965044345107
+Validation Spearman correlation = 0.9537378443281613
+EarlyStopping counter: 10 out of 10
+Early stopping
+----------------------------------------------------------------------
+FOLD : 6
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.00417166855186224
+Training Spearman correlation = 0.9325956528358983
+Validation Spearman correlation = 0.9803939056924323
+Validation loss decreased (inf --> 0.001403).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.0039006953593343496
+Training Spearman correlation = 0.9335403478042673
+Validation Spearman correlation = 0.9787767858514284
+EarlyStopping counter: 1 out of 10
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.003959081135690212
+Training Spearman correlation = 0.9326417429913171
+Validation Spearman correlation = 0.9750613284263857
+EarlyStopping counter: 2 out of 10
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.004756357986479998
+Training Spearman correlation = 0.9343401793399189
+Validation Spearman correlation = 0.9741333828186868
+EarlyStopping counter: 3 out of 10
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.004532422870397568
+Training Spearman correlation = 0.9352240883262781
+Validation Spearman correlation = 0.9714947063562777
+EarlyStopping counter: 4 out of 10
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.003364624921232462
+Training Spearman correlation = 0.9355842570401374
+Validation Spearman correlation = 0.9689018736306351
+EarlyStopping counter: 5 out of 10
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.003949844278395176
+Training Spearman correlation = 0.9362960314151192
+Validation Spearman correlation = 0.9653690760393142
+EarlyStopping counter: 6 out of 10
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.003208423964679241
+Training Spearman correlation = 0.9384734812264106
+Validation Spearman correlation = 0.9624390386906652
+EarlyStopping counter: 7 out of 10
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.003913122229278088
+Training Spearman correlation = 0.9384919430171651
+Validation Spearman correlation = 0.9623521772761743
+EarlyStopping counter: 8 out of 10
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.0030022382270544767
+Training Spearman correlation = 0.9366277088795525
+Validation Spearman correlation = 0.9596762996233025
+EarlyStopping counter: 9 out of 10
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.0038758963346481323
+Training Spearman correlation = 0.9378506290486013
+Validation Spearman correlation = 0.9573085746357952
+EarlyStopping counter: 10 out of 10
+Early stopping
+----------------------------------------------------------------------
+FOLD : 7
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.003699028631672263
+Training Spearman correlation = 0.9345589533847986
+Validation Spearman correlation = 0.9786473115758094
+Validation loss decreased (inf --> 0.001485).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.0038911025039851665
+Training Spearman correlation = 0.9351577315224657
+Validation Spearman correlation = 0.9747280288995808
+EarlyStopping counter: 1 out of 10
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.0035410525742918253
+Training Spearman correlation = 0.934569264522248
+Validation Spearman correlation = 0.9728217782829016
+EarlyStopping counter: 2 out of 10
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.004250380676239729
+Training Spearman correlation = 0.9389280049670641
+Validation Spearman correlation = 0.9710636130652902
+EarlyStopping counter: 3 out of 10
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.004099867306649685
+Training Spearman correlation = 0.9389014600196154
+Validation Spearman correlation = 0.9717289890124002
+EarlyStopping counter: 4 out of 10
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.0038594137877225876
+Training Spearman correlation = 0.9391758370165387
+Validation Spearman correlation = 0.96779731476591
+EarlyStopping counter: 5 out of 10
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.0032654465176165104
+Training Spearman correlation = 0.9402499856841935
+Validation Spearman correlation = 0.9650712728270316
+EarlyStopping counter: 6 out of 10
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.0036813898477703333
+Training Spearman correlation = 0.9414857035403595
+Validation Spearman correlation = 0.9633478477140429
+EarlyStopping counter: 7 out of 10
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.0035444493405520916
+Training Spearman correlation = 0.9409735527049028
+Validation Spearman correlation = 0.9622338907890198
+EarlyStopping counter: 8 out of 10
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.003245158586651087
+Training Spearman correlation = 0.9407829332978607
+Validation Spearman correlation = 0.9588141816292188
+EarlyStopping counter: 9 out of 10
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.0039366865530610085
+Training Spearman correlation = 0.9414327564995744
+Validation Spearman correlation = 0.9602464355132622
+EarlyStopping counter: 10 out of 10
+Early stopping
+----------------------------------------------------------------------
+FOLD : 8
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.004617518745362759
+Training Spearman correlation = 0.9364396541268796
+Validation Spearman correlation = 0.9814257112993887
+Validation loss decreased (inf --> 0.001507).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.004406386520713568
+Training Spearman correlation = 0.9398387625209511
+Validation Spearman correlation = 0.9813479610665385
+EarlyStopping counter: 1 out of 10
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.004919084720313549
+Training Spearman correlation = 0.938338779591365
+Validation Spearman correlation = 0.9783021141938179
+EarlyStopping counter: 2 out of 10
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.004106130450963974
+Training Spearman correlation = 0.9376508579520081
+Validation Spearman correlation = 0.9784903380796756
+EarlyStopping counter: 3 out of 10
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.00453732255846262
+Training Spearman correlation = 0.9395856333264746
+Validation Spearman correlation = 0.9754621238969726
+EarlyStopping counter: 4 out of 10
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.003363466588780284
+Training Spearman correlation = 0.9426136669851707
+Validation Spearman correlation = 0.9752105848897932
+EarlyStopping counter: 5 out of 10
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.003118976252153516
+Training Spearman correlation = 0.9410621303076903
+Validation Spearman correlation = 0.9727088861282946
+EarlyStopping counter: 6 out of 10
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.004478725604712963
+Training Spearman correlation = 0.9409429856612835
+Validation Spearman correlation = 0.9690849600056995
+EarlyStopping counter: 7 out of 10
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.0037314207293093204
+Training Spearman correlation = 0.9407555027950205
+Validation Spearman correlation = 0.9683605972909524
+EarlyStopping counter: 8 out of 10
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.0033927694894373417
+Training Spearman correlation = 0.9421715956963872
+Validation Spearman correlation = 0.9653946515402098
+EarlyStopping counter: 9 out of 10
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.004099730402231216
+Training Spearman correlation = 0.9424889246543878
+Validation Spearman correlation = 0.9626973215527546
+EarlyStopping counter: 10 out of 10
+Early stopping
+----------------------------------------------------------------------
+FOLD : 9
+Run : epoch 1 / 500...
+Training step : Epoch : [0/500], [0/256, Loss_reg : 0.0037865014746785164
+Training Spearman correlation = 0.9410473119317615
+Validation Spearman correlation = 0.9841851030845878
+Validation loss decreased (inf --> 0.001222).  Saving model ...
+Run : epoch 2 / 500...
+Training step : Epoch : [1/500], [0/256, Loss_reg : 0.003444946138188243
+Training Spearman correlation = 0.9383691611387331
+Validation Spearman correlation = 0.9824911309453811
+EarlyStopping counter: 1 out of 10
+Run : epoch 3 / 500...
+Training step : Epoch : [2/500], [0/256, Loss_reg : 0.0042037442326545715
+Training Spearman correlation = 0.9399735613510246
+Validation Spearman correlation = 0.9793058724236667
+EarlyStopping counter: 2 out of 10
+Run : epoch 4 / 500...
+Training step : Epoch : [3/500], [0/256, Loss_reg : 0.003814243245869875
+Training Spearman correlation = 0.9430362209138134
+Validation Spearman correlation = 0.9768165700400719
+EarlyStopping counter: 3 out of 10
+Run : epoch 5 / 500...
+Training step : Epoch : [4/500], [0/256, Loss_reg : 0.003367798402905464
+Training Spearman correlation = 0.9408407246453739
+Validation Spearman correlation = 0.9749471989034673
+EarlyStopping counter: 4 out of 10
+Run : epoch 6 / 500...
+Training step : Epoch : [5/500], [0/256, Loss_reg : 0.0032706502825021744
+Training Spearman correlation = 0.9416567819698831
+Validation Spearman correlation = 0.9732579732877977
+EarlyStopping counter: 5 out of 10
+Run : epoch 7 / 500...
+Training step : Epoch : [6/500], [0/256, Loss_reg : 0.0033489898778498173
+Training Spearman correlation = 0.9445973574908024
+Validation Spearman correlation = 0.9739503982884556
+EarlyStopping counter: 6 out of 10
+Run : epoch 8 / 500...
+Training step : Epoch : [7/500], [0/256, Loss_reg : 0.0038406315725296736
+Training Spearman correlation = 0.944976700782901
+Validation Spearman correlation = 0.9708027400545677
+EarlyStopping counter: 7 out of 10
+Run : epoch 9 / 500...
+Training step : Epoch : [8/500], [0/256, Loss_reg : 0.0032797048334032297
+Training Spearman correlation = 0.942530782415503
+Validation Spearman correlation = 0.9694608886489459
+EarlyStopping counter: 8 out of 10
+Run : epoch 10 / 500...
+Training step : Epoch : [9/500], [0/256, Loss_reg : 0.004003775306046009
+Training Spearman correlation = 0.9443084424989494
+Validation Spearman correlation = 0.9670356259928485
+EarlyStopping counter: 9 out of 10
+Run : epoch 11 / 500...
+Training step : Epoch : [10/500], [0/256, Loss_reg : 0.003889554413035512
+Training Spearman correlation = 0.9432360545380913
+Validation Spearman correlation = 0.9656461061485049
+EarlyStopping counter: 10 out of 10
+Early stopping
+
+++++++++++++++++++++++++++++++++++
+
+K-FOLD CROSS VALIDATION RESULTS FOR 10 FOLDS
+
+++++++++++++++++++++++++++++++++++
+
+Fold 0: 0.7181206086314834
+Fold 1: 0.9044420372747497
+Fold 2: 0.9306797055816625
+Fold 3: 0.9399892810635516
+Fold 4: 0.9457686511995329
+Fold 5: 0.9537378443281613
+Fold 6: 0.9573085746357952
+Fold 7: 0.9602464355132622
+Fold 8: 0.9626973215527546
+Fold 9: 0.9656461061485049
+Average: 0.9238636565929458
+
+++++++++++++++++++++++++++++++++++
+

@@ -48,8 +48,7 @@ class Runner:
             'EPOCH' : int(model_cfg["epoch"]),
             'seed' : int(model_cfg["seed"]),
             'device' : torch.device("cuda:0" if torch.cuda.is_available() else "cpu"),
-
-            'seqlen' : int(args.seqlen), #self.cfg['seqlen'] = int(model_cfg["seqlen"]) if self.cfg['seqidx'] != 1 else 23
+            
             'embd' : int(args.embd), #int(model_cfg["embd"]), #0: onehot / 1: embd_table / 2: word2vec
             'kmer' : int(args.kmer), #int(model_cfg["kmer"])
             'stride' : int(args.stride), #int(model_cfg["stride"])
@@ -58,8 +57,22 @@ class Runner:
             'rna2_mod' : False if args.model.find('2') else True,
             'chro_mod' : False if args.model.find('3') else True,           
         }
-        self.cfg['outdir'] = f"../output/embd/embd{args.embd}_k{args.kmer}_s{args.stride}_seqlen{args.seqlen}_data{args.target}" if args.embd == 2 else "embd{args.embd}_seqlen{args.seqlen}_data{args.target}"
+        pam_len = 4 if self.cfg['target'] == 8 else 3
+        
+        if args.seqinfo == "spacer":
+            self.cfg['seqlen'] = 20 + pam_len
+        elif args.seqinfo == "full" and args.target == 8:
+            self.cfg['seqlen'] = 34
+        elif args.seqinfo == "full" and args.target < 8:
+            self.cfg['seqlen'] = 30
+        else:
+            seqinfo = list(args.seqinfo)
+            if seqinfo[0] == 'd' and int(seqinfo[1]) >= 1 and int(seqinfo[1]) <= 5:
+                self.cfg['seqlen'] = 20 - int(seqinfo[1]) + pam_len
+            if seqinfo[0] == 'i' and int(seqinfo[1]) >= 1 and int(seqinfo[1]) <= 3:
+                self.cfg['seqlen'] = 20 + (int(seqinfo[1]) * 2) + pam_len
 
+        self.cfg['outdir'] = f"../output/embd/embd{self.cfg['embd']}_k{self.cfg['kmer']}_s{self.cfg['stride']}_seqlen{self.cfg['seqlen']}_data{self.cfg['target']}" if args.embd == 2 else f"../output/embd/embd{self.cfg['embd']}_seqlen{self.cfg['seqlen']}_data{self.cfg['target']}"
         os.makedirs(f"{self.cfg['outdir']}/visualize", exist_ok=True)
         os.makedirs(f"{self.cfg['outdir']}/checkpoints", exist_ok=True)
         torch.manual_seed(self.cfg['seed'])
@@ -195,7 +208,7 @@ if __name__ == "__main__":
     parser.add_argument("--target", type=int, help="1:Kim-Cas9, 2:Wang-wt, 3:Wang-HF1, 4:Wang-esp1, 5:Xiang-D2, 6:Xiang-D8, 7:Xiang-D10, 8:Kim-Cas12a", required=True)
     parser.add_argument("--model", type=str, help="gRNA module, add RNAss module : 1, Cromatin information : 2, .more than one input is possible (e.g. 1,2)", default='0')
     parser.add_argument("--embd", type=int, help="0:onehot encoding, 1:embd table, 2:word2vec")
-    parser.add_argument("--seqlen", type=int, default=23)
+    parser.add_argument("--seqinfo", type=str, default='spacer', help="spacer=20+pam, full=34, d[1-5], i[1-3]")
     parser.add_argument("--kmer", type=int, default=5)
     parser.add_argument("--stride", type=int, default=1)
     args = parser.parse_args()

@@ -1,8 +1,11 @@
 #Spearman correlation : 0.84
-
+import math
 import torch
 import torch.nn as nn
 from utils.torch_util import Flattening
+
+def dim(k):
+    return int(math.floor((k-3)/2)+1)
 
 class EMBD_MK_CNN(nn.Module):
     def __init__(self, dropprob, cfg):
@@ -11,33 +14,14 @@ class EMBD_MK_CNN(nn.Module):
         self.embd_mod = cfg['embd']
         if self.embd_mod == 0:
             self.embedding_dim = 4
-            self.indim = 960 if cfg['seqlen'] == 30 else 736
+            self.fcdim = cfg['seqlen'] * 32
         elif self.embd_mod == 1:
             self.embedding_dim = 128
-            self.indim = 288 if cfg['seqlen'] == 30 else 240
+            self.fcdim = dim(dim(cfg['seqlen'])) * 16 * 3
         elif self.embd_mod == 2:
             self.embedding_dim = 100
-            
-            if cfg['seqlen'] == 23:
-                if cfg['stride'] == 1:
-                    if cfg['kmer'] == 3 or cfg['kmer'] == 5:
-                        self.indim = 192
-                    elif cfg['kmer'] == 7:
-                        self.indim = 144
-                elif cfg['stride'] == 2:
-                    if cfg['kmer'] == 3:
-                        self.indim = 96
-                    elif cfg['kmer'] == 5 or cfg['kmer'] == 7:
-                        self.indim = 48
-            elif cfg['seqlen'] == 30:
-                if cfg['stride'] == 1:
-                    if cfg['kmer'] == 3:
-                        self.indim = 288
-                    elif cfg['kmer'] == 5 or cfg['kmer'] == 7:
-                        self.indim = 240
-                elif cfg['stride'] == 2:
-                    if cfg['kmer'] == 3 or cfg['kmer'] == 5 or cfg['kmer'] == 7:
-                        self.indim = 96
+            kmerlen = int(math.floor((cfg['seqlen'] - cfg['kmer'])/cfg['stride']) + 1)
+            self.fcdim = dim(dim(kmerlen)) * 16 * 3
         
         self.dropout_rate = dropprob
         self.device = cfg['device']
@@ -107,7 +91,7 @@ class EMBD_MK_CNN(nn.Module):
         self.flattening = Flattening()
 
         self.fclayer = nn.Sequential(
-            nn.Linear(in_features=self.indim, out_features=32),
+            nn.Linear(in_features=self.fcdim, out_features=32),
             nn.BatchNorm1d(32),
             nn.ReLU(),
             nn.Dropout(self.dropout_rate),

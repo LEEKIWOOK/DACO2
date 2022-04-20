@@ -1,3 +1,4 @@
+import math
 import numpy as np
 import pandas as pd
 import torch
@@ -12,10 +13,21 @@ def data_read(cfg):
     if cfg['seqidx'] == 0: #cas9_kim
         tr = pd.read_excel(cfg['seqpath'], header = 0, sheet_name = 0, engine = "openpyxl").dropna(how='all')
         te = pd.read_excel(cfg['seqpath'], header = 0, sheet_name = 1, engine = "openpyxl").dropna(how='all')
+        
+        if cfg['seqlen'] == 30:
+            x = tr.iloc[:,1].to_list() + te.iloc[:,0].to_list()
+        else:
+            if cfg['seqlen'] >= 23:
+                op = int(math.ceil((cfg['seqlen'] - 23)/2))
+                st = 4 - op; ed = st + cfg['seqlen'] 
+            else:
+                op = 23 - cfg['seqlen'] 
+                st = 4 + op; ed = st + cfg['seqlen']
+            x = [k[st:ed] for k in tr.iloc[:,1]] + [k[st:ed] for k in te.iloc[:,0]]
 
         ret = pd.DataFrame({
-            'X': [k[4:27] for k in tr.iloc[:,1]] + [k[4:27] for k in te.iloc[:,0]],
-            'X30': tr.iloc[:,1].to_list() + te.iloc[:,0].to_list(),
+            
+            'X': x,
             'Y': tr.iloc[:,-1].apply(lambda x: x/100 if x > 0 else 0).to_list() + te.iloc[:,-1].apply(lambda x: x/100 if x > 0 else 0).to_list()
         })
         
@@ -23,22 +35,40 @@ def data_read(cfg):
         data = pd.read_excel(cfg['seqpath'], header = 1, engine = "openpyxl").dropna(how='all')
         data = data[["21mer", "Wt_Efficiency", "SpCas9-HF1_Efficiency", "eSpCas 9_Efficiency"]].dropna()
         yidx = 1 if cfg['target'] == 2 else 3 if cfg['target'] == 3 else 2
+
+        if cfg['seqlen'] == 23:
+            x = data["21mer"]+"GG"
+        elif cfg['seqlen'] < 23:
+            op = 23 - cfg['seqlen'] 
+            st = op; ed = st + cfg['seqlen'] - 2
+            x = [k[st:ed]+"GG" for k in data.iloc[:,yidx]]
+        else:
+            print(f"system error, wong grna length 23")
         
         ret = pd.DataFrame({
-            'X' : data["21mer"]+"GG", 
+            'X' : x,
             'Y' : data.iloc[:,yidx]
         })
 
     elif cfg['seqidx'] == 2: #cas9_xiang
         oligoseq = pd.read_excel(cfg['seqpath'], sheet_name = 0, header = 0, engine = "openpyxl").dropna(how='all')
         yidx = 2 if cfg['target'] == 5 else 3 if cfg['target'] == 6 else 5
+        data = pd.read_excel(cfg['seqpath'], sheet_name = yidx, header = 0, engine = "openpyxl").dropna(how='all')
         target_st = 128
 
-        data = pd.read_excel(cfg['seqpath'], sheet_name = yidx, header = 0, engine = "openpyxl").dropna(how='all')
+        if cfg['seqlen'] == 30:
+            st = target_st; ed = target_st + cfg['seqlen']
+        elif cfg['seqlen'] >= 23:
+            op = int(math.celi((cfg['seqlen'] - 23)/2))
+            st = target_st + (4 - op); ed = st + cfg['seqlen']
+        else:
+            op = 23 - cfg['seqlen']
+            st = target_st + 4 + op; ed = st + cfg['seqlen']
+        
+        x = [oligoseq.iloc[id-1, 2][st:ed].upper() for id in data.iloc[:,0]]
 
         ret = pd.DataFrame({
-            'X': [oligoseq.iloc[id-1, 2][target_st:target_st+23].upper() for id in data.iloc[:,0]],
-            'X30': [oligoseq.iloc[id-1, 2][target_st-4:target_st+23+3].upper() for id in data.iloc[:,0]],
+            'X': x,
             'Y': data.iloc[:,3].apply(lambda x: x/100 if x > 0 else 0).to_list()
         })
     
@@ -48,9 +78,19 @@ def data_read(cfg):
         tr = tr.loc[:, ~tr.columns.str.contains('^Unnamed')]
         te = te.loc[:, ~te.columns.str.contains('^Unnamed')]
 
+        if cfg['seqlen'] == 34: 
+            x = tr.iloc[:-1,1] + te.iloc[:-1,1]
+        else:
+            if cfg['seqlen'] >= 24:
+                op = int(math.ceil((cfg['seqlen'] - 24)/2))
+                st = (4 - op); ed = st + cfg['seqlen']
+            else:
+                op = 24 - cfg['seqlen']
+                st = 4; ed = st + cfg['seqlen']
+            x = [k[st:ed] for k in tr.iloc[:-1,1]] + [k[st:ed] for k in te.iloc[:-1,1]]
+
         ret = pd.DataFrame({
-            'X': [k[4:28] for k in tr.iloc[:-1,1]] + [k[4:28] for k in te.iloc[:-1,1]],
-            'X30': [k for k in tr.iloc[:-1,1]] + [k for k in te.iloc[:-1,1]],
+            'X': x,
             'Y': tr.iloc[:-1,-1].apply(lambda x: x/100 if x > 0 else 0).to_list() + te.iloc[:-1,-1].apply(lambda x: x/100 if x > 0 else 0).to_list()
         })
 
@@ -62,18 +102,15 @@ def data_read(cfg):
     #    load_chro(ret)
     
     
-    xidx = 'X30' if cfg['seqidx'] != 1 and cfg['seqlen'] == 30 else 'X'
     if cfg['embd'] == 0: #one-hot encoding
-        ret['X'] = ret.apply(lambda x: np.array(one_hot(x[xidx], 1)).T, axis=1)
+        ret['X'] = ret.apply(lambda x: np.array(one_hot(x['X'], 1)).T, axis=1)
 
     elif cfg['embd'] == 1: #embd table
-        ret['X'] = ret.apply(lambda x: np.array(embd_table(x[xidx])).T, axis=1)
+        ret['X'] = ret.apply(lambda x: np.array(embd_table(x['X'])).T, axis=1)
 
     elif cfg['embd'] == 2: #word-to-vec
-        ret['X'] = k_mer_stride(ret[xidx], cfg)
-    
-    if 'X30' in ret.keys():
-        ret = ret.drop(['X30'], axis = 1)
+        ret['X'] = k_mer_stride(ret['X'], cfg)
+
     return ret
 
 def data_loader(cfg, data, tidx, vidx):
