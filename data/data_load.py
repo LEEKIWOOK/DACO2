@@ -1,3 +1,4 @@
+import sys
 import math
 import numpy as np
 import pandas as pd
@@ -40,10 +41,12 @@ def data_read(cfg):
             x = data["21mer"]+"GG"
         elif cfg['seqlen'] < 23:
             op = 23 - cfg['seqlen'] 
-            st = op; ed = st + cfg['seqlen'] - 2
-            x = [k[st:ed]+"GG" for k in data.iloc[:,yidx]]
+            st = op; ed = st + (cfg['seqlen'] - 2)
+            print(f"st:{st}, ed:{ed}")
+            x = [k[st:ed]+"GG" for k in data.iloc[:,0]]
         else:
             print(f"system error, wong grna length 23")
+            sys.exit(-1)
         
         ret = pd.DataFrame({
             'X' : x,
@@ -59,7 +62,7 @@ def data_read(cfg):
         if cfg['seqlen'] == 30:
             st = target_st; ed = target_st + cfg['seqlen']
         elif cfg['seqlen'] >= 23:
-            op = int(math.celi((cfg['seqlen'] - 23)/2))
+            op = int(math.ceil((cfg['seqlen'] - 23)/2))
             st = target_st + (4 - op); ed = st + cfg['seqlen']
         else:
             op = 23 - cfg['seqlen']
@@ -78,8 +81,8 @@ def data_read(cfg):
         tr = tr.loc[:, ~tr.columns.str.contains('^Unnamed')]
         te = te.loc[:, ~te.columns.str.contains('^Unnamed')]
 
-        if cfg['seqlen'] == 34: 
-            x = tr.iloc[:-1,1] + te.iloc[:-1,1]
+        if cfg['seqlen'] == 34: #full error
+            x = tr.iloc[:-1,1].to_list() + te.iloc[:-1,1].to_list()
         else:
             if cfg['seqlen'] >= 24:
                 op = int(math.ceil((cfg['seqlen'] - 24)/2))

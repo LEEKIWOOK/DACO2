@@ -61,14 +61,17 @@ class Runner:
         
         if args.seqinfo == "spacer":
             self.cfg['seqlen'] = 20 + pam_len
-        elif args.seqinfo == "full" and args.target == 8:
-            self.cfg['seqlen'] = 34
-        elif args.seqinfo == "full" and args.target < 8:
-            self.cfg['seqlen'] = 30
+        elif args.seqinfo == "full":
+            if args.target == 8:
+                self.cfg['seqlen'] = 34
+            elif args.target >= 2 and args.target <= 4:
+                self.cfg['seqlen'] = 23
+            else:
+                self.cfg['seqlen'] = 30
         else:
             seqinfo = list(args.seqinfo)
             if seqinfo[0] == 'd' and int(seqinfo[1]) >= 1 and int(seqinfo[1]) <= 5:
-                self.cfg['seqlen'] = 20 - int(seqinfo[1]) + pam_len
+                self.cfg['seqlen'] = 20 - int(seqinfo[1]) + pam_len #
             if seqinfo[0] == 'i' and int(seqinfo[1]) >= 1 and int(seqinfo[1]) <= 3:
                 self.cfg['seqlen'] = 20 + (int(seqinfo[1]) * 2) + pam_len
 
