@@ -76,8 +76,6 @@ class Runner:
                 self.cfg['seqlen'] = 20 + (int(seqinfo[1]) * 2) + pam_len
 
         self.cfg['outdir'] = f"../output/embd/embd{self.cfg['embd']}_k{self.cfg['kmer']}_s{self.cfg['stride']}_seqlen{self.cfg['seqlen']}_data{self.cfg['target']}" if args.embd == 2 else f"../output/embd/embd{self.cfg['embd']}_seqlen{self.cfg['seqlen']}_data{self.cfg['target']}"
-        os.makedirs(f"{self.cfg['outdir']}/visualize", exist_ok=True)
-        os.makedirs(f"{self.cfg['outdir']}/checkpoints", exist_ok=True)
         torch.manual_seed(self.cfg['seed'])
 
     def define_hyperparam(self):
@@ -108,11 +106,14 @@ class Runner:
         
         return params
     
-    def iteration(self, params, train_loader, valid_loader): #Fold
+    def iteration(self, params, train_loader, valid_loader, fidx): #Fold
+        
+        os.makedirs(f"{self.cfg['outdir']}/fold{fidx}/visualize", exist_ok=True)
+        os.makedirs(f"{self.cfg['outdir']}/fold{fidx}/checkpoints", exist_ok=True)
 
-        best_model = os.path.join(f"{self.cfg['outdir']}/checkpoints/best_model.pth")
+        best_model = os.path.join(f"{self.cfg['outdir']}/fold{fidx}/checkpoints/best_model.pth")
         #torch.save(params["model"].state_dict(), best_model)
-        plot_fig = os.path.join(f"{self.cfg['outdir']}/visualize/latest.png")
+        plot_fig = os.path.join(f"{self.cfg['outdir']}/fold{fidx}/visualize/latest.png")
         tloss_list, vloss_list, corr_list = list(), list(), list()
 
         early_stopping = EarlyStopping(patience=self.cfg["earlystop"], verbose=True, path = best_model)
@@ -142,7 +143,7 @@ class Runner:
         # Update bn statistics for the swa_model at the end
         torch.optim.swa_utils.update_bn(train_loader, params["swa_model"]) #error
         
-        torch.save(params["swa_model"].state_dict(), os.path.join(f"{self.cfg['outdir']}/checkpoints/swa_best_model.pth"))
+        torch.save(params["swa_model"].state_dict(), os.path.join(f"{self.cfg['outdir']}/fold{fidx}/checkpoints/swa_best_model.pth"))
         torch.save(params["model"].state_dict(), best_model)
         #self.framework.load_state_dict(torch.load(best_model))
         
@@ -153,17 +154,18 @@ class Runner:
         
         data = data_read(self.cfg)
         fold = KFold(n_splits = self.cfg["kfold"], shuffle=True)
-        params = self.define_hyperparam() #(trial)
+        #params = self.define_hyperparam() #(trial)
 
         for fold_idx, (train_idx, valid_idx) in enumerate(fold.split(range(len(data)))):
             print("----------------------------------------------------------------------")
             print(f"FOLD : {fold_idx}")
             train_loader, valid_loader = data_loader(self.cfg, data, train_idx, valid_idx)
             
-            with mlflow.start_run():
-                corr = self.iteration(params, train_loader, valid_loader) #model 
-                #mlflow.log_params(trial.params)
-                self.cv_results[fold_idx] = corr
+            #with mlflow.start_run():
+            params = self.define_hyperparam() #(trial)
+            corr = self.iteration(params, train_loader, valid_loader, fold_idx) #model 
+            #mlflow.log_params(trial.params)
+            self.cv_results[fold_idx] = corr
 
     def print_cv_results(self):
 
@@ -210,10 +212,10 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--target", type=int, help="1:Kim-Cas9, 2:Wang-wt, 3:Wang-HF1, 4:Wang-esp1, 5:Xiang-D2, 6:Xiang-D8, 7:Xiang-D10, 8:Kim-Cas12a", required=True)
     parser.add_argument("--model", type=str, help="gRNA module, add RNAss module : 1, Cromatin information : 2, .more than one input is possible (e.g. 1,2)", default='0')
-    parser.add_argument("--embd", type=int, help="0:onehot encoding, 1:embd table, 2:word2vec", default=1)
+    parser.add_argument("--embd", type=int, help="0:onehot encoding, 1:embd table, 2:word2vec", required=True)
     parser.add_argument("--seqinfo", type=str, default='spacer', help="spacer=20+pam, full=34, d[1-5], i[1-3]")
-    parser.add_argument("--kmer", type=int)
-    parser.add_argument("--stride", type=int)
+    parser.add_argument("--kmer", type=int, default=5)
+    parser.add_argument("--stride", type=int, default=1)
     args = parser.parse_args()
 
     runner = Runner(args)
