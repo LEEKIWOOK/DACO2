@@ -75,7 +75,7 @@ class Runner:
             if seqinfo[0] == 'i' and int(seqinfo[1]) >= 1 and int(seqinfo[1]) <= 3:
                 self.cfg['seqlen'] = 20 + (int(seqinfo[1]) * 2) + pam_len
 
-        self.cfg['outdir'] = f"../output/embd/embd{self.cfg['embd']}_k{self.cfg['kmer']}_s{self.cfg['stride']}_seqlen{self.cfg['seqlen']}_data{self.cfg['target']}" if args.embd == 2 else f"../output/embd/embd{self.cfg['embd']}_seqlen{self.cfg['seqlen']}_data{self.cfg['target']}"
+        self.cfg['outdir'] = f"../output/2.DACO2_w2vopt/embd{self.cfg['embd']}_k{self.cfg['kmer']}_s{self.cfg['stride']}_seqlen{self.cfg['seqlen']}_data{self.cfg['target']}" if args.embd == 2 else f"../output/2.DACO2_w2vopt/embd{self.cfg['embd']}_seqlen{self.cfg['seqlen']}_data{self.cfg['target']}"
         torch.manual_seed(self.cfg['seed'])
 
     def define_hyperparam(self):
@@ -154,7 +154,7 @@ class Runner:
         
         data = data_read(self.cfg)
         fold = KFold(n_splits = self.cfg["kfold"], shuffle=True)
-        #params = self.define_hyperparam() #(trial)
+        #params = self.define_hyperparam() #(trial)-+-                                                          
 
         for fold_idx, (train_idx, valid_idx) in enumerate(fold.split(range(len(data)))):
             print("----------------------------------------------------------------------")
